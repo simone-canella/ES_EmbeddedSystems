@@ -1,13 +1,18 @@
+# Exercise 10: Basic Digital I/O Polling
 
-# 10_gpio
+## Overview
+This project demonstrates basic digital input and output operations on the Microchip dsPIC33EP512MU810 microcontroller using the Clicker 2 development board. The program polls the real-time state of an external push button and drives an LED directly based on that state.
 
-## Structure
+## Hardware Mapping
+| Component | Microcontroller Pin | Configuration | Electrical Behavior |
+| :--- | :--- | :--- | :--- |
+| **LED1** | `RA0` | Digital Output | Active-High (1 = ON, 0 = OFF) |
+| **Button1 (T2)** | `RE8` | Digital Input | Active-Low (1 = Released, 0 = Pressed) |
 
-| Path                       | Purpose                                                                                                                             |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| _build                     | The [CMake build tree](https://cmake.org/cmake/help/latest/manual/cmake.1.html#introduction-to-cmake-buildsystems), can be deleted. |
-| cmake                      | Generated [CMake](https://cmake.org/) files. May be deleted if user.cmake has not been added                                        |
-| .vscode                    | See [VSCode](https://code.visualstudio.com/docs/getstarted/settings)                                                                |
-| .vscode\settings.json      | Workspace specific settings                                                                                                         |
-| .vscode\10_gpio.mplab.json | The MPLAB project file, should not be deleted                                                                                       |
-| out                        | Final build artifacts                                                                                                               |
+## Key Features
+* **Analog Override:** Explicitly clears all port analog selection registers (`ANSELx = 0x0000`) to guarantee true digital mode.
+* **Direction Control:** Configures pin directions safely using the `TRISbits` data structure.
+* **Glitch Mitigation:** Implements proper embedded practices by reading input states from the `PORT` register and writing output states via the `LAT` register to prevent Read-Modify-Write (RMW) micro-architectural anomalies.
+
+## Software Logic Execution
+The main loop continuously samples the raw hardware logic state of `PORTEbits.RE8`. When the input condition changes, it immediately mirrors an updated execution status directly into the `LATAbits.LATA0` register latch.
