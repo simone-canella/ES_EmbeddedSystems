@@ -1,0 +1,25 @@
+# Ignore any build or cmake directories anywhere in the repository
+**/_build/
+**/cmake/
+**/CMakeFiles/
+
+# Ignore specific build tool artifacts
+**/CMakeCache.txt
+**/CMakePresets.json
+**/build.ninja
+**/*.ninja_deps
+**/*.ninja_log
+**/cmake_install.cmake
+**/compile_commands.json
+**/memoryfile.xml
+
+# Ignore local user workspace settings
+*.user
+.cmake/
+
+# Ignore compiled binary outputs
+*.o
+*.elf
+*.hex
+*.d
+*.cof

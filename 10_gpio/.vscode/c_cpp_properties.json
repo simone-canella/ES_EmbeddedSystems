@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "XC16",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Program Files/Microchip/xc16/v2.10/include",
+                "C:/Program Files/Microchip/xc16/v2.10/support/dsPIC33E/h"
+            ],
+            "defines": [
+                "__dsPIC33EP512MU810__",
+                "__XC16__"
+            ],
+            "compilerPath": "C:/Program Files/Microchip/xc16/v2.10/bin/xc16-gcc.exe",
+            "cStandard": "c99",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
