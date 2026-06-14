@@ -1,0 +1,4 @@
+{
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\20_timer\\default",
+    "cmake.sourceDirectory": "C:/Users/simon/wrk/university/ES/ES_EmbeddedSystems/20_timer/cmake/20_timer/default.production"
+}

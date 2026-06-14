@@ -1,8 +1,8 @@
 /**
  * @file main.c
  * @author simon
- * @brief This program controls LED1 using non-blocking edge detection on Button
- * T2. */
+ * @brief This program controls LED1 using non-blocking edge detection on Button T2. 
+ */
 
 #include <stdbool.h>
 #include <xc.h>
