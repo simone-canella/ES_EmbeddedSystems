@@ -24,13 +24,13 @@ int main() {
     // PIN SETUP: Configure all analog/digital pins to digital mode
     ANSELA = ANSELB = ANSELC = ANSELD = ANSELE = ANSELG = 0x0000;
 
-    // Configure LED1 (RA0) and LED2 (RA1) as outputs (0 = output)
-    TRISAbits.TRISA0 = 0; // Heartbeat LED
-    TRISAbits.TRISA1 = 0; // Error LED
+    // Configure LED1 (RA0) and LED2 (RG9) as outputs (0 = output)
+    TRISAbits.TRISA0 = 0; // Heartbeat LED1 (RA0)
+    TRISGbits.TRISG9 = 0; // Error LED2 (RG9)
 
     // Initialize LED states (OFF)
     LATAbits.LATA0 = 0;
-    LATAbits.LATA1 = 0;
+    LATGbits.LATG9 = 0;
 
     /**
      * SETUP: Configure TIMER1 for a 200ms periodic heartbeat.
@@ -61,9 +61,9 @@ int main() {
          * tmr_wait_period returns 1 if Timer 1 expired before we arrived here.
          */
         if (tmr_wait_period(TIMER1) == 1) {
-            LATAbits.LATA1 = 1; // Turn ON Error LED (Deadline Missed)
+            LATGbits.LATG9 = 1; // Turn ON Error LED (Deadline Missed)
         } else {
-            LATAbits.LATA1 = 0; // Keep Error LED OFF (Deadline Met)
+            LATGbits.LATG9 = 0; // Keep Error LED OFF (Deadline Met)
         }
     }
 
