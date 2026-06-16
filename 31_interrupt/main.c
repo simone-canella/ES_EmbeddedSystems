@@ -43,7 +43,7 @@ void interrupt_setup() {
     //PPS: Map External Interrupt 1 (INT1) to pin RPI88 (RE8)
     RPINR0bits.INT1R = 0b1011000; 
 
-    // INT1 Setup (Button)
+    // INT1 Setup (Button2)
 	IPC5bits.INT1IP = 1; // set priority
 	IFS1bits.INT1IF = 0; // clear the flag
 	IEC1bits.INT1IE = 1; // enable interrupt

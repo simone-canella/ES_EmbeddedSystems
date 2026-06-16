@@ -74,6 +74,54 @@ void tmr_setup_period(int timer, int ms) {
 			T2CONbits.TON = 1; // start the timer count
 			break;
 
+		case TIMER3:
+			T3CONbits.TON = 0; // stop the timer for configuring parameters
+
+			T3CONbits.TCS = 0; // use the internal clock as source (F_cy)
+
+			T3CONbits.TCKPS = prescaler_bits; // set the prescaler value
+
+			TMR3 = 0; // clear the current count
+
+			PR3 = target_period; // set target period
+
+			IFS0bits.T3IF = 0; // reset the interrupt's flag
+
+			T3CONbits.TON = 1; // start the timer count
+			break;
+
+		case TIMER4:
+			T4CONbits.TON = 0; // stop the timer for configuring parameters
+
+			T4CONbits.TCS = 0; // use the internal clock as source (F_cy)
+
+			T4CONbits.TCKPS = prescaler_bits; // set the prescaler value
+
+			TMR4 = 0; // clear the current count
+
+			PR4 = target_period; // set target period
+
+			IFS1bits.T4IF = 0; // reset the interrupt's flag
+
+			T4CONbits.TON = 1; // start the timer count
+			break;
+
+		case TIMER5:
+			T5CONbits.TON = 0; // stop the timer for configuring parameters
+
+			T5CONbits.TCS = 0; // use the internal clock as source (F_cy)
+
+			T5CONbits.TCKPS = prescaler_bits; // set the prescaler value
+
+			TMR5 = 0; // clear the current count
+
+			PR5 = target_period; // set target period
+
+			IFS1bits.T5IF = 0; // reset the interrupt's flag
+
+			T5CONbits.TON = 1; // start the timer count
+			break;
+
 		default:
 			break;
 	}
@@ -109,6 +157,36 @@ int tmr_wait_period(int timer) {
 			}
 
 			IFS0bits.T2IF = 0; // reset the flag
+			break;
+
+		case TIMER3:
+			missed_deadline = IFS0bits.T3IF;
+
+			while (!IFS0bits.T3IF) {
+				// if the interrupt's flag is not "1" busy waiting
+			}
+
+			IFS0bits.T3IF = 0; // reset the flag
+			break;
+
+		case TIMER4:
+			missed_deadline = IFS1bits.T4IF;
+
+			while (!IFS1bits.T4IF) {
+				// if the interrupt's flag is not "1" busy waiting
+			}
+
+			IFS1bits.T4IF = 0; // reset the flag
+			break;
+		
+		case TIMER5:
+			missed_deadline = IFS1bits.T5IF;
+
+			while (!IFS1bits.T5IF) {
+				// if the interrupt's flag is not "1" busy waiting
+			}
+
+			IFS1bits.T5IF = 0; // reset the flag
 			break;
 
 		default:
