@@ -49,7 +49,7 @@ void uart1_mikrobus2_setup() {
 
 	// PPS Mapping
 	RPINR18bits.U1RXR = 75; // Map U1RX function to remappable input RPI75 (RD11)
-	RPOR0bits.RP64R = 1; // Map U1TX function (code 1) to remappable output RP64 (RD0)
+	RPOR0bits.RP64R = 1;	// Map U1TX function (code 1) to remappable output RP64 (RD0)
 
 	// Configure the baud rate clock divider (9600 at 72MHz)
 	U1BRG = (FCY / (16 * BAUDRATE)) - 1;
@@ -121,13 +121,12 @@ void __attribute__((__interrupt__, __auto_psv__)) _U1RXInterrupt(void) {
 
 		// control if the buffer has free space
 		if (next_write_index != U1RX_buffer.read_index) {
-			U1RX_buffer.data[U1RX_buffer.write_index] =
-				U1RXREG; // read data from UART and put in the circular buffer
+			U1RX_buffer.data[U1RX_buffer.write_index] = U1RXREG; // read data from UART and put in the circular buffer
 
 			U1RX_buffer.write_index = next_write_index;
 		} else {
-    		// buffer is full => dummy read to flush hardware FIFO and prevent infinite loop
-    		volatile char dummy = U1RXREG; 
+			// buffer is full => dummy read to flush hardware FIFO and prevent infinite loop
+			volatile char dummy = U1RXREG;
 		}
 	}
 }
@@ -195,8 +194,7 @@ int uart1_write_string(const char *msg) {
 void __attribute__((__interrupt__, __auto_psv__)) _U1TXInterrupt(void) {
 	IFS0bits.U1TXIF = 0; // clear the flag
 
-	U1TXREG =
-		U1TX_buffer.data[U1TX_buffer.read_index]; // send data to the UART1 Tx
+	U1TXREG = U1TX_buffer.data[U1TX_buffer.read_index]; // send data to the UART1 Tx
 	U1TX_buffer.read_index = (U1TX_buffer.read_index + 1) % UART_TX_BUFFER_SIZE;
 
 	if (U1TX_buffer.read_index == U1TX_buffer.write_index) {

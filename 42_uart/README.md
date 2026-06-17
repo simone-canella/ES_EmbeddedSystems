@@ -1,4 +1,4 @@
-# Exercise 4(task-2)Advanced Cyclic Executive Real-Time Command Parser and Telemetry System
+# Exercise 4(task-2): Advanced Cyclic Executive Real-Time Command Parser and Telemetry System
 
 ## Overview
 This project establishes a high-performance, predictable Real-Time Embedded Architecture on the dsPIC33 microcontroller platform. Utilizing a strict 100 Hz ($10\text{ ms}$) cyclic executive master loop managed by `Timer 1`, the system executes a simulated deterministic processing workload while concurrently executing non-blocking serial character string parsing and dual-channel asynchronous edge-triggered push-button telemetry pipelines.

@@ -42,8 +42,8 @@ int main() {
 	uart1_mikrobus2_setup();
 
 	// INTERNAL VARIABLES
-	int data; // character received from the UART1
-	char string_command[4] = { '\0', '\0', '\0', '\0'}; // command received from the UART (3 chars + '\0')
+	int data;										   // character received from the UART1
+	char string_command[4] = {'\0', '\0', '\0', '\0'}; // command received from the UART (3 chars + '\0')
 
 	bool led2_blink_status = true; // boolean for understand if toggle or not the LED2
 
@@ -60,8 +60,7 @@ int main() {
 			string_command[3] = string_command[2];
 			string_command[2] = string_command[1];
 			string_command[1] = string_command[0];
-			string_command[0] =
-				(char)data; // new data is positioned in the first
+			string_command[0] = (char)data; // new data is positioned in the first
 
 			// Command interpretation
 			if (string_command[2] == 'L' && string_command[1] == 'D') {
@@ -96,9 +95,7 @@ int main() {
 /**
  * @brief Dummy function that need 7ms to be executed
  */
-void algorithm() { 
-    tmr_wait_ms(TIMER2, 7); 
-}
+void algorithm() { tmr_wait_ms(TIMER2, 7); }
 
 // --------------------
 // INTERRUPT FUNCTIONS
@@ -110,8 +107,8 @@ void algorithm() {
 void interrupt_setup() {
 	// PPS: Map External Interrupt 1 (INT1) to pin RPI88 (Button2 RE8)
 	RPINR0bits.INT1R = 0b1011000;
-    // PPS: Map External Interrupt 2 (INT2) to pin RPI89 (Button3 RE9)
-    RPINR1bits.INT2R = 89;
+	// PPS: Map External Interrupt 2 (INT2) to pin RPI89 (Button3 RE9)
+	RPINR1bits.INT2R = 89;
 
 	// INT1 Setup (Button2)
 	IPC5bits.INT1IP = 1; // set priority
@@ -119,19 +116,19 @@ void interrupt_setup() {
 	IEC1bits.INT1IE = 1; // enable interrupt
 
 	// Fixed: INT2 Setup (Button3)
-    IPC7bits.INT2IP = 1; // set priority
-    IFS1bits.INT2IF = 0; // clear the flag
-    IEC1bits.INT2IE = 1; // enable interrupt
+	IPC7bits.INT2IP = 1; // set priority
+	IFS1bits.INT2IF = 0; // clear the flag
+	IEC1bits.INT2IE = 1; // enable interrupt
 
 	// TIMER3
 	IPC2bits.T3IP = 2; // set priority
 	IFS0bits.T3IF = 0; // clear the flag
 	IEC0bits.T3IE = 0; // keep disabled until button press
 
-	// TIMER4 
-    IPC6bits.T4IP = 2; // set priority
-    IFS1bits.T4IF = 0; // clear the flag
-    IEC1bits.T4IE = 0; // keep disabled until button press
+	// TIMER4
+	IPC6bits.T4IP = 2; // set priority
+	IFS1bits.T4IF = 0; // clear the flag
+	IEC1bits.T4IE = 0; // keep disabled until button press
 
 	// Global Interrupt Switch
 	INTCON2bits.GIE = 1; // Unlock system-wide interrupt vector execution

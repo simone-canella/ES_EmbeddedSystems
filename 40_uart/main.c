@@ -36,10 +36,8 @@ int main() {
  */
 void uart_setup() {
 	// PPS Mapping
-	RPINR18bits.U1RXR =
-		75; // Map U1RX function to remappable input RPI75 (RD11)
-	RPOR0bits.RP64R =
-		1; // Map U1TX function (code 1) to remappable output RP64 (RD0)
+	RPINR18bits.U1RXR = 75; // Map U1RX function to remappable input RPI75 (RD11)
+	RPOR0bits.RP64R = 1;	// Map U1TX function (code 1) to remappable output RP64 (RD0)
 
 	// Configure the baud rate clock divider (9600 at 72MHz)
 	U1BRG = (FCY / (16 * BAUDRATE)) - 1;

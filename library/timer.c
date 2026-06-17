@@ -178,7 +178,7 @@ int tmr_wait_period(int timer) {
 
 			IFS1bits.T4IF = 0; // reset the flag
 			break;
-		
+
 		case TIMER5:
 			missed_deadline = IFS1bits.T5IF;
 
@@ -207,36 +207,40 @@ int tmr_wait_period(int timer) {
  * @param ms The total requested waiting period duration in milliseconds.
  */
 void tmr_wait_ms(int timer, int ms) {
-    int full_chunks = ms / 200; // Determine number of isolated 200ms segments
-    int remainder = ms % 200;   // Capture remaining fractional milliseconds
+	int full_chunks = ms / 200; // Determine number of isolated 200ms segments
+	int remainder = ms % 200;	// Capture remaining fractional milliseconds
 
-    // Process all large, full 200ms blocks sequentially
-    for (int i = 0; i < full_chunks; i++) {
-        tmr_setup_period(timer, 200);
-        
-        if (timer == TIMER1) {
-            while (IFS0bits.T1IF == 0); // Polling trap
-            IFS0bits.T1IF = 0;          // Acknowledge match event
-            T1CONbits.TON = 0;          // Turn off module to prepare for next step
-        } else {
-            while (IFS0bits.T2IF == 0);
-            IFS0bits.T2IF = 0;
-            T2CONbits.TON = 0;
-        }
-    }
+	// Process all large, full 200ms blocks sequentially
+	for (int i = 0; i < full_chunks; i++) {
+		tmr_setup_period(timer, 200);
 
-    // Process any remaining fractional milliseconds to complete accuracy profile
-    if (remainder > 0) {
-        tmr_setup_period(timer, remainder);
-        
-        if (timer == TIMER1) {
-            while (IFS0bits.T1IF == 0); // Polling trap
-            IFS0bits.T1IF = 0;          // Clear flag
-            T1CONbits.TON = 0;          // Deactivate module
-        } else {
-            while (IFS0bits.T2IF == 0);
-            IFS0bits.T2IF = 0;
-            T2CONbits.TON = 0;
-        }
-    }
+		if (timer == TIMER1) {
+			while (IFS0bits.T1IF == 0)
+				;			   // Polling trap
+			IFS0bits.T1IF = 0; // Acknowledge match event
+			T1CONbits.TON = 0; // Turn off module to prepare for next step
+		} else {
+			while (IFS0bits.T2IF == 0)
+				;
+			IFS0bits.T2IF = 0;
+			T2CONbits.TON = 0;
+		}
+	}
+
+	// Process any remaining fractional milliseconds to complete accuracy profile
+	if (remainder > 0) {
+		tmr_setup_period(timer, remainder);
+
+		if (timer == TIMER1) {
+			while (IFS0bits.T1IF == 0)
+				;			   // Polling trap
+			IFS0bits.T1IF = 0; // Clear flag
+			T1CONbits.TON = 0; // Deactivate module
+		} else {
+			while (IFS0bits.T2IF == 0)
+				;
+			IFS0bits.T2IF = 0;
+			T2CONbits.TON = 0;
+		}
+	}
 }

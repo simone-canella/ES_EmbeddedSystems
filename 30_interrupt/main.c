@@ -53,7 +53,7 @@ void interrupt_setup() {
 */
 void __attribute__((__interrupt__, __auto_psv__)) T2Interrupt(void) {
 	IFS0bits.T2IF = 0; // clear the flag
-    
+
 	// toggle LED2 at 2Hz
 	LATGbits.LATG9 = !LATGbits.LATG9;
 }

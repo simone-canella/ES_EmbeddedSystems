@@ -1,9 +1,9 @@
 #ifndef UART_H
 #define UART_H
 
-#include <xc.h>
-#include <stdbool.h>
 #include <math.h>
+#include <stdbool.h>
+#include <xc.h>
 
 // Function Prototypes
 void uart1_mikrobus2_setup(void);
