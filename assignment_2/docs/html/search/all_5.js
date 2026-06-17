@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['battery_5fvoltage_0',['battery_voltage',['../struct_system_sensors__t.html#a18472f6318b4979228d5264f23b8a88f',1,'SystemSensors_t::battery_voltage'],['../structadc_state.html#a18472f6318b4979228d5264f23b8a88f',1,'adcState::battery_voltage']]],
+  ['baudrate_1',['BAUDRATE',['../config_8h.html#a734bbab06e1a9fd2e5522db0221ff6e3',1,'config.h']]],
+  ['blink_5fa0_2',['blink_A0',['../tasks_8c.html#a7182a1d7d5cee99153b30c2eac695874',1,'tasks.c']]],
+  ['blink_5flights_3',['blink_lights',['../tasks_8c.html#a8a86ca0ac829350ef224bbed69d9ab8c',1,'tasks.c']]],
+  ['bluetooth_20interface_20linux_20macos_20native_4',['The bluetooth interface (Linux/macOS Native)',['../index.html#autotoc_md13',1,'']]],
+  ['bmx055_5fmag_5fwakeup_5',['BMX055_mag_wakeup',['../_b_o_s_c_h___b_m_x055_8h.html#a7c94c26bd3e8ff807c7db80fa0e8e360',1,'BMX055_mag_wakeup():&#160;BOSCH_BMX055.c'],['../_b_o_s_c_h___b_m_x055_8c.html#a7c94c26bd3e8ff807c7db80fa0e8e360',1,'BMX055_mag_wakeup():&#160;BOSCH_BMX055.c']]],
+  ['bmx055_5fsetup_6',['BMX055_setup',['../_b_o_s_c_h___b_m_x055_8h.html#afd5008e57636187fa5b7656beeec665b',1,'BMX055_setup():&#160;BOSCH_BMX055.c'],['../_b_o_s_c_h___b_m_x055_8c.html#afd5008e57636187fa5b7656beeec665b',1,'BMX055_setup():&#160;BOSCH_BMX055.c']]],
+  ['bosch_5fbmx055_2ec_7',['BOSCH_BMX055.c',['../_b_o_s_c_h___b_m_x055_8c.html',1,'']]],
+  ['bosch_5fbmx055_2eh_8',['BOSCH_BMX055.h',['../_b_o_s_c_h___b_m_x055_8h.html',1,'']]],
+  ['brgval_9',['BRGVAL',['../config_8h.html#aca346e181d2ffc089e22e75736a6ff63',1,'config.h']]],
+  ['bridge_20actuation_20logic_20mapping_10',['H-Bridge Actuation Logic Mapping',['../index.html#autotoc_md11',1,'']]],
+  ['btn_5fre8_11',['btn_re8',['../struct_system_i_o__t.html#a3620cdef9db879a1ecd781aa5556d413',1,'SystemIO_t']]],
+  ['btn_5fre9_12',['btn_re9',['../struct_system_i_o__t.html#afb0a161c4a5bc6e0aae1eb68063c89f5',1,'SystemIO_t']]],
+  ['btn_5ft1_5fport_13',['BTN_T1_PORT',['../config_8h.html#a5c62ec3d3aee144d5f72ac718cbc4657',1,'config.h']]],
+  ['btn_5ft1_5ftris_14',['BTN_T1_TRIS',['../config_8h.html#afc173bf30ed98315266a1d0999dffa8f',1,'config.h']]],
+  ['btn_5ft2_5fport_15',['BTN_T2_PORT',['../config_8h.html#a371ec94c98d7b741984f38f8dbe24f85',1,'config.h']]],
+  ['btn_5ft2_5ftris_16',['BTN_T2_TRIS',['../config_8h.html#a1e4a96e85e6300797b6c85cf44bfd075',1,'config.h']]],
+  ['buggy_20control_20firmware_17',['dsPIC33 Buggy Control Firmware',['../index.html#autotoc_md0',1,'']]],
+  ['button_2ec_18',['button.c',['../button_8c.html',1,'']]],
+  ['button_2eh_19',['button.h',['../button_8h.html',1,'']]],
+  ['button_5fhas_5fjust_5fbeen_5fpressed_20',['button_has_just_been_pressed',['../button_8h.html#ad2724827466c6e24684dc7ba1788e67c',1,'button_has_just_been_pressed(ButtonState *btn, int current_pin_state):&#160;button.c'],['../button_8c.html#ad2724827466c6e24684dc7ba1788e67c',1,'button_has_just_been_pressed(ButtonState *btn, int current_pin_state):&#160;button.c']]],
+  ['button_5finit_21',['button_init',['../button_8h.html#afa19953dd3801d49d2f92b9b41b4d966',1,'button_init(ButtonState *btn):&#160;button.c'],['../button_8c.html#afa19953dd3801d49d2f92b9b41b4d966',1,'button_init(ButtonState *btn):&#160;button.c']]],
+  ['button_5fpolling_22',['button_polling',['../tasks_8c.html#a773562cb9d12222d5c28086011e987c3',1,'tasks.c']]],
+  ['buttonstate_23',['ButtonState',['../struct_button_state.html',1,'']]]
+];

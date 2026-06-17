@@ -1,0 +1,59 @@
+\doxysection{Mission\+Control\+\_\+t Struct Reference}
+\hypertarget{structMissionControl__t}{}\label{structMissionControl__t}\index{MissionControl\_t@{MissionControl\_t}}
+
+
+Tracks the logical execution progression of autonomous missions.  
+
+
+
+
+{\ttfamily \#include $<$robot\+\_\+state.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}} \mbox{\hyperlink{structMissionControl__t_a0136e76a91d9743838d0eb58bf2f43fd}{current\+\_\+phase}}
+\item 
+\mbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}} \mbox{\hyperlink{structMissionControl__t_a62ebc2c6b7ad13f4cc97b97a6bf438d5}{next\+\_\+phase}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMissionControl__t_a99a03bcfcf9aa9864d6925ecca47ec85}{phase\+\_\+counter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structMissionControl__t_adec076d09cf550ab1c830f7e6e63350c}{obstacle\+\_\+counter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tracks the logical execution progression of autonomous missions. 
+
+\label{doc-variable-members}
+\Hypertarget{structMissionControl__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structMissionControl__t_a0136e76a91d9743838d0eb58bf2f43fd}\index{MissionControl\_t@{MissionControl\_t}!current\_phase@{current\_phase}}
+\index{current\_phase@{current\_phase}!MissionControl\_t@{MissionControl\_t}}
+\doxysubsubsection{\texorpdfstring{current\_phase}{current\_phase}}
+{\footnotesize\ttfamily \label{structMissionControl__t_a0136e76a91d9743838d0eb58bf2f43fd} 
+\mbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}} current\+\_\+phase}
+
+Currently executing sub-\/phase of the avoidance maneuver. \Hypertarget{structMissionControl__t_a62ebc2c6b7ad13f4cc97b97a6bf438d5}\index{MissionControl\_t@{MissionControl\_t}!next\_phase@{next\_phase}}
+\index{next\_phase@{next\_phase}!MissionControl\_t@{MissionControl\_t}}
+\doxysubsubsection{\texorpdfstring{next\_phase}{next\_phase}}
+{\footnotesize\ttfamily \label{structMissionControl__t_a62ebc2c6b7ad13f4cc97b97a6bf438d5} 
+\mbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}} next\+\_\+phase}
+
+Scheduled subsequent phase upon completion. \Hypertarget{structMissionControl__t_adec076d09cf550ab1c830f7e6e63350c}\index{MissionControl\_t@{MissionControl\_t}!obstacle\_counter@{obstacle\_counter}}
+\index{obstacle\_counter@{obstacle\_counter}!MissionControl\_t@{MissionControl\_t}}
+\doxysubsubsection{\texorpdfstring{obstacle\_counter}{obstacle\_counter}}
+{\footnotesize\ttfamily \label{structMissionControl__t_adec076d09cf550ab1c830f7e6e63350c} 
+uint32\+\_\+t obstacle\+\_\+counter}
+
+Tally of consecutive obstacles encountered. \Hypertarget{structMissionControl__t_a99a03bcfcf9aa9864d6925ecca47ec85}\index{MissionControl\_t@{MissionControl\_t}!phase\_counter@{phase\_counter}}
+\index{phase\_counter@{phase\_counter}!MissionControl\_t@{MissionControl\_t}}
+\doxysubsubsection{\texorpdfstring{phase\_counter}{phase\_counter}}
+{\footnotesize\ttfamily \label{structMissionControl__t_a99a03bcfcf9aa9864d6925ecca47ec85} 
+uint32\+\_\+t phase\+\_\+counter}
+
+Internal clock tick counter used for timing specific phases. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/core/\mbox{\hyperlink{robot__state_8h}{robot\+\_\+state.\+h}}\end{DoxyCompactItemize}

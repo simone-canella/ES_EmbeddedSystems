@@ -1,0 +1,96 @@
+\doxysection{include/\+core/\+robot\+\_\+state.h File Reference}
+\hypertarget{robot__state_8h}{}\label{robot__state_8h}\index{include/core/robot\_state.h@{include/core/robot\_state.h}}
+
+
+Central global data context tracking matrix for the robot buggy platform.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+{\ttfamily \+\#include "{}BOSCH\+\_\+\+BMX055.\+h"{}}\newline
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_system_sensors__t}{System\+Sensors\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Groups all raw and filtered sensor reading telemetry. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_system_attitude__t}{System\+Attitude\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Groups all attitude and spatial orientation data. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_twist__t}{Twist\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Groups targeted velocity commands. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_mission_control__t}{Mission\+Control\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Tracks the logical execution progression of autonomous missions. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_system_i_o__t}{System\+IO\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Manages Input/\+\+Output peripherals and communication buffers. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em The root aggregation object holding the complete logical state of the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcead4a875fb2116e6a3bdee33077e43ab00}{OBAV\+\_\+\+PHASE\+\_\+\+STOP}} = 0
+, \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea4d5d89edb745cf453c3a1226fb36ffaa}{OBAV\+\_\+\+PHASE\+\_\+\+ROTATE\+\_\+\+CW}} = 1
+, \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceaf1dd68bd0c7d27d93909ca0b6cea318a}{OBAV\+\_\+\+PHASE\+\_\+\+MOVE\+\_\+\+FW}} = 2
+, \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceabe4ff5b0cbf2d16645b3d73e03aa5fb8}{OBAV\+\_\+\+PHASE\+\_\+\+ROTATE\+\_\+\+CCW}} = 3
+, \newline
+\doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea751e38119fa4daf4a37aa3036fbf84cb}{OBAV\+\_\+\+PHASE\+\_\+\+EXIT}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of sub-\/phases executed sequentially during obstacle avoidance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Central global data context tracking matrix for the robot buggy platform. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\label{robot__state_8h_doc-enum-members}
+\Hypertarget{robot__state_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}\index{robot\_state.h@{robot\_state.h}!ObAvPhase\_t@{ObAvPhase\_t}}
+\index{ObAvPhase\_t@{ObAvPhase\_t}!robot\_state.h@{robot\_state.h}}
+\doxysubsubsection{\texorpdfstring{ObAvPhase\_t}{ObAvPhase\_t}}
+{\footnotesize\ttfamily \label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce} 
+enum \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{Ob\+Av\+Phase\+\_\+t}}}
+
+
+
+Enumeration of sub-\/phases executed sequentially during obstacle avoidance. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBAV\_PHASE\_STOP@{OBAV\_PHASE\_STOP}!robot\_state.h@{robot\_state.h}}
+\index{robot\_state.h@{robot\_state.h}!OBAV\_PHASE\_STOP@{OBAV\_PHASE\_STOP}}
+}\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcead4a875fb2116e6a3bdee33077e43ab00}\label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcead4a875fb2116e6a3bdee33077e43ab00} 
+OBAV\+\_\+\+PHASE\+\_\+\+STOP&Halt current movement and zero velocities. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBAV\_PHASE\_ROTATE\_CW@{OBAV\_PHASE\_ROTATE\_CW}!robot\_state.h@{robot\_state.h}}
+\index{robot\_state.h@{robot\_state.h}!OBAV\_PHASE\_ROTATE\_CW@{OBAV\_PHASE\_ROTATE\_CW}}
+}\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea4d5d89edb745cf453c3a1226fb36ffaa}\label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea4d5d89edb745cf453c3a1226fb36ffaa} 
+OBAV\+\_\+\+PHASE\+\_\+\+ROTATE\+\_\+\+CW&Perform initial 90-\/degree right turn. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBAV\_PHASE\_MOVE\_FW@{OBAV\_PHASE\_MOVE\_FW}!robot\_state.h@{robot\_state.h}}
+\index{robot\_state.h@{robot\_state.h}!OBAV\_PHASE\_MOVE\_FW@{OBAV\_PHASE\_MOVE\_FW}}
+}\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceaf1dd68bd0c7d27d93909ca0b6cea318a}\label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceaf1dd68bd0c7d27d93909ca0b6cea318a} 
+OBAV\+\_\+\+PHASE\+\_\+\+MOVE\+\_\+\+FW&Drive straight to bypass the obstacle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBAV\_PHASE\_ROTATE\_CCW@{OBAV\_PHASE\_ROTATE\_CCW}!robot\_state.h@{robot\_state.h}}
+\index{robot\_state.h@{robot\_state.h}!OBAV\_PHASE\_ROTATE\_CCW@{OBAV\_PHASE\_ROTATE\_CCW}}
+}\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceabe4ff5b0cbf2d16645b3d73e03aa5fb8}\label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceabe4ff5b0cbf2d16645b3d73e03aa5fb8} 
+OBAV\+\_\+\+PHASE\+\_\+\+ROTATE\+\_\+\+CCW&Perform final 90-\/degree left turn to resume heading. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OBAV\_PHASE\_EXIT@{OBAV\_PHASE\_EXIT}!robot\_state.h@{robot\_state.h}}
+\index{robot\_state.h@{robot\_state.h}!OBAV\_PHASE\_EXIT@{OBAV\_PHASE\_EXIT}}
+}\Hypertarget{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea751e38119fa4daf4a37aa3036fbf84cb}\label{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea751e38119fa4daf4a37aa3036fbf84cb} 
+OBAV\+\_\+\+PHASE\+\_\+\+EXIT&Evaluate environment and exit maneuver. \\
+\hline
+
+\end{DoxyEnumFields}

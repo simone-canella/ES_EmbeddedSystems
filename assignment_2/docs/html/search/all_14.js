@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['task_20scheduler_20matrix_0',['Real-Time Task Scheduler Matrix',['../index.html#autotoc_md9',1,'']]],
+  ['tasks_2ec_1',['tasks.c',['../tasks_8c.html',1,'']]],
+  ['tasks_2eh_2',['tasks.h',['../tasks_8h.html',1,'']]],
+  ['tasks_5finit_3',['tasks_init',['../tasks_8h.html#a89029a6931d2fd1f87f810e6f0a28e37',1,'tasks_init(void *param):&#160;tasks.c'],['../tasks_8c.html#a89029a6931d2fd1f87f810e6f0a28e37',1,'tasks_init(void *param):&#160;tasks.c']]],
+  ['tasky_4',['tasky',['../structtasky.html',1,'']]],
+  ['the_20bluetooth_20interface_20linux_20macos_20native_5',['The bluetooth interface (Linux/macOS Native)',['../index.html#autotoc_md13',1,'']]],
+  ['tick_5fms_6',['tick_ms',['../scheduler_8h.html#ae929dca5c9b24639b4407d729b721d3f',1,'scheduler.h']]],
+  ['time_20task_20scheduler_20matrix_7',['Real-Time Task Scheduler Matrix',['../index.html#autotoc_md9',1,'']]],
+  ['timer_2ec_8',['timer.c',['../timer_8c.html',1,'']]],
+  ['timer_2eh_9',['timer.h',['../timer_8h.html',1,'']]],
+  ['timer1_10',['TIMER1',['../timer_8h.html#a63bf4f24c85f26e838f55701a5e69831',1,'timer.h']]],
+  ['timer2_11',['TIMER2',['../timer_8h.html#aca904d0e4ebb6d643c349f7f05613995',1,'timer.h']]],
+  ['timer3_12',['TIMER3',['../timer_8h.html#a6d4063b72c434f0e7afa8eb2a0e7ee00',1,'timer.h']]],
+  ['timer4_13',['TIMER4',['../timer_8h.html#a3fccdbbaf67ea43786cf165811a41479',1,'timer.h']]],
+  ['timer5_14',['TIMER5',['../timer_8h.html#ac466719661b98d9b817f4813d2fa5d69',1,'timer.h']]],
+  ['tmr_5fsetup_5fperiod_15',['tmr_setup_period',['../timer_8h.html#aeee0d521a03503f26c1d9379945da7ff',1,'tmr_setup_period(int tmr, float ms):&#160;timer.c'],['../timer_8c.html#aeee0d521a03503f26c1d9379945da7ff',1,'tmr_setup_period(int tmr, float ms):&#160;timer.c']]],
+  ['tmr_5fwait_5fms_16',['tmr_wait_ms',['../timer_8h.html#af47b2fb867b65879462f4d297ddf6e91',1,'tmr_wait_ms(int tmr, float ms):&#160;timer.c'],['../timer_8c.html#af47b2fb867b65879462f4d297ddf6e91',1,'tmr_wait_ms(int tmr, float ms):&#160;timer.c']]],
+  ['tmr_5fwait_5fperiod_17',['tmr_wait_period',['../timer_8h.html#a2c88f6b046d4da7b6fc81cdae5005fd2',1,'tmr_wait_period(int tmr):&#160;timer.c'],['../timer_8c.html#a2c88f6b046d4da7b6fc81cdae5005fd2',1,'tmr_wait_period(int tmr):&#160;timer.c']]],
+  ['tmrexp_18',['TMREXP',['../timer_8h.html#a293afd7de7e5ad7a9758e61aa7eef5c4',1,'timer.h']]],
+  ['twist_5ft_19',['Twist_t',['../struct_twist__t.html',1,'']]],
+  ['tx_5fbuffer_20',['tx_buffer',['../struct_system_i_o__t.html#a88aba80730143a9ea59db5f5426c2deb',1,'SystemIO_t']]],
+  ['tx_5fbuffer_5ffull_21',['TX_BUFFER_FULL',['../uart_8h.html#a398f7162dc47291c2b53eccba38e0b40',1,'uart.h']]]
+];

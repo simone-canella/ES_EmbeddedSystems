@@ -1,0 +1,161 @@
+\doxysection{src/\+core/\+scheduler.c File Reference}
+\hypertarget{scheduler_8c}{}\label{scheduler_8c}\index{src/core/scheduler.c@{src/core/scheduler.c}}
+
+
+Cooperative cyclic task scheduler implementation for the robot buggy platform.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structtasky}{tasky}}
+\begin{DoxyCompactList}\small\item\em Internal structure to represent a scheduled task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{scheduler_8c_aac747bed84189f8cfa509b94d488e622}\label{scheduler_8c_aac747bed84189f8cfa509b94d488e622} 
+\+\#define {\bfseries MAX\+\_\+\+TASKS}~16
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{scheduler_8c_a9fa00b0be5d3c4781048861e2506eb63}{scheduler}} (void)
+\begin{DoxyCompactList}\small\item\em Core scheduler routine that evaluates and executes ready tasks. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8c_add17af9677a8cec17ec8f1c3b0058a55}{register\+\_\+task}} (int initial\+\_\+offset, int period\+\_\+ticks, void(\texorpdfstring{$\ast$}{*}f)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Registers a new task in the scheduler queue. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8c_a8a64ee44a40b8b6cc7ed6d63621b4b44}{enable\+\_\+task}} (int task\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Enables a registered task. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{scheduler_8c_ab9583dbcedce3bb63cd7f8f03469f9d3}{disable\+\_\+task}} (int task\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Disables a registered task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Cooperative cyclic task scheduler implementation for the robot buggy platform. 
+
+
+\begin{DoxyItemize}
+\item \begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+\end{DoxyItemize}
+
+\label{scheduler_8c_doc-func-members}
+\Hypertarget{scheduler_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{scheduler_8c_ab9583dbcedce3bb63cd7f8f03469f9d3}\index{scheduler.c@{scheduler.c}!disable\_task@{disable\_task}}
+\index{disable\_task@{disable\_task}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{disable\_task()}{disable\_task()}}
+{\footnotesize\ttfamily \label{scheduler_8c_ab9583dbcedce3bb63cd7f8f03469f9d3} 
+void disable\+\_\+task (\begin{DoxyParamCaption}\item[{int}]{task\+\_\+\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Disables a registered task. 
+
+Disables a registered task to temporarily halt its execution loop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+\+ID} & The index of the task to disable.\\
+\hline
+\end{DoxyParams}
+Disables a registered task.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+\+ID} & The numeric identifier index of the target task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Suspends a task from being triggered by clearing its active run flag. The task remains in memory with its scheduling context preserved, but it is skipped during the scheduler execution sweeps. \Hypertarget{scheduler_8c_a8a64ee44a40b8b6cc7ed6d63621b4b44}\index{scheduler.c@{scheduler.c}!enable\_task@{enable\_task}}
+\index{enable\_task@{enable\_task}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{enable\_task()}{enable\_task()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a8a64ee44a40b8b6cc7ed6d63621b4b44} 
+void enable\+\_\+task (\begin{DoxyParamCaption}\item[{int}]{task\+\_\+\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Enables a registered task. 
+
+Enables a registered task to resume its periodic execution loops.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+\+ID} & The index of the task to enable.\\
+\hline
+\end{DoxyParams}
+Enables a registered task.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+\+ID} & The numeric identifier index of the target task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Modifies the control flag of the specified task index, authorizing the execution loop engine to evaluate its periodic counters again. \Hypertarget{scheduler_8c_add17af9677a8cec17ec8f1c3b0058a55}\index{scheduler.c@{scheduler.c}!register\_task@{register\_task}}
+\index{register\_task@{register\_task}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{register\_task()}{register\_task()}}
+{\footnotesize\ttfamily \label{scheduler_8c_add17af9677a8cec17ec8f1c3b0058a55} 
+void register\+\_\+task (\begin{DoxyParamCaption}\item[{int}]{initial\+\_\+offset}{, }\item[{int}]{period\+\_\+ticks}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{f~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new task in the scheduler queue. 
+
+Registers a new periodic task into the background execution matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+offset} & The initial offset in ticks before first execution. \\
+\hline
+{\em period\+\_\+ticks} & The recurrence period in ticks. \\
+\hline
+{\em f} & Function pointer to the task routine. \\
+\hline
+{\em arg} & Pointer to pass to the task routine as an argument.\\
+\hline
+\end{DoxyParams}
+Registers a new task in the scheduler queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+\_\+offset} & The starting delay in ticks before the first task execution occurs. \\
+\hline
+{\em period\+\_\+ticks} & The repetition interval of the task measured in system clock ticks. \\
+\hline
+{\em f} & Function pointer targeting the specific task callback function. \\
+\hline
+{\em arg} & Generic void pointer containing optional data parameters passed to the task. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Adds a task structure into the internal registration array. The offset parameter is highly critical here:\+ it is used to interleave task execution frames, ensuring that the processor worst-\/case scenario load is evenly balanced across separate ticks. \Hypertarget{scheduler_8c_a9fa00b0be5d3c4781048861e2506eb63}\index{scheduler.c@{scheduler.c}!scheduler@{scheduler}}
+\index{scheduler@{scheduler}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{scheduler()}{scheduler()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a9fa00b0be5d3c4781048861e2506eb63} 
+void scheduler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Core scheduler routine that evaluates and executes ready tasks. 
+
+Main task evaluation and execution loop handler.
+
+Core scheduler routine that evaluates and executes ready tasks.
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+This routine must be called inside the main infinite processing loop. It iterates through the matrix of registered tasks, decrements their remaining delay counts, and calls the function pointers of active tasks whose intervals have expired. 

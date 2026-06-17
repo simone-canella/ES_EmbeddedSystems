@@ -1,0 +1,43 @@
+\doxysection{Button\+State Struct Reference}
+\hypertarget{struct_button_state}{}\label{struct_button_state}\index{ButtonState@{ButtonState}}
+
+
+Tracks the persistent state and debounce count of a specific hardware button.  
+
+
+
+
+{\ttfamily \+\#include $<$button.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{struct_button_state_aa0113f92101f4df5ba77b2a9286f4f8d}{prev\+\_\+state}}
+\item 
+int \doxymbox{\hyperlink{struct_button_state_abe716b7ac84710cd55c0c48eb34c5c80}{debounce\+\_\+counter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tracks the persistent state and debounce count of a specific hardware button. 
+
+\label{struct_button_state_doc-variable-members}
+\Hypertarget{struct_button_state_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_button_state_abe716b7ac84710cd55c0c48eb34c5c80}\index{ButtonState@{ButtonState}!debounce\_counter@{debounce\_counter}}
+\index{debounce\_counter@{debounce\_counter}!ButtonState@{ButtonState}}
+\doxysubsubsection{\texorpdfstring{debounce\_counter}{debounce\_counter}}
+{\footnotesize\ttfamily \label{struct_button_state_abe716b7ac84710cd55c0c48eb34c5c80} 
+int debounce\+\_\+counter}
+
+Tick down counter to validate stable pin reads. \Hypertarget{struct_button_state_aa0113f92101f4df5ba77b2a9286f4f8d}\index{ButtonState@{ButtonState}!prev\_state@{prev\_state}}
+\index{prev\_state@{prev\_state}!ButtonState@{ButtonState}}
+\doxysubsubsection{\texorpdfstring{prev\_state}{prev\_state}}
+{\footnotesize\ttfamily \label{struct_button_state_aa0113f92101f4df5ba77b2a9286f4f8d} 
+int prev\+\_\+state}
+
+The last verified stable state of the button. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+drivers/\+\doxymbox{\hyperlink{button_8h}{button.\+h}}\end{DoxyCompactItemize}

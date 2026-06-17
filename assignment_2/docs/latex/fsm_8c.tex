@@ -1,0 +1,233 @@
+\doxysection{src/\+core/\+fsm.c File Reference}
+\hypertarget{fsm_8c}{}\label{fsm_8c}\index{src/core/fsm.c@{src/core/fsm.c}}
+
+
+Finite State Machine engine implementation for the robot buggy platform.  
+
+
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fsm_8c_a985dfad48608d9a9b210d080f5b32e25}\label{fsm_8c_a985dfad48608d9a9b210d080f5b32e25} 
+typedef \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}}(\texorpdfstring{$\ast$}{*} {\bfseries Event\+Handler}) (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Function pointer type for FSM event handlers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8c_a0d213aa157cbc3205134ebddef6e371d}{handle\+\_\+halt}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Handler to stop the robot. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8c_a6ad7aa8778b98cff1d4e29513a67e647}{handle\+\_\+move}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Handler to move the robot. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8c_ac228bebf1adc4c3f985a6e41351cf76b}{handle\+\_\+obstacle}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Handler for obstacle detection, initiating avoidance maneuvers. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8c_a168a337ac7ae811e48671fdb9dec296e}{evaluate\+\_\+obstacle}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Evaluates an obstacle to determine if avoidance should continue or complete. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8c_adcd10d0f4400e0673e53cfb57415ff7a}{get\+\_\+current\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current state of the FSM. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{fsm_8c_a340d9c6f3871073322497c79dc8af1f9}{fsm\+\_\+init}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover)
+\begin{DoxyCompactList}\small\item\em Initializes the FSM and resets mission variables. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{fsm_8c_a910e67d421288132bfa968ae13652492}{dispatch\+\_\+event}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}} event, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Dispatches an event to the FSM to trigger potential state transitions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \doxymbox{\hyperlink{fsm_8c_a985dfad48608d9a9b210d080f5b32e25}{Event\+Handler}} \doxymbox{\hyperlink{fsm_8c_a27d5b9351e8b1b15cc1fa3dd9f6998c0}{state\+\_\+table}} \+[\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce}{MAX\+\_\+\+STATES}}]\+\+[\doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8}{MAX\+\_\+\+EVENTS}}]\+
+\begin{DoxyCompactList}\small\item\em State transition table mapping current state and event to an event handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Finite State Machine engine implementation for the robot buggy platform. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\label{fsm_8c_doc-func-members}
+\Hypertarget{fsm_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{fsm_8c_a910e67d421288132bfa968ae13652492}\index{fsm.c@{fsm.c}!dispatch\_event@{dispatch\_event}}
+\index{dispatch\_event@{dispatch\_event}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{dispatch\_event()}{dispatch\_event()}}
+{\footnotesize\ttfamily \label{fsm_8c_a910e67d421288132bfa968ae13652492} 
+void dispatch\+\_\+event (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{\doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}}}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Dispatches an event to the FSM to trigger potential state transitions. 
+
+Submits a system event to the FSM for evaluation and potential state transition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em event} & The event being dispatched. \\
+\hline
+{\em payload} & Optional payload associated with the event.\\
+\hline
+\end{DoxyParams}
+Dispatches an event to the FSM to trigger potential state transitions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the shared global robot state structure. \\
+\hline
+{\em event} & The triggered event code. \\
+\hline
+{\em payload} & An optional pointer to contextual data related to the event. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm_8c_a168a337ac7ae811e48671fdb9dec296e}\index{fsm.c@{fsm.c}!evaluate\_obstacle@{evaluate\_obstacle}}
+\index{evaluate\_obstacle@{evaluate\_obstacle}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{evaluate\_obstacle()}{evaluate\_obstacle()}}
+{\footnotesize\ttfamily \label{fsm_8c_a168a337ac7ae811e48671fdb9dec296e} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} evaluate\+\_\+obstacle (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates an obstacle to determine if avoidance should continue or complete. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em payload} & Pointer to the IR distance reading. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new state based on evaluation. 
+\end{DoxyReturn}
+\Hypertarget{fsm_8c_a340d9c6f3871073322497c79dc8af1f9}\index{fsm.c@{fsm.c}!fsm\_init@{fsm\_init}}
+\index{fsm\_init@{fsm\_init}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{fsm\_init()}{fsm\_init()}}
+{\footnotesize\ttfamily \label{fsm_8c_a340d9c6f3871073322497c79dc8af1f9} 
+void fsm\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the FSM and resets mission variables. 
+
+Initializes the FSM engine, placing it into the default halted state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure.\\
+\hline
+\end{DoxyParams}
+Initializes the FSM and resets mission variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the shared global robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm_8c_adcd10d0f4400e0673e53cfb57415ff7a}\index{fsm.c@{fsm.c}!get\_current\_state@{get\_current\_state}}
+\index{get\_current\_state@{get\_current\_state}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{get\_current\_state()}{get\_current\_state()}}
+{\footnotesize\ttfamily \label{fsm_8c_adcd10d0f4400e0673e53cfb57415ff7a} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} get\+\_\+current\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the current state of the FSM. 
+
+Retrieves the current operating state of the finite state machine.
+
+\begin{DoxyReturn}{Returns}
+The current state.
+\end{DoxyReturn}
+Retrieves the current state of the FSM.
+
+\begin{DoxyReturn}{Returns}
+The current \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t} value. 
+\end{DoxyReturn}
+\Hypertarget{fsm_8c_a0d213aa157cbc3205134ebddef6e371d}\index{fsm.c@{fsm.c}!handle\_halt@{handle\_halt}}
+\index{handle\_halt@{handle\_halt}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{handle\_halt()}{handle\_halt()}}
+{\footnotesize\ttfamily \label{fsm_8c_a0d213aa157cbc3205134ebddef6e371d} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} handle\+\_\+halt (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Handler to stop the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em payload} & Optional event payload. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new state (STATE\+\_\+\+HALTED). 
+\end{DoxyReturn}
+\Hypertarget{fsm_8c_a6ad7aa8778b98cff1d4e29513a67e647}\index{fsm.c@{fsm.c}!handle\_move@{handle\_move}}
+\index{handle\_move@{handle\_move}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{handle\_move()}{handle\_move()}}
+{\footnotesize\ttfamily \label{fsm_8c_a6ad7aa8778b98cff1d4e29513a67e647} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} handle\+\_\+move (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Handler to move the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em payload} & Optional event payload. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new state (STATE\+\_\+\+MOVING). 
+\end{DoxyReturn}
+\Hypertarget{fsm_8c_ac228bebf1adc4c3f985a6e41351cf76b}\index{fsm.c@{fsm.c}!handle\_obstacle@{handle\_obstacle}}
+\index{handle\_obstacle@{handle\_obstacle}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{handle\_obstacle()}{handle\_obstacle()}}
+{\footnotesize\ttfamily \label{fsm_8c_ac228bebf1adc4c3f985a6e41351cf76b} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} handle\+\_\+obstacle (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Handler for obstacle detection, initiating avoidance maneuvers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em payload} & Optional event payload. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new state (STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE). 
+\end{DoxyReturn}
+
+
+\label{fsm_8c_doc-var-members}
+\Hypertarget{fsm_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{fsm_8c_a27d5b9351e8b1b15cc1fa3dd9f6998c0}\index{fsm.c@{fsm.c}!state\_table@{state\_table}}
+\index{state\_table@{state\_table}!fsm.c@{fsm.c}}
+\doxysubsubsection{\texorpdfstring{state\_table}{state\_table}}
+{\footnotesize\ttfamily \label{fsm_8c_a27d5b9351e8b1b15cc1fa3dd9f6998c0} 
+const \doxymbox{\hyperlink{fsm_8c_a985dfad48608d9a9b210d080f5b32e25}{Event\+Handler}} state\+\_\+table\+[\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce}{MAX\+\_\+\+STATES}}]\+\+[\doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8}{MAX\+\_\+\+EVENTS}}]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{\doxymbox{\hyperlink{fsm_8c_a6ad7aa8778b98cff1d4e29513a67e647}{handle\_move}},\ \ \ \ \ \ \ \ NULL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NULL\},}
+\DoxyCodeLine{\ \ \ \ \ \{\doxymbox{\hyperlink{fsm_8c_a0d213aa157cbc3205134ebddef6e371d}{handle\_halt}},\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{fsm_8c_ac228bebf1adc4c3f985a6e41351cf76b}{handle\_obstacle}},\ \ \ \ \ \ \ \ \ \ \ \ NULL\},}
+\DoxyCodeLine{\ \ \ \ \ \{\doxymbox{\hyperlink{fsm_8c_a0d213aa157cbc3205134ebddef6e371d}{handle\_halt}},\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{fsm_8c_a0d213aa157cbc3205134ebddef6e371d}{handle\_halt}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{fsm_8c_a168a337ac7ae811e48671fdb9dec296e}{evaluate\_obstacle}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+State transition table mapping current state and event to an event handler. 
+

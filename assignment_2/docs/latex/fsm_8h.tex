@@ -1,0 +1,202 @@
+\doxysection{include/\+core/\+fsm.h File Reference}
+\hypertarget{fsm_8h}{}\label{fsm_8h}\index{include/core/fsm.h@{include/core/fsm.h}}
+
+
+Finite State Machine engine declaration header for the robot buggy platform.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}robot\+\_\+state.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \{ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3}{STATE\+\_\+\+HALTED}}
+, \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6}{STATE\+\_\+\+MOVING}}
+, \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0}{STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}}
+, \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce}{MAX\+\_\+\+STATES}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of available master states in the robot\textquotesingle{}s FSM. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}} \{ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa97e37c9d27057bcd383be0d257fb5a05}{EVENT\+\_\+\+RE8\+\_\+\+PRESSED}}
+, \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa899eed147ab693d32583babb68d0e3ca}{EVENT\+\_\+\+OBSTACLE\+\_\+\+DETECTED}}
+, \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa8e828414d629dc205b31fd17dbb14995}{EVENT\+\_\+\+MANEUVER\+\_\+\+COMPLETE}}
+, \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8}{MAX\+\_\+\+EVENTS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of internal system events capable of triggering a state transition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{fsm_8h_a340d9c6f3871073322497c79dc8af1f9}{fsm\+\_\+init}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover)
+\begin{DoxyCompactList}\small\item\em Initializes the FSM engine, placing it into the default halted state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{fsm_8h_a910e67d421288132bfa968ae13652492}{dispatch\+\_\+event}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover, \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}} event, void \texorpdfstring{$\ast$}{*}payload)
+\begin{DoxyCompactList}\small\item\em Submits a system event to the FSM for evaluation and potential state transition. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \doxymbox{\hyperlink{fsm_8h_abad1f21d00fa190e41e18c596e39e65f}{get\+\_\+current\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the current operating state of the finite state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Finite State Machine engine declaration header for the robot buggy platform. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\label{fsm_8h_doc-enum-members}
+\Hypertarget{fsm_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{fsm_8h_a284681cc05ddc650984c328563b5fc7f}\index{fsm.h@{fsm.h}!Event\_t@{Event\_t}}
+\index{Event\_t@{Event\_t}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{Event\_t}{Event\_t}}
+{\footnotesize\ttfamily \label{fsm_8h_a284681cc05ddc650984c328563b5fc7f} 
+enum \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}}}
+
+
+
+Enumeration of internal system events capable of triggering a state transition. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVENT\_RE8\_PRESSED@{EVENT\_RE8\_PRESSED}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!EVENT\_RE8\_PRESSED@{EVENT\_RE8\_PRESSED}}
+}\Hypertarget{fsm_8h_a284681cc05ddc650984c328563b5fc7fa97e37c9d27057bcd383be0d257fb5a05}\label{fsm_8h_a284681cc05ddc650984c328563b5fc7fa97e37c9d27057bcd383be0d257fb5a05} 
+EVENT\+\_\+\+RE8\+\_\+\+PRESSED&Physical toggle button was pressed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVENT\_OBSTACLE\_DETECTED@{EVENT\_OBSTACLE\_DETECTED}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!EVENT\_OBSTACLE\_DETECTED@{EVENT\_OBSTACLE\_DETECTED}}
+}\Hypertarget{fsm_8h_a284681cc05ddc650984c328563b5fc7fa899eed147ab693d32583babb68d0e3ca}\label{fsm_8h_a284681cc05ddc650984c328563b5fc7fa899eed147ab693d32583babb68d0e3ca} 
+EVENT\+\_\+\+OBSTACLE\+\_\+\+DETECTED&IR sensor distance threshold was breached. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EVENT\_MANEUVER\_COMPLETE@{EVENT\_MANEUVER\_COMPLETE}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!EVENT\_MANEUVER\_COMPLETE@{EVENT\_MANEUVER\_COMPLETE}}
+}\Hypertarget{fsm_8h_a284681cc05ddc650984c328563b5fc7fa8e828414d629dc205b31fd17dbb14995}\label{fsm_8h_a284681cc05ddc650984c328563b5fc7fa8e828414d629dc205b31fd17dbb14995} 
+EVENT\+\_\+\+MANEUVER\+\_\+\+COMPLETE&Autonomous evasion sequence finished. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_EVENTS@{MAX\_EVENTS}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!MAX\_EVENTS@{MAX\_EVENTS}}
+}\Hypertarget{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8}\label{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8} 
+MAX\+\_\+\+EVENTS&Total number of events. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8}\index{fsm.h@{fsm.h}!State\_t@{State\_t}}
+\index{State\_t@{State\_t}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{State\_t}{State\_t}}
+{\footnotesize\ttfamily \label{fsm_8h_ae2946618e700f814e6147195c808f4c8} 
+enum \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}}}
+
+
+
+Enumeration of available master states in the robot\textquotesingle{}s FSM. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_HALTED@{STATE\_HALTED}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!STATE\_HALTED@{STATE\_HALTED}}
+}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3} 
+STATE\+\_\+\+HALTED&Robot is completely stopped. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_MOVING@{STATE\_MOVING}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!STATE\_MOVING@{STATE\_MOVING}}
+}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6} 
+STATE\+\_\+\+MOVING&Robot is executing motion commands. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_OBSTACLE\_AVOIDANCE@{STATE\_OBSTACLE\_AVOIDANCE}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!STATE\_OBSTACLE\_AVOIDANCE@{STATE\_OBSTACLE\_AVOIDANCE}}
+}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0} 
+STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE&Robot is executing an autonomous avoidance maneuver. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_STATES@{MAX\_STATES}!fsm.h@{fsm.h}}
+\index{fsm.h@{fsm.h}!MAX\_STATES@{MAX\_STATES}}
+}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce} 
+MAX\+\_\+\+STATES&Total number of states. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{fsm_8h_doc-func-members}
+\Hypertarget{fsm_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{fsm_8h_a910e67d421288132bfa968ae13652492}\index{fsm.h@{fsm.h}!dispatch\_event@{dispatch\_event}}
+\index{dispatch\_event@{dispatch\_event}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{dispatch\_event()}{dispatch\_event()}}
+{\footnotesize\ttfamily \label{fsm_8h_a910e67d421288132bfa968ae13652492} 
+void dispatch\+\_\+event (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{, }\item[{\doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\+\_\+t}}}]{event}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{payload}{}\end{DoxyParamCaption})}
+
+
+
+Submits a system event to the FSM for evaluation and potential state transition. 
+
+Dispatches an event to the FSM to trigger potential state transitions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the shared global robot state structure. \\
+\hline
+{\em event} & The triggered event code. \\
+\hline
+{\em payload} & An optional pointer to contextual data related to the event.\\
+\hline
+\end{DoxyParams}
+Submits a system event to the FSM for evaluation and potential state transition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+{\em event} & The event being dispatched. \\
+\hline
+{\em payload} & Optional payload associated with the event. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm_8h_a340d9c6f3871073322497c79dc8af1f9}\index{fsm.h@{fsm.h}!fsm\_init@{fsm\_init}}
+\index{fsm\_init@{fsm\_init}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{fsm\_init()}{fsm\_init()}}
+{\footnotesize\ttfamily \label{fsm_8h_a340d9c6f3871073322497c79dc8af1f9} 
+void fsm\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the FSM engine, placing it into the default halted state. 
+
+Initializes the FSM and resets mission variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the shared global robot state structure.\\
+\hline
+\end{DoxyParams}
+Initializes the FSM engine, placing it into the default halted state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fsm_8h_abad1f21d00fa190e41e18c596e39e65f}\index{fsm.h@{fsm.h}!get\_current\_state@{get\_current\_state}}
+\index{get\_current\_state@{get\_current\_state}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{get\_current\_state()}{get\_current\_state()}}
+{\footnotesize\ttfamily \label{fsm_8h_abad1f21d00fa190e41e18c596e39e65f} 
+\doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} get\+\_\+current\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the current operating state of the finite state machine. 
+
+Retrieves the current state of the FSM.
+
+\begin{DoxyReturn}{Returns}
+The current \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t} value.
+\end{DoxyReturn}
+Retrieves the current operating state of the finite state machine.
+
+\begin{DoxyReturn}{Returns}
+The current state. 
+\end{DoxyReturn}

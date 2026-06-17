@@ -1,0 +1,71 @@
+\doxysection{src/\+drivers/\+spi.c File Reference}
+\hypertarget{spi_8c}{}\label{spi_8c}\index{src/drivers/spi.c@{src/drivers/spi.c}}
+
+
+SPI interface driver and hardware configuration.  
+
+
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{spi_8c_abd82874e883c306ca89d909952c0626a}{spi1\+\_\+mikrobus1\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Configures the SPI1 peripheral pins, control registers, and default chip selects. \end{DoxyCompactList}\item 
+unsigned int \doxymbox{\hyperlink{spi_8c_a347588060adb7585f9290d360c627966}{spi1\+\_\+write}} (unsigned int data)
+\begin{DoxyCompactList}\small\item\em Transmits and receives a single byte over the SPI bus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SPI interface driver and hardware configuration. 
+
+This module provides the hardware setup and primitive transmit/\+receive functions for the SPI1 peripheral, specifically routed to the Mikro\+Bus1 header footprint. 
+
+\label{spi_8c_doc-func-members}
+\Hypertarget{spi_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{spi_8c_abd82874e883c306ca89d909952c0626a}\index{spi.c@{spi.c}!spi1\_mikrobus1\_setup@{spi1\_mikrobus1\_setup}}
+\index{spi1\_mikrobus1\_setup@{spi1\_mikrobus1\_setup}!spi.c@{spi.c}}
+\doxysubsubsection{\texorpdfstring{spi1\_mikrobus1\_setup()}{spi1\_mikrobus1\_setup()}}
+{\footnotesize\ttfamily \label{spi_8c_abd82874e883c306ca89d909952c0626a} 
+void spi1\+\_\+mikrobus1\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures the SPI1 peripheral pins, control registers, and default chip selects. 
+
+
+\begin{DoxyItemize}
+\item Maps the MISO line to input pin RA1 (RPI17).
+\item Maps the MOSI line to output pin RF13 (RP109).
+\item Maps the SCK (Serial Clock) line to output pin RF12 (RP108).
+\item Initializes three independent Chip Select (CS) pins (RB3, RB4, RD6) as digital outputs idling HIGH (inactive).
+\item Configures the SPI core for Master Mode, 8-\/bit data width, and sets prescalers to control the SCK frequency.
+\item Enables the SPI1 module. 
+\end{DoxyItemize}\Hypertarget{spi_8c_a347588060adb7585f9290d360c627966}\index{spi.c@{spi.c}!spi1\_write@{spi1\_write}}
+\index{spi1\_write@{spi1\_write}!spi.c@{spi.c}}
+\doxysubsubsection{\texorpdfstring{spi1\_write()}{spi1\_write()}}
+{\footnotesize\ttfamily \label{spi_8c_a347588060adb7585f9290d360c627966} 
+unsigned int spi1\+\_\+write (\begin{DoxyParamCaption}\item[{unsigned int}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Transmits and receives a single byte over the SPI bus. 
+
+This is a blocking, synchronous hardware call. SPI communication is full-\/duplex, meaning a byte is always received simultaneously as a byte is transmitted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The 8-\/bit data payload to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int The 8-\/bit data payload received from the slave device.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The 8-\/bit data payload to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned int The 8-\/bit data payload received from the slave device. 
+\end{DoxyReturn}

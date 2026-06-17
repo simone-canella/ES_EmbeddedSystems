@@ -1,0 +1,51 @@
+\doxysection{uart.\+h}
+\hypertarget{uart_8h_source}{}\label{uart_8h_source}\index{include/drivers/uart.h@{include/drivers/uart.h}}
+\doxymbox{\hyperlink{uart_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ UART\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ UART\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\doxymbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ \#define\ FCY\ 72000000UL}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ \#define\ BAUDRATE\ 9600\ //\ 115200}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ \#define\ BRGVAL\ ((FCY/BAUDRATE)/16)-\/1\ //\ only\ for\ slow\ speed\ mode}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#define\ UART\_RX\_BUF\_SIZE\ 256}}
+\DoxyCodeLine{00020\ \ \ \ \ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#define\ UART\_TX\_BUF\_SIZE\ 256}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#define\ TX\_BUFFER\_FULL\ -\/1}}
+\DoxyCodeLine{00029\ \ \ \ \ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#define\ RX\_BUFFER\_EMPTY\ -\/1}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{uart_8h_aa131423f7442221d2f06186c20f26d86}{uart1\_mikrobus2\_setup}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{uart_8h_ad1220b22b2b156bfcca1b2759f5bd9d8}{uart1\_write}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{uart_8h_a97dd15ca6cd37ff8ab6fbb3e3cc87649}{uart1\_read\_char}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{uart_8h_ab0a34a5db49ee8999b251cec3ea47c43}{uart1\_get\_tx\_count}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{uart_8h_a0bae162035029c1473def6f17d1b5408}{uart1\_get\_rx\_count}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ int\ uart1\_read\_string(char\ *dest\_buffer,\ int\ max\_len);}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{/*\ *\ Doxygen\ workaround\ trick:\ Hide\ the\ \_\_attribute\_\_\ macro\ from\ the\ generator\ }}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ *\ to\ prevent\ naming\ collisions\ between\ the\ two\ interrupt\ functions.\ }}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ INTERRUPT\_ATTR}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ INTERRUPT\_ATTR\ \_\_attribute\_\_((\_\_interrupt\_\_))}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ INTERRUPT\_ATTR\ \doxymbox{\hyperlink{uart_8h_a1462a0d94f37f67118aed180ad626d9b}{\_U1TXInterrupt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ INTERRUPT\_ATTR\ \doxymbox{\hyperlink{uart_8h_ad1e15ac2867ae1318632e5dd93792036}{\_U1RXInterrupt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UART\_H}}
+
+\end{DoxyCode}

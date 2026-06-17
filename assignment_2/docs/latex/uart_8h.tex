@@ -1,0 +1,186 @@
+\doxysection{include/\+drivers/\+uart.h File Reference}
+\hypertarget{uart_8h}{}\label{uart_8h}\index{include/drivers/uart.h@{include/drivers/uart.h}}
+
+
+Header file for the non-\/blocking UART driver implementation using circular buffers.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{uart_8h_a1f25fe45d891de244a8135ae02fc9265}{UART\+\_\+\+RX\+\_\+\+BUF\+\_\+\+SIZE}}~256
+\begin{DoxyCompactList}\small\item\em Size allocation for the UART RX software ring buffer. Length of single correct command:\+ 6 bytes. Only two commands possible:\+ 12 bytes. Rounding up in case of syntax errors:\+ 16 bytes. Chosen length of the buffer:\+ 256. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{uart_8h_a399dab7fb34a7513ec04c6a5788e5a45}{UART\+\_\+\+TX\+\_\+\+BUF\+\_\+\+SIZE}}~256
+\begin{DoxyCompactList}\small\item\em Size allocation for the UART TX software ring buffer. Length of the message in worst case scenario:\+ 59 bytes. Rounded up for little of flexibility with the protocol:\+ 64 bytes. Chosen length of the buffer:\+ 256. \end{DoxyCompactList}\item 
+\Hypertarget{uart_8h_a398f7162dc47291c2b53eccba38e0b40}\label{uart_8h_a398f7162dc47291c2b53eccba38e0b40} 
+\+\#define {\bfseries TX\+\_\+\+BUFFER\+\_\+\+FULL}~-\/1
+\begin{DoxyCompactList}\small\item\em Error code returned when the TX circular buffer is completely full. \end{DoxyCompactList}\item 
+\Hypertarget{uart_8h_a1ae0dd40ceda8028dcbfc3eb1b796bb6}\label{uart_8h_a1ae0dd40ceda8028dcbfc3eb1b796bb6} 
+\+\#define {\bfseries RX\+\_\+\+BUFFER\+\_\+\+EMPTY}~-\/1
+\begin{DoxyCompactList}\small\item\em Error code returned when attempting to read an empty RX circular buffer. \end{DoxyCompactList}\item 
+\Hypertarget{uart_8h_a1e2aa72dc41853be4818d9f36d044939}\label{uart_8h_a1e2aa72dc41853be4818d9f36d044939} 
+\+\#define {\bfseries INTERRUPT\+\_\+\+ATTR}~\+\_\+\+\_\+attribute\+\_\+\+\_\+((\+\_\+\+\_\+interrupt\+\_\+\+\_\+))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{uart_8h_aa131423f7442221d2f06186c20f26d86}{uart1\+\_\+mikrobus2\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Configures UART1 hardware pins, registers, and communication buffers. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8h_ad1220b22b2b156bfcca1b2759f5bd9d8}{uart1\+\_\+write}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Non-\/blocking function to queue a string for UART transmission. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8h_a97dd15ca6cd37ff8ab6fbb3e3cc87649}{uart1\+\_\+read\+\_\+char}} (void)
+\begin{DoxyCompactList}\small\item\em Non-\/blocking function to fetch a single character from the RX buffer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8h_ab0a34a5db49ee8999b251cec3ea47c43}{uart1\+\_\+get\+\_\+tx\+\_\+count}} (void)
+\begin{DoxyCompactList}\small\item\em Calculates the number of bytes currently waiting in the TX circular buffer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8h_a0bae162035029c1473def6f17d1b5408}{uart1\+\_\+get\+\_\+rx\+\_\+count}} (void)
+\begin{DoxyCompactList}\small\item\em Calculates the number of unread bytes currently residing in the RX circular buffer. \end{DoxyCompactList}\item 
+void INTERRUPT\+\_\+\+ATTR \doxymbox{\hyperlink{uart_8h_a1462a0d94f37f67118aed180ad626d9b}{\+\_\+\+U1\+TXInterrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Hardware interrupt service routine for UART1 transmission. \end{DoxyCompactList}\item 
+void INTERRUPT\+\_\+\+ATTR \doxymbox{\hyperlink{uart_8h_ad1e15ac2867ae1318632e5dd93792036}{\+\_\+\+U1\+RXInterrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Hardware interrupt service routine for UART1 reception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the non-\/blocking UART driver implementation using circular buffers. 
+
+
+
+\label{uart_8h_doc-define-members}
+\Hypertarget{uart_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{uart_8h_a1f25fe45d891de244a8135ae02fc9265}\index{uart.h@{uart.h}!UART\_RX\_BUF\_SIZE@{UART\_RX\_BUF\_SIZE}}
+\index{UART\_RX\_BUF\_SIZE@{UART\_RX\_BUF\_SIZE}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_RX\_BUF\_SIZE}{UART\_RX\_BUF\_SIZE}}
+{\footnotesize\ttfamily \label{uart_8h_a1f25fe45d891de244a8135ae02fc9265} 
+\+\#define UART\+\_\+\+RX\+\_\+\+BUF\+\_\+\+SIZE~256}
+
+
+
+Size allocation for the UART RX software ring buffer. Length of single correct command:\+ 6 bytes. Only two commands possible:\+ 12 bytes. Rounding up in case of syntax errors:\+ 16 bytes. Chosen length of the buffer:\+ 256. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}\Hypertarget{uart_8h_a399dab7fb34a7513ec04c6a5788e5a45}\index{uart.h@{uart.h}!UART\_TX\_BUF\_SIZE@{UART\_TX\_BUF\_SIZE}}
+\index{UART\_TX\_BUF\_SIZE@{UART\_TX\_BUF\_SIZE}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TX\_BUF\_SIZE}{UART\_TX\_BUF\_SIZE}}
+{\footnotesize\ttfamily \label{uart_8h_a399dab7fb34a7513ec04c6a5788e5a45} 
+\+\#define UART\+\_\+\+TX\+\_\+\+BUF\+\_\+\+SIZE~256}
+
+
+
+Size allocation for the UART TX software ring buffer. Length of the message in worst case scenario:\+ 59 bytes. Rounded up for little of flexibility with the protocol:\+ 64 bytes. Chosen length of the buffer:\+ 256. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+\label{uart_8h_doc-func-members}
+\Hypertarget{uart_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{uart_8h_ad1e15ac2867ae1318632e5dd93792036}\index{uart.h@{uart.h}!\_U1RXInterrupt@{\_U1RXInterrupt}}
+\index{\_U1RXInterrupt@{\_U1RXInterrupt}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{\_U1RXInterrupt()}{\_U1RXInterrupt()}}
+{\footnotesize\ttfamily \label{uart_8h_ad1e15ac2867ae1318632e5dd93792036} 
+void INTERRUPT\+\_\+\+ATTR \+\_\+\+U1\+RXInterrupt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Hardware interrupt service routine for UART1 reception. 
+
+Triggered asynchronously when incoming bytes arrive. It handles hardware overrun errors (OERR) by clearing the bit (which discards corrupted data), and safely copies valid incoming bytes into the RX software circular buffer. If the circular buffer is full, incoming data is silently dropped to prevent memory corruption. \Hypertarget{uart_8h_a1462a0d94f37f67118aed180ad626d9b}\index{uart.h@{uart.h}!\_U1TXInterrupt@{\_U1TXInterrupt}}
+\index{\_U1TXInterrupt@{\_U1TXInterrupt}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{\_U1TXInterrupt()}{\_U1TXInterrupt()}}
+{\footnotesize\ttfamily \label{uart_8h_a1462a0d94f37f67118aed180ad626d9b} 
+void INTERRUPT\+\_\+\+ATTR \+\_\+\+U1\+TXInterrupt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Hardware interrupt service routine for UART1 transmission. 
+
+Automatically triggered when the UART hardware TX buffer has empty space. It pulls the next available byte from the software circular buffer and pushes it to the hardware register (U1\+TXREG). If the software buffer empties completely, the interrupt safely disables itself to halt further triggers. \Hypertarget{uart_8h_a0bae162035029c1473def6f17d1b5408}\index{uart.h@{uart.h}!uart1\_get\_rx\_count@{uart1\_get\_rx\_count}}
+\index{uart1\_get\_rx\_count@{uart1\_get\_rx\_count}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart1\_get\_rx\_count()}{uart1\_get\_rx\_count()}}
+{\footnotesize\ttfamily \label{uart_8h_a0bae162035029c1473def6f17d1b5408} 
+int uart1\+\_\+get\+\_\+rx\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the number of unread bytes currently residing in the RX circular buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Number of available bytes waiting to be read. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_ab0a34a5db49ee8999b251cec3ea47c43}\index{uart.h@{uart.h}!uart1\_get\_tx\_count@{uart1\_get\_tx\_count}}
+\index{uart1\_get\_tx\_count@{uart1\_get\_tx\_count}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart1\_get\_tx\_count()}{uart1\_get\_tx\_count()}}
+{\footnotesize\ttfamily \label{uart_8h_ab0a34a5db49ee8999b251cec3ea47c43} 
+int uart1\+\_\+get\+\_\+tx\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the number of bytes currently waiting in the TX circular buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Number of pending bytes queued for transmission. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_aa131423f7442221d2f06186c20f26d86}\index{uart.h@{uart.h}!uart1\_mikrobus2\_setup@{uart1\_mikrobus2\_setup}}
+\index{uart1\_mikrobus2\_setup@{uart1\_mikrobus2\_setup}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart1\_mikrobus2\_setup()}{uart1\_mikrobus2\_setup()}}
+{\footnotesize\ttfamily \label{uart_8h_aa131423f7442221d2f06186c20f26d86} 
+int uart1\+\_\+mikrobus2\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures UART1 hardware pins, registers, and communication buffers. 
+
+\begin{DoxyReturn}{Returns}
+int Always returns 0 upon successful setup.
+\end{DoxyReturn}
+Sets up the Mikro\+Bus2 RX/\+\+TX pins, configures the baud rate with High Precision (BRGH=1), and initializes the circular buffer pointers. Rx interrupts are enabled by default, while TX interrupts are kept disabled until data is actively queued. \begin{DoxyReturn}{Returns}
+int Always returns 0 upon successful setup. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_a97dd15ca6cd37ff8ab6fbb3e3cc87649}\index{uart.h@{uart.h}!uart1\_read\_char@{uart1\_read\_char}}
+\index{uart1\_read\_char@{uart1\_read\_char}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart1\_read\_char()}{uart1\_read\_char()}}
+{\footnotesize\ttfamily \label{uart_8h_a97dd15ca6cd37ff8ab6fbb3e3cc87649} 
+int uart1\+\_\+read\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Non-\/blocking function to fetch a single character from the RX buffer. 
+
+\begin{DoxyReturn}{Returns}
+int The received character, or RX\+\_\+\+BUFFER\+\_\+\+EMPTY if no data is currently available.
+\end{DoxyReturn}
+Checks the software circular buffer for unread data. If data is present, it returns the byte and advances the read pointer. Because it does not wait for incoming bytes, it is safe to call inside high-\/frequency processing loops. \begin{DoxyReturn}{Returns}
+int The received character, or RX\+\_\+\+BUFFER\+\_\+\+EMPTY if no data is currently available. 
+\end{DoxyReturn}
+\Hypertarget{uart_8h_ad1220b22b2b156bfcca1b2759f5bd9d8}\index{uart.h@{uart.h}!uart1\_write@{uart1\_write}}
+\index{uart1\_write@{uart1\_write}!uart.h@{uart.h}}
+\doxysubsubsection{\texorpdfstring{uart1\_write()}{uart1\_write()}}
+{\footnotesize\ttfamily \label{uart_8h_ad1220b22b2b156bfcca1b2759f5bd9d8} 
+int uart1\+\_\+write (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Non-\/blocking function to queue a string for UART transmission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Null-\/terminated string to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of bytes successfully queued, or TX\+\_\+\+BUFFER\+\_\+\+FULL if space is exhausted.
+\end{DoxyReturn}
+Copies the input string into the TX circular buffer without waiting for hardware transmission to complete. Briefly disables the TX interrupt during buffer manipulation to prevent race conditions, then kickstarts the transmission interrupt if the hardware is idle. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & Null-\/terminated string to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of bytes successfully queued, or TX\+\_\+\+BUFFER\+\_\+\+FULL if space is exhausted. 
+\end{DoxyReturn}

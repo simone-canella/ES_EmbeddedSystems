@@ -1,0 +1,104 @@
+\chapter{Main Page }
+\hypertarget{index}{}\label{index}\index{Main Page@{Main Page}}
+\label{index_mainpage}%
+\Hypertarget{index_mainpage}%
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{ds\+PIC33 Buggy Control Firmware}{ds\+PIC33 Buggy Control Firmware}}\label{index_autotoc_md0}
+This repository contains the embedded control firmware for an autonomous buggy project. The architecture relies on a dual \$\+O(1)\$ deterministic Finite State Machine (FSM) running on a Microchip ds\+PIC33 microcontroller to provide predictable, real-\/time behavior without utilizing conditional switch-\/cases or blocking delays.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{System Architecture}{System Architecture}}\label{index_autotoc_md2}
+To guarantee real-\/time safety, the firmware completely isolates spontaneous state transitions from continuous fixed-\/frequency state actions.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{The Transition Matrix ({\ttfamily \doxylink{fsm_8c_a27d5b9351e8b1b15cc1fa3dd9f6998c0}{state\+\_\+table}})}}:\+ A 2D function pointer array indexed directly by {\ttfamily \+[Current\+\_\+\+State]\+\+[Incoming\+\_\+\+Event]\+} updates the system state instantaneously in \$\+O(1)\$ computing time upon event arrival.
+\item {\bfseries{Cooperative Scheduler}}:\+ A time-\/sliced task engine driven by a 500 Hz TIMER1 heartbeat executes registered subsystem callback functions non-\/preemptively when their configured tick periods elapse.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Finite State Machine (FSM)}{Finite State Machine (FSM)}}\label{index_autotoc_md4}
+The system processes three primary functional operational states:\+\hypertarget{index_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{1. STATE\+\_\+\+HALTED}{1. STATE\+\_\+\+HALTED}}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Behavior}}:\+ The buggy initializes in this safe resting state with all four H-\/\+Bridge PWM duty cycles set strictly to 0\%.
+\item {\bfseries{Indicators}}:\+ The left-\/side (RB8) and right-\/side (RF1) indicator lights flash synchronously at 1 Hz, while the low-\/intensity auxiliary lights (RG1) remain disabled.
+\item {\bfseries{Transitions}}:\+ Pressing the physical RE8 button shifts the machine context into {\ttfamily \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6}{STATE\+\_\+\+MOVING}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{2. STATE\+\_\+\+MOVING}{2. STATE\+\_\+\+MOVING}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Motor Actuation}}:\+ Wheels are driven dynamically at a 10 k\+Hz PWM frequency. Duty cycles are calculated and updated inside a 500 Hz control loop based on UART velocity and yaw references.
+\item {\bfseries{Indicators}}:\+ Both side indicator lights are turned OFF, while the low-\/intensity auxiliary lights are turned ON.
+\item {\bfseries{Transitions}}:\+
+\item Pressing the RE8 button forces the system back to {\ttfamily \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3}{STATE\+\_\+\+HALTED}}.
+\item By default inital linear and angular velocities are both set to zero.
+\item To change the default speed the command \$\+PCREF,XX,YY\texorpdfstring{$\ast$}{*} where XX and YY are respectively linear and angular speed
+\item If the IR sensor polling loop detects an obstacle closer than the 35.\+0 cm safety threshold, the system dispatches an {\ttfamily \doxylink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa899eed147ab693d32583babb68d0e3ca}{EVENT\+\_\+\+OBSTACLE\+\_\+\+DETECTED}} trigger, instantly pivoting to {\ttfamily \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0}{STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{3. STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}{3. STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}}\label{index_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Behavior Maneuver}}:\+ The buggy abandons forward commands to execute a sequential, non-\/blocking hardware recovery maneuver:\+
+\begin{DoxyEnumerate}
+\item {\bfseries{Stop}}:\+ The vehicle zeroes actuation and waits until accelerometer integration confirms total zero kinetic inertia.
+\item {\bfseries{Rotate CW}}:\+ Applies yaw actuation until the gyroscope tracks a relative heading beyond -\/80.\+0 degrees (empirically estabilished).
+\item {\bfseries{Move Forward}}:\+ Advances forward continuously for exactly 2.\+0 seconds (1000 loop ticks) or stops instantly if another obstruction is detected.
+\item {\bfseries{Rotate CCW}}:\+ Applies counter-\/clockwise yaw actuation to realign the heading beyond +80.\+0 degrees.
+\end{DoxyEnumerate}
+\item {\bfseries{Indicators}}:\+ The right-\/side lights blink at 1 Hz to signal maneuvering, the left lights stay dark, and low-\/intensity lights remain active.
+\item {\bfseries{Evaluation \& Retries}}:\+ After concluding the directional sequence, the IR sensor is sampled again. If the path is verified clear (\texorpdfstring{$>$}{>} 20.\+0 cm), the machine transitions back to {\ttfamily \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6}{STATE\+\_\+\+MOVING}}. If blocked, the maneuver increments a tracker and repeats up to a maximum limit of 3 attempts before triggering an emergency shutdown to {\ttfamily \doxylink{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3}{STATE\+\_\+\+HALTED}}.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Real-\/\+Time Task Scheduler Matrix}{Real-\/\+Time Task Scheduler Matrix}}\label{index_autotoc_md9}
+Data collection and physical actions run concurrently at strict frequencies generated by the core 500 Hz hardware timer tick.
+
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Subsystem Task  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Loop Frequency  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\bfseries{IR Sensor Polling}}  &500 Hz  &Refreshes the ADC buffer for distance metrics, subtracts specific sensor hardware offsets, and monitors the immediate path for threshold breaches.  \\
+{\bfseries{Movement Actuation}}  &500 Hz  &Evaluates active state requirements, processes avoidance sequences, and applies target output voltages to the H-\/\+Bridge.  \\
+{\bfseries{Button Polling}}  &100 Hz  &Debounces and evaluates the RE8 input pin for state toggles, and checks RE9 to trigger a diagnostic UART buffer transmission ({\ttfamily \$MBUF}).  \\
+{\bfseries{IMU Spatial Fusion}}  &100 Hz  &Interfaces via SPI/\+\+I2C to read the Accelerometer, Magnetometer, and Gyroscope registers, running trigonometric integrations to map roll, pitch, and relative yaw.  \\
+{\bfseries{Bluetooth Telemetry}}  &10 Hz  &Formats and pushes NMEA spatial packages ({\ttfamily \$MDIST}, {\ttfamily \$MANGLE}) and high-\/level FSM diagnostics via the serial stream.  \\
+{\bfseries{Command Parsing}}  &Asynchronous  &Unpacks and decodes asynchronous {\ttfamily \$PCREF,speed,yawrate\texorpdfstring{$\ast$}{*}} frames from the serial queue while enforcing safety saturation limits.  \\
+{\bfseries{Heartbeat \& Logging}}  &1 Hz  &Alternates pin latches to display avoidance light codes, toggles the main-\/loop health LED (A0), and writes {\ttfamily \$MBAT} battery voltages over UART.  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{H-\/\+Bridge Actuation Logic Mapping}{H-\/\+Bridge Actuation Logic Mapping}}\label{index_autotoc_md11}
+Directional momentum is provided by four independent Output Compare PWM generators running continuously at a fixed 10 k\+Hz base frequency.
+
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Direction Command  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}PWM Applied (Duty \texorpdfstring{$>$}{>} 0)  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Low-\/\+Level Ground Pin  \\
+Left Wheels Forward  &RD2 /\+ RP66  &RD1 /\+ RP65 = 0  \\
+Left Wheels Backward  &RD1 /\+ RP65  &RD2 /\+ RP66 = 0  \\
+Right Wheels Forward  &RD4 /\+ RP68  &RD3 /\+ RP67 = 0  \\
+Right Wheels Backward  &RD3 /\+ RP67  &RD4 /\+ RP68 = 0  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md13}{}\doxysubsection{\texorpdfstring{The bluetooth interface (Linux/\+mac\+OS Native)}{The bluetooth interface (Linux/\+mac\+OS Native)}}\label{index_autotoc_md13}
+This interface routes the system\textquotesingle{}s UART telemetry data wirelessly over a {\bfseries{Bluetooth connection instead of a physical cable link}}.
+
+Because this interface relies on a shell script ({\ttfamily .sh}), it is natively compatible {\bfseries{only with POSIX operating systems like Linux and mac\+OS}}. Standard Windows environments (Command Prompt and Power\+Shell) cannot execute this file directly.\hypertarget{index_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{Native Execution (Linux/\+mac\+OS)}{Native Execution (Linux/\+mac\+OS)}}\label{index_autotoc_md14}
+In the root folder of the project, grant execution permissions and run:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{chmod\ +x\ ./bluetooth\_interface/bt\_interface.sh}
+\DoxyCodeLine{./bluetooth\_interface/bt\_interface.sh}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Project Documentation}{Project Documentation}}\label{index_autotoc_md16}
+The source codebase is fully documented using professional DOXYGEN/\+\+JAVADOC-\/style comments.
+
+
+\begin{DoxyItemize}
+\item {\bfseries{HTML Interactive Portal:\+}} You can view the offline interactive documentation website by opening {\ttfamily docs/\+html/\+index.\+html} in any web browser.
+\item {\bfseries{PDF Reference Manual:\+}} A print-\/ready, comprehensive PDF version of the complete system documentation is available directly inside the repository at:\+ {\ttfamily docs/\+latex/\+refman.\+pdf} 
+\end{DoxyItemize}

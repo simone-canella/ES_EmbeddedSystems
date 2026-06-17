@@ -1,0 +1,81 @@
+\doxysection{src/\+drivers/\+button.c File Reference}
+\hypertarget{button_8c}{}\label{button_8c}\index{src/drivers/button.c@{src/drivers/button.c}}
+
+
+Implementation of button initialization and debouncing logic.  
+
+
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{button_8c_afa19953dd3801d49d2f92b9b41b4d966}{button\+\_\+init}} (\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \texorpdfstring{$\ast$}{*}btn)
+\begin{DoxyCompactList}\small\item\em Initializes a button to its default (unpressed) state. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{button_8c_ad2724827466c6e24684dc7ba1788e67c}{button\+\_\+has\+\_\+just\+\_\+been\+\_\+pressed}} (\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \texorpdfstring{$\ast$}{*}btn, int current\+\_\+pin\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Evaluates the button state and handles debouncing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of button initialization and debouncing logic. 
+
+
+
+\label{button_8c_doc-func-members}
+\Hypertarget{button_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{button_8c_ad2724827466c6e24684dc7ba1788e67c}\index{button.c@{button.c}!button\_has\_just\_been\_pressed@{button\_has\_just\_been\_pressed}}
+\index{button\_has\_just\_been\_pressed@{button\_has\_just\_been\_pressed}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{button\_has\_just\_been\_pressed()}{button\_has\_just\_been\_pressed()}}
+{\footnotesize\ttfamily \label{button_8c_ad2724827466c6e24684dc7ba1788e67c} 
+int button\+\_\+has\+\_\+just\+\_\+been\+\_\+pressed (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \texorpdfstring{$\ast$}{*}}]{btn}{, }\item[{int}]{current\+\_\+pin\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates the button state and handles debouncing. 
+
+
+\begin{DoxyItemize}
+\item Returns 1 ONLY on the exact cycle the button is validly pressed. Returns 0 otherwise. Decrements the debounce counter if a state change is detected, and updates the state only when the counter reaches 0.
+\item 
+\begin{DoxyParams}{Parameters}
+{\em btn} & Pointer to the active \doxylink{struct_button_state}{Button\+State} structure tracking this pin. \\
+\hline
+{\em current\+\_\+pin\+\_\+state} & The current digital reading of the physical button pin (0 or 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 1 if a valid press is detected, 0 otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em btn} & Pointer to the active \doxylink{struct_button_state}{Button\+State} structure tracking this pin. \\
+\hline
+{\em current\+\_\+pin\+\_\+state} & The current digital reading of the physical button pin (0 or 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 1 if a valid press is detected, 0 otherwise. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{button_8c_afa19953dd3801d49d2f92b9b41b4d966}\index{button.c@{button.c}!button\_init@{button\_init}}
+\index{button\_init@{button\_init}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{button\_init()}{button\_init()}}
+{\footnotesize\ttfamily \label{button_8c_afa19953dd3801d49d2f92b9b41b4d966} 
+void button\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \texorpdfstring{$\ast$}{*}}]{btn}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a button to its default (unpressed) state. 
+
+
+\begin{DoxyItemize}
+\item Sets the previous state to 1, assuming pull-\/up resistors are used, and resets the debounce counter to MAXDEBCYCLE.
+\item 
+\begin{DoxyParams}{Parameters}
+{\em btn} & Pointer to the \doxylink{struct_button_state}{Button\+State} structure to be initialized.\\
+\hline
+{\em btn} & Pointer to the \doxylink{struct_button_state}{Button\+State} structure to be initialized. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}

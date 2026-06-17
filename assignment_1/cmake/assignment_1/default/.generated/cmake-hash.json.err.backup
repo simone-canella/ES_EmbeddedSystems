@@ -1,0 +1,13 @@
+{
+    "hashFileVersion": "1.1.0",
+    "projectFileHash": "4223fb9de059fe2b53ecdff0802e43728e5164d63efec6c7d7b2d5615a7aa614",
+<<<<<<< HEAD:assignments/assignment_1/cmake/assignment_1/default/.generated/cmake-hash.json
+    "cmakeFilesHash": "f8ea4d29d8498ef1eab6d51b3a5b8e23de7effa7d5b79daf78d28eefb8932417",
+    "cmakerVersion": "4.2.2",
+    "workspacePath": "/home/samuisa/Desktop/embedded/Embedded_System/assignments/assignment_1"
+=======
+    "cmakeFilesHash": "ceedf80c53b4a1ba5a820e67af1df6758e6f3751cf747f80a02f2799fa412f00",
+    "cmakerVersion": "4.2.2",
+    "workspacePath": "/home/ric/Desktop/Embedded System/assignments/exam/17_assignment1"
+>>>>>>> c176c6882c7d4871c8768f8dacbe6e5a0ff4a087:assignments/exam/17_assignment1/cmake/assignment_1/default/.generated/cmake-hash.json
+}

@@ -1,0 +1,25 @@
+\doxysection{adc.\+h}
+\hypertarget{adc_8h_source}{}\label{adc_8h_source}\index{include/drivers/adc.h@{include/drivers/adc.h}}
+\doxymbox{\hyperlink{adc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ADC\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ADC\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structadc_state_a18472f6318b4979228d5264f23b8a88f}{battery\_voltage}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structadc_state_a430975d7d55e2abab3240ded0acf52b9}{ir\_distance}};\ \ \ \ \ }
+\DoxyCodeLine{00018\ \}\ \doxymbox{\hyperlink{structadc_state}{adcState}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{adc_8h_ab04c7c6e0b8d32961ffa63cc38c19312}{adc\_init}}(uint8\_t\ channel);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{adc_8h_a60cc144b76406bd5723311dae2c61468}{adc\_scan\_auto}}(uint8\_t\ channel);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{adc_8h_abb6ad3e8b57032f2934fd991e768ca48}{adc\_converter}}(\doxymbox{\hyperlink{structadc_state}{adcState}}\ *adc);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ADC\_H}}
+
+\end{DoxyCode}

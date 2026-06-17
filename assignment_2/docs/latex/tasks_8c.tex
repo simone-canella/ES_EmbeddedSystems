@@ -1,0 +1,329 @@
+\doxysection{src/\+core/\+tasks.c File Reference}
+\hypertarget{tasks_8c}{}\label{tasks_8c}\index{src/core/tasks.c@{src/core/tasks.c}}
+
+
+Subsystem task implementations and peripheral hardware drivers for the buggy.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}robot\+\_\+state.\+h"{}}\newline
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}uart.\+h"{}}\newline
+{\ttfamily \+\#include "{}button.\+h"{}}\newline
+{\ttfamily \+\#include "{}spi.\+h"{}}\newline
+{\ttfamily \+\#include "{}BOSCH\+\_\+\+BMX055.\+h"{}}\newline
+{\ttfamily \+\#include "{}pwm.\+h"{}}\newline
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tasks_8c_a071e47d052de167f36e42516bc97d14e}\label{tasks_8c_a071e47d052de167f36e42516bc97d14e} 
+\+\#define {\bfseries MAX\+\_\+\+YAW}~80
+\item 
+\Hypertarget{tasks_8c_ac2cd96d53dd3ba6407db6766c3d92b26}\label{tasks_8c_ac2cd96d53dd3ba6407db6766c3d92b26} 
+\+\#define {\bfseries MAX\+\_\+\+SPEED}~60
+\item 
+\Hypertarget{tasks_8c_a00719a0387f578831fd8b092bd4d38d3}\label{tasks_8c_a00719a0387f578831fd8b092bd4d38d3} 
+\+\#define {\bfseries DISTANCE\+\_\+\+THRESHOLD}~35.\+0f
+\item 
+\Hypertarget{tasks_8c_a4becb561c179a8f33ce9fc3cf2319888}\label{tasks_8c_a4becb561c179a8f33ce9fc3cf2319888} 
+\+\#define {\bfseries ROTATION\+\_\+\+THRESHOLD}~80.\+0f
+\item 
+\Hypertarget{tasks_8c_a5935237d012c4c00579dd159084cb372}\label{tasks_8c_a5935237d012c4c00579dd159084cb372} 
+\+\#define {\bfseries input\+ERR}~"{}\$ERR,1\texorpdfstring{$\ast$}{*}\textbackslash{}n"{}
+\item 
+\Hypertarget{tasks_8c_ab28ef3f2a993fe1e438a7459b5860124}\label{tasks_8c_ab28ef3f2a993fe1e438a7459b5860124} 
+\+\#define {\bfseries PCREF\+\_\+\+CMD\+\_\+\+MAX\+\_\+\+LEN}~24
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{tasks_8c_a02fe2c9f4266e5b5a41d802c0041f555}{car\+\_\+stopped}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover)
+\begin{DoxyCompactList}\small\item\em Evaluates if the car is stationary using accelerometer data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a307e908fd8c4eec75a14b072dc500599}{hw\+\_\+init}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover)
+\begin{DoxyCompactList}\small\item\em Initializes all necessary hardware peripherals and sets up initial robot state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a020174e446401a3d7e593762e222b358}{read\+\_\+\+IR}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to read IR sensors and battery voltage via ADC. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_ae7f65d0be4cebf892619a54936692450}{move}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to handle movement and obstacle avoidance state logic. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a773562cb9d12222d5c28086011e987c3}{button\+\_\+polling}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to poll button states and dispatch related events or UART info. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a25d424f7cb23b4a0569a78a694450ffd}{read\+\_\+acc\+\_\+mag}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to read and process raw accelerometer and magnetometer data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a0e8a3839514b007ea97947ae81b8bcea}{read\+\_\+gyro}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to read gyroscope data and integrate relative yaw. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_aa5790efc63a94dba769143be2c43b24c}{UART\+\_\+log\+\_\+bt}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to log general system and sensor states over UART via Bluetooth. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a8f1f1db81c7f3ced8b97f9af4d9e233d}{UART\+\_\+log}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to transmit distance and orientation angles via UART. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a968dafc775efbd52f293417a26be62e1}{UART\+\_\+get\+\_\+twist}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to receive and parse twist commands (\$\+PCREF) over UART. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a7182a1d7d5cee99153b30c2eac695874}{blink\+\_\+\+A0}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to toggle the A0 status LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_aac8f8c01ded297ea216806585cbd1532}{UART\+\_\+bat\+\_\+log}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to log the current battery voltage over UART. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a8a86ca0ac829350ef224bbed69d9ab8c}{blink\+\_\+lights}} (void \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em Task routine to manage blinker lights depending on the robot\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8c_a89029a6931d2fd1f87f810e6f0a28e37}{tasks\+\_\+init}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Initializes and registers all scheduler tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tasks_8c_a3f984d1c54df0cd776bcf5214519e867}\label{tasks_8c_a3f984d1c54df0cd776bcf5214519e867} 
+int {\bfseries char\+Received} = 0
+\begin{DoxyCompactList}\small\item\em Flag indicating if a character has been received via UART. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subsystem task implementations and peripheral hardware drivers for the buggy. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\label{tasks_8c_doc-func-members}
+\Hypertarget{tasks_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tasks_8c_a7182a1d7d5cee99153b30c2eac695874}\index{tasks.c@{tasks.c}!blink\_A0@{blink\_A0}}
+\index{blink\_A0@{blink\_A0}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{blink\_A0()}{blink\_A0()}}
+{\footnotesize\ttfamily \label{tasks_8c_a7182a1d7d5cee99153b30c2eac695874} 
+void blink\+\_\+\+A0 (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to toggle the A0 status LED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Unused argument. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a8a86ca0ac829350ef224bbed69d9ab8c}\index{tasks.c@{tasks.c}!blink\_lights@{blink\_lights}}
+\index{blink\_lights@{blink\_lights}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{blink\_lights()}{blink\_lights()}}
+{\footnotesize\ttfamily \label{tasks_8c_a8a86ca0ac829350ef224bbed69d9ab8c} 
+void blink\+\_\+lights (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to manage blinker lights depending on the robot\textquotesingle{}s state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Unused argument. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a773562cb9d12222d5c28086011e987c3}\index{tasks.c@{tasks.c}!button\_polling@{button\_polling}}
+\index{button\_polling@{button\_polling}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{button\_polling()}{button\_polling()}}
+{\footnotesize\ttfamily \label{tasks_8c_a773562cb9d12222d5c28086011e987c3} 
+void button\+\_\+polling (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to poll button states and dispatch related events or UART info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a02fe2c9f4266e5b5a41d802c0041f555}\index{tasks.c@{tasks.c}!car\_stopped@{car\_stopped}}
+\index{car\_stopped@{car\_stopped}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{car\_stopped()}{car\_stopped()}}
+{\footnotesize\ttfamily \label{tasks_8c_a02fe2c9f4266e5b5a41d802c0041f555} 
+int car\+\_\+stopped (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates if the car is stationary using accelerometer data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if stopped, 0 otherwise. 
+\end{DoxyReturn}
+\Hypertarget{tasks_8c_a307e908fd8c4eec75a14b072dc500599}\index{tasks.c@{tasks.c}!hw\_init@{hw\_init}}
+\index{hw\_init@{hw\_init}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{hw\_init()}{hw\_init()}}
+{\footnotesize\ttfamily \label{tasks_8c_a307e908fd8c4eec75a14b072dc500599} 
+void hw\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{}\end{DoxyParamCaption})}
+
+
+
+Initializes all necessary hardware peripherals and sets up initial robot state. 
+
+Configures low-\/level microcontroller hardware registers and peripherals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure to configure.\\
+\hline
+\end{DoxyParams}
+Initializes all necessary hardware peripherals and sets up initial robot state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure to configure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Sets up all required physical hardware components on the ds\+PIC core. This handles the initialization of data direction registers (TRIS), latch configurations (LAT), Peripheral Pin Select (PPS) pin remapping for UART/\+\+SPI communication links, analog-\/to-\/digital converters (ADC) for infrared and battery sensing, and Output Compare modules for the 10 k\+Hz motor PWM waves. \Hypertarget{tasks_8c_ae7f65d0be4cebf892619a54936692450}\index{tasks.c@{tasks.c}!move@{move}}
+\index{move@{move}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{tasks_8c_ae7f65d0be4cebf892619a54936692450} 
+void move (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to handle movement and obstacle avoidance state logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a25d424f7cb23b4a0569a78a694450ffd}\index{tasks.c@{tasks.c}!read\_acc\_mag@{read\_acc\_mag}}
+\index{read\_acc\_mag@{read\_acc\_mag}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{read\_acc\_mag()}{read\_acc\_mag()}}
+{\footnotesize\ttfamily \label{tasks_8c_a25d424f7cb23b4a0569a78a694450ffd} 
+void read\+\_\+acc\+\_\+mag (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to read and process raw accelerometer and magnetometer data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a0e8a3839514b007ea97947ae81b8bcea}\index{tasks.c@{tasks.c}!read\_gyro@{read\_gyro}}
+\index{read\_gyro@{read\_gyro}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{read\_gyro()}{read\_gyro()}}
+{\footnotesize\ttfamily \label{tasks_8c_a0e8a3839514b007ea97947ae81b8bcea} 
+void read\+\_\+gyro (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to read gyroscope data and integrate relative yaw. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a020174e446401a3d7e593762e222b358}\index{tasks.c@{tasks.c}!read\_IR@{read\_IR}}
+\index{read\_IR@{read\_IR}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{read\_IR()}{read\_IR()}}
+{\footnotesize\ttfamily \label{tasks_8c_a020174e446401a3d7e593762e222b358} 
+void read\+\_\+\+IR (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to read IR sensors and battery voltage via ADC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a89029a6931d2fd1f87f810e6f0a28e37}\index{tasks.c@{tasks.c}!tasks\_init@{tasks\_init}}
+\index{tasks\_init@{tasks\_init}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{tasks\_init()}{tasks\_init()}}
+{\footnotesize\ttfamily \label{tasks_8c_a89029a6931d2fd1f87f810e6f0a28e37} 
+void tasks\+\_\+init (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param}{}\end{DoxyParamCaption})}
+
+
+
+Initializes and registers all scheduler tasks. 
+
+Registers all system runtime operational tasks into the scheduler matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & Pointer to the robot state structure to be passed into tasks.\\
+\hline
+\end{DoxyParams}
+Initializes and registers all scheduler tasks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & Generic initialization parameter container representing the robot state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Connects individual software tasks (such as sensor reading, state machine dispatching, motor actuation, and telemetry logging) with the periodic cyclic scheduler. In order to guarantee maximum execution time budgets for every single clock tick, tasks are registered with pre-\/calculated initial offsets so that their worst-\/case workloads do not overlap. \Hypertarget{tasks_8c_aac8f8c01ded297ea216806585cbd1532}\index{tasks.c@{tasks.c}!UART\_bat\_log@{UART\_bat\_log}}
+\index{UART\_bat\_log@{UART\_bat\_log}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{UART\_bat\_log()}{UART\_bat\_log()}}
+{\footnotesize\ttfamily \label{tasks_8c_aac8f8c01ded297ea216806585cbd1532} 
+void UART\+\_\+bat\+\_\+log (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to log the current battery voltage over UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a968dafc775efbd52f293417a26be62e1}\index{tasks.c@{tasks.c}!UART\_get\_twist@{UART\_get\_twist}}
+\index{UART\_get\_twist@{UART\_get\_twist}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{UART\_get\_twist()}{UART\_get\_twist()}}
+{\footnotesize\ttfamily \label{tasks_8c_a968dafc775efbd52f293417a26be62e1} 
+void UART\+\_\+get\+\_\+twist (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to receive and parse twist commands (\$\+PCREF) over UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_a8f1f1db81c7f3ced8b97f9af4d9e233d}\index{tasks.c@{tasks.c}!UART\_log@{UART\_log}}
+\index{UART\_log@{UART\_log}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{UART\_log()}{UART\_log()}}
+{\footnotesize\ttfamily \label{tasks_8c_a8f1f1db81c7f3ced8b97f9af4d9e233d} 
+void UART\+\_\+log (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to transmit distance and orientation angles via UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8c_aa5790efc63a94dba769143be2c43b24c}\index{tasks.c@{tasks.c}!UART\_log\_bt@{UART\_log\_bt}}
+\index{UART\_log\_bt@{UART\_log\_bt}!tasks.c@{tasks.c}}
+\doxysubsubsection{\texorpdfstring{UART\_log\_bt()}{UART\_log\_bt()}}
+{\footnotesize\ttfamily \label{tasks_8c_aa5790efc63a94dba769143be2c43b24c} 
+void UART\+\_\+log\+\_\+bt (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Task routine to log general system and sensor states over UART via Bluetooth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to the robot state structure. \\
+\hline
+\end{DoxyParams}

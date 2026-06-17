@@ -1,0 +1,86 @@
+\chapter{ds\+PIC33 Buggy Control Firmware Documentation }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{dsPIC33 Buggy Control Firmware Documentation@{dsPIC33 Buggy Control Firmware Documentation}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+This repository contains the embedded control firmware for the autonomous buggy project. The architecture is engineered around a dual $ O(1) $ deterministic Finite State Machine (FSM) implemented on a Microchip ds\+PIC33 microcontroller. It provides predictable, real-\/time behavior without using conditional switch-\/cases or blocking delays.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{System Architecture}{System Architecture}}\label{md__r_e_a_d_m_e_autotoc_md2}
+To ensure strict real-\/time execution safety, the system separates {\bfseries{State Transitions}} (triggered by spontaneous external events) from {\bfseries{State Actions}} (continuous operations running at fixed frequencies) using two flat functional pointer tables with $ O(1) $ computational complexity.\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{1. Dual $ O(1) $ Optimization Mechanics}{1. Dual $ O(1) $ Optimization Mechanics}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{The Transition Matrix ({\ttfamily transition\+\_\+table}):\+}} A 2D array of function pointers indexed directly by {\ttfamily \+[Current\+\_\+\+State]\+\+[Incoming\+\_\+\+Event]\+}. It updates the state machine variables instantaneously upon event arrival.
+\item {\bfseries{The Cyclic Action Array ({\ttfamily cyclic\+\_\+action\+\_\+table}):\+}} A flat array of function pointers indexed directly by {\ttfamily \+[Current\+\_\+\+State]\+}. The main scheduler executes the behavior of the current active state via a single calculated jump ({\ttfamily call}) instruction, eliminating variable-\/time {\ttfamily switch-\/case} evaluation paths.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Finite State Machine Specification}{Finite State Machine Specification}}\label{md__r_e_a_d_m_e_autotoc_md5}
+The system processes three distinct functional operational states:\+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{1. STATE\+\_\+\+HALTED}{1. STATE\+\_\+\+HALTED}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Entry /\+ Behavior:\+}} The robot starts initialization in this state.
+\item {\bfseries{Motor Actuation:\+}} The PWM Duty Cycle (DC) of all four H-\/\+Bridge control signals (RD1–\+RD4) is set strictly to 0\%.
+\item {\bfseries{Indicator Configuration:\+}} The left-\/side (RB8) and right-\/side (RF1) lights flash synchronously at a frequency of 1 Hz. Low-\/intensity auxiliary lights (RG1) are forced OFF.
+\item {\bfseries{Transitions:\+}} Pressing the physical button RE8 switches the system to {\ttfamily STATE\+\_\+\+MOVING}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{2. STATE\+\_\+\+MOVING}{2. STATE\+\_\+\+MOVING}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Motor Actuation:\+}} The 10 k\+Hz motor PWM duty cycles on pins RD1–\+RD4 are adjusted dynamically inside a 500 Hz control loop matching the current speed and yaw rate references received from the UART interface:\+   \[  left\_pwm = speed - yawrate
+\]   \[  right\_pwm = speed + yawrate
+\] Saturation limits are locked strictly between $ -100\% $ and $ +100\% $.
+\item {\bfseries{Indicator Configuration:\+}} Left and right-\/side lights are turned completely OFF. Low-\/intensity auxiliary lights are turned ON.
+\item {\bfseries{Transitions:\+}} \texorpdfstring{$\ast$}{*} Pressing button RE8 drops the system back into {\ttfamily STATE\+\_\+\+HALTED}.
+\begin{DoxyItemize}
+\item If the 500 Hz IR sensor subsystem (AN14/\+\+AN15) senses an obstacle within the critical threshold range, the firmware immediately moves into {\ttfamily STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{3. STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}{3. STATE\+\_\+\+OBSTACLE\+\_\+\+AVOIDANCE}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Behavior Maneuver:\+}} The robot halts forward instruction and executes an automated, non-\/blocking time-\/tracked hardware maneuver:\+
+\begin{DoxyEnumerate}
+\item Rotate 90 degrees clockwise.
+\item Advance forward continuously for exactly 2.\+0 seconds.
+\item Rotate 90 degrees counter-\/clockwise to realign with the initial bearing angle.
+\end{DoxyEnumerate}
+\item {\bfseries{Indicator Configuration:\+}} The right-\/side lights blink at 1 Hz, while left-\/side lights stay dark and low-\/intensity lights remain active.
+\item {\bfseries{Evaluation Loop Retry Logic:\+}} After the 2-\/second directional maneuver completes, the system samples the IR sensor again.
+\begin{DoxyItemize}
+\item If the path is now clear, it returns to {\ttfamily STATE\+\_\+\+MOVING}.
+\item If the obstacle remains, the recovery sequence repeats for a maximum limit of {\bfseries{3 attempts}}. If the path remains obstructed after the third attempt, the system enters the safe {\ttfamily STATE\+\_\+\+HALTED} fallback state.
+\end{DoxyItemize}
+\item {\bfseries{Transitions:\+}} Pressing button RE8 at any point instantly stops the sequence and shifts the machine to {\ttfamily STATE\+\_\+\+HALTED}.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Real-\/\+Time Task Scheduler \& Telemetry Matrix}{Real-\/\+Time Task Scheduler \& Telemetry Matrix}}\label{md__r_e_a_d_m_e_autotoc_md10}
+Global actions and data collection tasks operate concurrently across all system states using software period flags derived from a unified {\bfseries{500 Hz Timer Interrupt}} heartbeat:\+
+
+
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{bg=\tableheadbgcolor,font=\bfseries}Operation Task  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Assigned Frequency  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Hardware Pin /\+ Peripherals  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Description  \\
+{\bfseries{Main Loop Heartbeat}}  &1 Hz  &{\ttfamily LED AO}  &Toggles state continuously to verify code responsiveness.  \\
+{\bfseries{Battery Monitoring}}  &1 Hz  &{\ttfamily AN11} (ADC)  &Samples voltage after a $ 200\text{ k}\Omega / 100\text{ k}\Omega $ resistor divider network. Transmits telemetry message:\+ {\ttfamily \$MBATT,v\+\_\+batt\textbackslash{}r\textbackslash{}n} (formatted to two decimal places:\+ {\ttfamily X.\+YZ}).  \\
+{\bfseries{Obstacle Sampling}}  &500 Hz  &{\ttfamily AN14} or {\ttfamily AN15}  &Polls distance data using the digital IR enable lines on {\ttfamily RB9} or {\ttfamily RA3}. Transmits telemetry string:\+ {\ttfamily \$MDIST,distance\textbackslash{}r\textbackslash{}n} as an integer at {\bfseries{10 Hz}}.  \\
+{\bfseries{IMU Spatial Fusion}}  &10 Hz  &I2C /\+ SPI Bus  &Tracks filtered Accelerometer ( $ x, y, z $) and Magnetometer coordinates. Computes and transmits standard telemetry string:\+ {\ttfamily \$MANGLE,roll,pitch,yaw\textbackslash{}r\textbackslash{}n}.  \\
+{\bfseries{Control References}}  &Asynchronous  &{\ttfamily RD0/\+\+RP64} (TX)~\newline
+{\ttfamily RD11/\+\+RP175} (RX)  &Decodes reference velocity packets matching the packet frame:\+ {\ttfamily \$PCREF,speed,yawrate\texorpdfstring{$\ast$}{*}}.  \\
+{\bfseries{Buffer Diagnostic}}  &Asynchronous  &Button {\ttfamily RE9}  &Triggers a real-\/time status output tracking the exact frame count of active data bytes sitting within the communication rings:\+ {\ttfamily \$MBUF,tx\+\_\+count,rx\+\_\+count\textbackslash{}r\textbackslash{}n}.  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{H-\/\+Bridge Actuation Logic Mapping}{H-\/\+Bridge Actuation Logic Mapping}}\label{md__r_e_a_d_m_e_autotoc_md12}
+The four independent Output Compare PWM peripherals (configured at {\bfseries{10 k\+Hz}}) actuate directional wheel motion using the following logic table:\+
+
++-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} Direction Command \texorpdfstring{$\vert$}{|} PWM (Duty Cycle \texorpdfstring{$>$}{>} 0) \texorpdfstring{$\vert$}{|} Low-\/\+Level Pin \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} Left Wheels Forward (left\+\_\+pwm \texorpdfstring{$>$}{>} 0) \texorpdfstring{$\vert$}{|} RD2 /\+ RP66 \texorpdfstring{$\vert$}{|} RD1 /\+ RP65 = 0 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Left Wheels Backward (left\+\_\+pwm \texorpdfstring{$<$}{<} 0) \texorpdfstring{$\vert$}{|} RD1 /\+ RP65 \texorpdfstring{$\vert$}{|} RD2 /\+ RP66 = 0 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Right Wheels Forward (right\+\_\+pwm \texorpdfstring{$>$}{>} 0) \texorpdfstring{$\vert$}{|} RD4 /\+ RP68 \texorpdfstring{$\vert$}{|} RD3 /\+ RP67 = 0 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Right Wheels Backward (right\+\_\+pwm \texorpdfstring{$<$}{<} 0)\texorpdfstring{$\vert$}{|} RD3 /\+ RP67 \texorpdfstring{$\vert$}{|} RD4 /\+ RP68 = 0 \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysection{\texorpdfstring{Firmware Integrity \& Safe Integration}{Firmware Integrity \& Safe Integration}}\label{md__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Non-\/\+Blocking Execution Rules:\+}} Software timing loops must never utilize blocking delay functions (e.\+g., {\ttfamily \+\_\+\+\_\+delay\+\_\+ms()}). Timing tracks for structural state tasks (such as the 2-\/second avoidance maneuver) must evaluate increments computed within the periodic 500 Hz Timer Interrupt.
+\item {\bfseries{Interrupt Data Guardrails:\+}} Any telemetry arrays or state structures shared between the main execution thread and the UART/\+\+Timer Peripheral Interrupt Service Routines (ISRs) must be declared with the {\ttfamily volatile} qualifier.
+\item {\bfseries{Atomic Operations:\+}} To ensure total data integrity, wrap data exchanges or state mutations inside brief critical section blocks using assembly built-\/ins ({\ttfamily \+\_\+\+\_\+builtin\+\_\+disi(0x3\+FFF)}) to temporarily disable nested interrupts during shared buffer modifications. 
+\end{DoxyEnumerate}

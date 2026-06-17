@@ -1,0 +1,99 @@
+\doxysection{System\+Sensors\+\_\+t Struct Reference}
+\hypertarget{structSystemSensors__t}{}\label{structSystemSensors__t}\index{SystemSensors\_t@{SystemSensors\_t}}
+
+
+Groups all raw and filtered sensor reading telemetry.  
+
+
+
+
+{\ttfamily \#include $<$robot\+\_\+state.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} \mbox{\hyperlink{structSystemSensors__t_a1673f7bf8c7942c2c5b9e67e9b0f397f}{acc\+\_\+raw}}
+\item 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} \mbox{\hyperlink{structSystemSensors__t_a9e38e0b8e915c53dbc7f812bda263f90}{mag\+\_\+raw}}
+\item 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} \mbox{\hyperlink{structSystemSensors__t_a92e68f2899090522a1d5c2bcd8bb5c65}{gyr\+\_\+raw}}
+\item 
+float \mbox{\hyperlink{structSystemSensors__t_ab3ac8e1dc34f396339f93c01d2782044}{acc\+\_\+x}}
+\item 
+float \mbox{\hyperlink{structSystemSensors__t_a781272f25ca67525c9902c98577122e3}{acc\+\_\+y}}
+\item 
+float \mbox{\hyperlink{structSystemSensors__t_a6056b4ee256dc6b18030852e6cb2e83f}{acc\+\_\+z}}
+\item 
+float \mbox{\hyperlink{structSystemSensors__t_a18472f6318b4979228d5264f23b8a88f}{battery\+\_\+voltage}}
+\item 
+float \mbox{\hyperlink{structSystemSensors__t_a430975d7d55e2abab3240ded0acf52b9}{ir\+\_\+distance}}
+\item 
+\mbox{\hyperlink{structadcState}{adc\+State}} \mbox{\hyperlink{structSystemSensors__t_a69b08aa6d19c9e0939c01d2c50cc6b7f}{adc\+\_\+status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Groups all raw and filtered sensor reading telemetry. 
+
+\label{doc-variable-members}
+\Hypertarget{structSystemSensors__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structSystemSensors__t_a1673f7bf8c7942c2c5b9e67e9b0f397f}\index{SystemSensors\_t@{SystemSensors\_t}!acc\_raw@{acc\_raw}}
+\index{acc\_raw@{acc\_raw}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_raw}{acc\_raw}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a1673f7bf8c7942c2c5b9e67e9b0f397f} 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} acc\+\_\+raw}
+
+Raw XYZ vectors from the accelerometer. \Hypertarget{structSystemSensors__t_ab3ac8e1dc34f396339f93c01d2782044}\index{SystemSensors\_t@{SystemSensors\_t}!acc\_x@{acc\_x}}
+\index{acc\_x@{acc\_x}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_x}{acc\_x}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_ab3ac8e1dc34f396339f93c01d2782044} 
+float acc\+\_\+x}
+
+Filtered/\+Scaled Acceleration X (g). \Hypertarget{structSystemSensors__t_a781272f25ca67525c9902c98577122e3}\index{SystemSensors\_t@{SystemSensors\_t}!acc\_y@{acc\_y}}
+\index{acc\_y@{acc\_y}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_y}{acc\_y}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a781272f25ca67525c9902c98577122e3} 
+float acc\+\_\+y}
+
+Filtered/\+Scaled Acceleration Y (g). \Hypertarget{structSystemSensors__t_a6056b4ee256dc6b18030852e6cb2e83f}\index{SystemSensors\_t@{SystemSensors\_t}!acc\_z@{acc\_z}}
+\index{acc\_z@{acc\_z}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{acc\_z}{acc\_z}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a6056b4ee256dc6b18030852e6cb2e83f} 
+float acc\+\_\+z}
+
+Filtered/\+Scaled Acceleration Z (g). \Hypertarget{structSystemSensors__t_a69b08aa6d19c9e0939c01d2c50cc6b7f}\index{SystemSensors\_t@{SystemSensors\_t}!adc\_status@{adc\_status}}
+\index{adc\_status@{adc\_status}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{adc\_status}{adc\_status}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a69b08aa6d19c9e0939c01d2c50cc6b7f} 
+\mbox{\hyperlink{structadcState}{adc\+State}} adc\+\_\+status}
+
+Internal structure holding ADC hardware states. \Hypertarget{structSystemSensors__t_a18472f6318b4979228d5264f23b8a88f}\index{SystemSensors\_t@{SystemSensors\_t}!battery\_voltage@{battery\_voltage}}
+\index{battery\_voltage@{battery\_voltage}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{battery\_voltage}{battery\_voltage}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a18472f6318b4979228d5264f23b8a88f} 
+float battery\+\_\+voltage}
+
+Computed system battery level (Volts). \Hypertarget{structSystemSensors__t_a92e68f2899090522a1d5c2bcd8bb5c65}\index{SystemSensors\_t@{SystemSensors\_t}!gyr\_raw@{gyr\_raw}}
+\index{gyr\_raw@{gyr\_raw}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{gyr\_raw}{gyr\_raw}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a92e68f2899090522a1d5c2bcd8bb5c65} 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} gyr\+\_\+raw}
+
+Raw XYZ vectors from the gyroscope. \Hypertarget{structSystemSensors__t_a430975d7d55e2abab3240ded0acf52b9}\index{SystemSensors\_t@{SystemSensors\_t}!ir\_distance@{ir\_distance}}
+\index{ir\_distance@{ir\_distance}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{ir\_distance}{ir\_distance}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a430975d7d55e2abab3240ded0acf52b9} 
+float ir\+\_\+distance}
+
+Computed forward obstacle distance (cm). \Hypertarget{structSystemSensors__t_a9e38e0b8e915c53dbc7f812bda263f90}\index{SystemSensors\_t@{SystemSensors\_t}!mag\_raw@{mag\_raw}}
+\index{mag\_raw@{mag\_raw}!SystemSensors\_t@{SystemSensors\_t}}
+\doxysubsubsection{\texorpdfstring{mag\_raw}{mag\_raw}}
+{\footnotesize\ttfamily \label{structSystemSensors__t_a9e38e0b8e915c53dbc7f812bda263f90} 
+\mbox{\hyperlink{structIMUdata}{IMUdata}} mag\+\_\+raw}
+
+Raw XYZ vectors from the magnetometer. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/core/\mbox{\hyperlink{robot__state_8h}{robot\+\_\+state.\+h}}\end{DoxyCompactItemize}

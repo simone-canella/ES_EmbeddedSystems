@@ -1,0 +1,662 @@
+\begin{theindex}
+
+  \item {\_U1RXInterrupt}
+    \subitem {uart.c}, \hyperpage{71}
+    \subitem {uart.h}, \hyperpage{47}
+  \item {\_U1TXInterrupt}
+    \subitem {uart.c}, \hyperpage{71}
+    \subitem {uart.h}, \hyperpage{47}
+
+  \indexspace
+
+  \item {ACC\_CHIP\_ID}
+    \subitem {config.h}, \hyperpage{18}
+  \item {ACC\_CS\_LAT}
+    \subitem {config.h}, \hyperpage{18}
+  \item {ACC\_CS\_TRIS}
+    \subitem {config.h}, \hyperpage{18}
+  \item {acc\_raw}
+    \subitem {SystemSensors\_t}, \hyperpage{14}
+  \item {acc\_x}
+    \subitem {SystemSensors\_t}, \hyperpage{14}
+  \item {acc\_y}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+  \item {acc\_z}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+  \item {adc.c}
+    \subitem {adc\_converter}, \hyperpage{61}
+    \subitem {adc\_init}, \hyperpage{61}
+    \subitem {adc\_scan\_auto}, \hyperpage{61}
+  \item {adc.h}
+    \subitem {adc\_converter}, \hyperpage{34}
+    \subitem {adc\_init}, \hyperpage{34}
+    \subitem {adc\_scan\_auto}, \hyperpage{34}
+  \item {adc\_converter}
+    \subitem {adc.c}, \hyperpage{61}
+    \subitem {adc.h}, \hyperpage{34}
+  \item {adc\_init}
+    \subitem {adc.c}, \hyperpage{61}
+    \subitem {adc.h}, \hyperpage{34}
+  \item {adc\_scan\_auto}
+    \subitem {adc.c}, \hyperpage{61}
+    \subitem {adc.h}, \hyperpage{34}
+  \item {adc\_status}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+  \item {adcState}, \hyperpage{9}
+    \subitem {battery\_voltage}, \hyperpage{9}
+    \subitem {ir\_distance}, \hyperpage{9}
+  \item {arg}
+    \subitem {tasky}, \hyperpage{16}
+  \item {attitude}
+    \subitem {RobotState\_t}, \hyperpage{12}
+
+  \indexspace
+
+  \item {battery\_voltage}
+    \subitem {adcState}, \hyperpage{9}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+  \item {BAUDRATE}
+    \subitem {config.h}, \hyperpage{18}
+  \item {blink\_A0}
+    \subitem {tasks.c}, \hyperpage{57}
+  \item {blink\_lights}
+    \subitem {tasks.c}, \hyperpage{57}
+  \item {BMX055\_mag\_wakeup}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{62}
+    \subitem {BOSCH\_BMX055.h}, \hyperpage{36}
+  \item {BMX055\_setup}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{63}
+    \subitem {BOSCH\_BMX055.h}, \hyperpage{36}
+  \item {BOSCH\_BMX055.c}
+    \subitem {BMX055\_mag\_wakeup}, \hyperpage{62}
+    \subitem {BMX055\_setup}, \hyperpage{63}
+    \subitem {format12bit}, \hyperpage{63}
+    \subitem {format13bit}, \hyperpage{63}
+    \subitem {format15bit}, \hyperpage{63}
+    \subitem {format16bit}, \hyperpage{63}
+    \subitem {imuRead}, \hyperpage{64}
+  \item {BOSCH\_BMX055.h}
+    \subitem {BMX055\_mag\_wakeup}, \hyperpage{36}
+    \subitem {BMX055\_setup}, \hyperpage{36}
+    \subitem {imuRead}, \hyperpage{36}
+  \item {BRGVAL}
+    \subitem {config.h}, \hyperpage{18}
+  \item {btn\_re8}
+    \subitem {SystemIO\_t}, \hyperpage{14}
+  \item {btn\_re9}
+    \subitem {SystemIO\_t}, \hyperpage{14}
+  \item {BTN\_T1\_PORT}
+    \subitem {config.h}, \hyperpage{18}
+  \item {BTN\_T1\_TRIS}
+    \subitem {config.h}, \hyperpage{19}
+  \item {BTN\_T2\_PORT}
+    \subitem {config.h}, \hyperpage{19}
+  \item {BTN\_T2\_TRIS}
+    \subitem {config.h}, \hyperpage{19}
+  \item {button.c}
+    \subitem {button\_has\_just\_been\_pressed}, \hyperpage{65}
+    \subitem {button\_init}, \hyperpage{65}
+  \item {button.h}
+    \subitem {button\_has\_just\_been\_pressed}, \hyperpage{38}
+    \subitem {button\_init}, \hyperpage{38}
+    \subitem {MAXDEBCYCLE}, \hyperpage{37}
+  \item {button\_has\_just\_been\_pressed}
+    \subitem {button.c}, \hyperpage{65}
+    \subitem {button.h}, \hyperpage{38}
+  \item {button\_init}
+    \subitem {button.c}, \hyperpage{65}
+    \subitem {button.h}, \hyperpage{38}
+  \item {button\_polling}
+    \subitem {tasks.c}, \hyperpage{57}
+  \item {ButtonState}, \hyperpage{9}
+    \subitem {debounce\_counter}, \hyperpage{10}
+    \subitem {prev\_state}, \hyperpage{10}
+
+  \indexspace
+
+  \item {car\_stopped}
+    \subitem {tasks.c}, \hyperpage{57}
+  \item {char\_received}
+    \subitem {SystemIO\_t}, \hyperpage{14}
+  \item {circular\_buffer}, \hyperpage{10}
+    \subitem {data}, \hyperpage{10}
+    \subitem {idxH}, \hyperpage{10}
+    \subitem {idxT}, \hyperpage{10}
+    \subitem {size}, \hyperpage{10}
+  \item {clamp}
+    \subitem {pwm.c}, \hyperpage{66}
+  \item {cmd\_vel}
+    \subitem {RobotState\_t}, \hyperpage{12}
+  \item {config.h}
+    \subitem {ACC\_CHIP\_ID}, \hyperpage{18}
+    \subitem {ACC\_CS\_LAT}, \hyperpage{18}
+    \subitem {ACC\_CS\_TRIS}, \hyperpage{18}
+    \subitem {BAUDRATE}, \hyperpage{18}
+    \subitem {BRGVAL}, \hyperpage{18}
+    \subitem {BTN\_T1\_PORT}, \hyperpage{18}
+    \subitem {BTN\_T1\_TRIS}, \hyperpage{19}
+    \subitem {BTN\_T2\_PORT}, \hyperpage{19}
+    \subitem {BTN\_T2\_TRIS}, \hyperpage{19}
+    \subitem {FCY}, \hyperpage{19}
+    \subitem {GYR\_CHIP\_ID}, \hyperpage{19}
+    \subitem {GYR\_CS\_LAT}, \hyperpage{19}
+    \subitem {GYR\_CS\_TRIS}, \hyperpage{19}
+    \subitem {LED1\_LAT}, \hyperpage{19}
+    \subitem {LED1\_TRIS}, \hyperpage{19}
+    \subitem {LIL\_LAT}, \hyperpage{19}
+    \subitem {LIL\_TRIS}, \hyperpage{19}
+    \subitem {LSL\_LAT}, \hyperpage{19}
+    \subitem {LSL\_TRIS}, \hyperpage{20}
+    \subitem {MAG\_CHIP\_ID}, \hyperpage{20}
+    \subitem {MAG\_CS\_LAT}, \hyperpage{20}
+    \subitem {MAG\_CS\_TRIS}, \hyperpage{20}
+    \subitem {MAG\_OFFSET\_X}, \hyperpage{20}
+    \subitem {MAG\_OFFSET\_Y}, \hyperpage{20}
+    \subitem {MAG\_OFFSET\_Z}, \hyperpage{20}
+    \subitem {MSG\_ERR\_INPUT}, \hyperpage{20}
+    \subitem {RAD\_TO\_DEG}, \hyperpage{20}
+    \subitem {RSL\_LAT}, \hyperpage{20}
+    \subitem {RSL\_TRIS}, \hyperpage{20}
+    \subitem {SPI1\_MISO\_RPIN}, \hyperpage{20}
+    \subitem {SPI1\_MOSI\_RPIN}, \hyperpage{21}
+    \subitem {SPI1\_PPRE}, \hyperpage{21}
+    \subitem {SPI1\_SCK\_RPIN}, \hyperpage{21}
+    \subitem {SPI1\_SPRE}, \hyperpage{21}
+    \subitem {UART1\_RX\_RPIN}, \hyperpage{21}
+    \subitem {UART1\_TX\_RPIN}, \hyperpage{21}
+  \item {current\_phase}
+    \subitem {MissionControl\_t}, \hyperpage{11}
+
+  \indexspace
+
+  \item {data}
+    \subitem {circular\_buffer}, \hyperpage{10}
+  \item {debounce\_counter}
+    \subitem {ButtonState}, \hyperpage{10}
+  \item {disable\_task}
+    \subitem {scheduler.c}, \hyperpage{55}
+    \subitem {scheduler.h}, \hyperpage{28}
+  \item {dispatch\_event}
+    \subitem {fsm.c}, \hyperpage{51}
+    \subitem {fsm.h}, \hyperpage{23}
+
+  \indexspace
+
+  \item {enable}
+    \subitem {tasky}, \hyperpage{16}
+  \item {enable\_task}
+    \subitem {scheduler.c}, \hyperpage{55}
+    \subitem {scheduler.h}, \hyperpage{28}
+  \item {evaluate\_obstacle}
+    \subitem {fsm.c}, \hyperpage{51}
+  \item {EVENT\_MANEUVER\_COMPLETE}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {EVENT\_OBSTACLE\_DETECTED}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {EVENT\_RE8\_PRESSED}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {Event\_t}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {execute\_motion}
+    \subitem {pwm.c}, \hyperpage{66}
+    \subitem {pwm.h}, \hyperpage{39}
+
+  \indexspace
+
+  \item {f}
+    \subitem {tasky}, \hyperpage{16}
+  \item {FCY}
+    \subitem {config.h}, \hyperpage{19}
+  \item {format12bit}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{63}
+  \item {format13bit}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{63}
+  \item {format15bit}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{63}
+  \item {format16bit}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{63}
+  \item {fsm.c}
+    \subitem {dispatch\_event}, \hyperpage{51}
+    \subitem {evaluate\_obstacle}, \hyperpage{51}
+    \subitem {fsm\_init}, \hyperpage{52}
+    \subitem {get\_current\_state}, \hyperpage{52}
+    \subitem {handle\_halt}, \hyperpage{52}
+    \subitem {handle\_move}, \hyperpage{52}
+    \subitem {handle\_obstacle}, \hyperpage{53}
+    \subitem {state\_table}, \hyperpage{53}
+  \item {fsm.h}
+    \subitem {dispatch\_event}, \hyperpage{23}
+    \subitem {EVENT\_MANEUVER\_COMPLETE}, \hyperpage{23}
+    \subitem {EVENT\_OBSTACLE\_DETECTED}, \hyperpage{23}
+    \subitem {EVENT\_RE8\_PRESSED}, \hyperpage{23}
+    \subitem {Event\_t}, \hyperpage{23}
+    \subitem {fsm\_init}, \hyperpage{24}
+    \subitem {get\_current\_state}, \hyperpage{24}
+    \subitem {MAX\_EVENTS}, \hyperpage{23}
+    \subitem {MAX\_STATES}, \hyperpage{23}
+    \subitem {STATE\_HALTED}, \hyperpage{23}
+    \subitem {STATE\_MOVING}, \hyperpage{23}
+    \subitem {STATE\_OBSTACLE\_AVOIDANCE}, \hyperpage{23}
+    \subitem {State\_t}, \hyperpage{23}
+  \item {fsm\_init}
+    \subitem {fsm.c}, \hyperpage{52}
+    \subitem {fsm.h}, \hyperpage{24}
+
+  \indexspace
+
+  \item {get\_current\_state}
+    \subitem {fsm.c}, \hyperpage{52}
+    \subitem {fsm.h}, \hyperpage{24}
+  \item {GYR\_CHIP\_ID}
+    \subitem {config.h}, \hyperpage{19}
+  \item {GYR\_CS\_LAT}
+    \subitem {config.h}, \hyperpage{19}
+  \item {GYR\_CS\_TRIS}
+    \subitem {config.h}, \hyperpage{19}
+  \item {gyr\_raw}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+
+  \indexspace
+
+  \item {handle\_halt}
+    \subitem {fsm.c}, \hyperpage{52}
+  \item {handle\_move}
+    \subitem {fsm.c}, \hyperpage{52}
+  \item {handle\_obstacle}
+    \subitem {fsm.c}, \hyperpage{53}
+  \item {hw\_init}
+    \subitem {tasks.c}, \hyperpage{59}
+    \subitem {tasks.h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {idxH}
+    \subitem {circular\_buffer}, \hyperpage{10}
+  \item {idxT}
+    \subitem {circular\_buffer}, \hyperpage{10}
+  \item {IMUdata}, \hyperpage{10}
+    \subitem {x}, \hyperpage{11}
+    \subitem {y}, \hyperpage{11}
+    \subitem {z}, \hyperpage{11}
+  \item {imuRead}
+    \subitem {BOSCH\_BMX055.c}, \hyperpage{64}
+    \subitem {BOSCH\_BMX055.h}, \hyperpage{36}
+  \item {include/core/config.h}, \hyperpage{17}, \hyperpage{21}
+  \item {include/core/fsm.h}, \hyperpage{22}, \hyperpage{24}
+  \item {include/core/robot\_state.h}, \hyperpage{25, 26}
+  \item {include/core/scheduler.h}, \hyperpage{27}, \hyperpage{30}
+  \item {include/core/tasks.h}, \hyperpage{31}, \hyperpage{33}
+  \item {include/drivers/adc.h}, \hyperpage{33, 34}
+  \item {include/drivers/BOSCH\_BMX055.h}, \hyperpage{35}, 
+		\hyperpage{37}
+  \item {include/drivers/button.h}, \hyperpage{37, 38}
+  \item {include/drivers/pwm.h}, \hyperpage{39, 40}
+  \item {include/drivers/spi.h}, \hyperpage{40, 41}
+  \item {include/drivers/timer.h}, \hyperpage{42}, \hyperpage{46}
+  \item {include/drivers/uart.h}, \hyperpage{46}, \hyperpage{50}
+  \item {io}
+    \subitem {RobotState\_t}, \hyperpage{12}
+  \item {ir\_distance}
+    \subitem {adcState}, \hyperpage{9}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+
+  \indexspace
+
+  \item {LED1\_LAT}
+    \subitem {config.h}, \hyperpage{19}
+  \item {LED1\_TRIS}
+    \subitem {config.h}, \hyperpage{19}
+  \item {LIL\_LAT}
+    \subitem {config.h}, \hyperpage{19}
+  \item {LIL\_TRIS}
+    \subitem {config.h}, \hyperpage{19}
+  \item {LSL\_LAT}
+    \subitem {config.h}, \hyperpage{19}
+  \item {LSL\_TRIS}
+    \subitem {config.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {MAG\_CHIP\_ID}
+    \subitem {config.h}, \hyperpage{20}
+  \item {MAG\_CS\_LAT}
+    \subitem {config.h}, \hyperpage{20}
+  \item {MAG\_CS\_TRIS}
+    \subitem {config.h}, \hyperpage{20}
+  \item {MAG\_OFFSET\_X}
+    \subitem {config.h}, \hyperpage{20}
+  \item {MAG\_OFFSET\_Y}
+    \subitem {config.h}, \hyperpage{20}
+  \item {MAG\_OFFSET\_Z}
+    \subitem {config.h}, \hyperpage{20}
+  \item {mag\_raw}
+    \subitem {SystemSensors\_t}, \hyperpage{15}
+  \item {main}
+    \subitem {main.c}, \hyperpage{54}
+  \item {Main Page}, \hyperpage{1}
+  \item {main.c}
+    \subitem {main}, \hyperpage{54}
+  \item {MAX\_EVENTS}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {MAX\_STATES}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {MAXDEBCYCLE}
+    \subitem {button.h}, \hyperpage{37}
+  \item {mission}
+    \subitem {RobotState\_t}, \hyperpage{12}
+  \item {MissionControl\_t}, \hyperpage{11}
+    \subitem {current\_phase}, \hyperpage{11}
+    \subitem {next\_phase}, \hyperpage{11}
+    \subitem {obstacle\_counter}, \hyperpage{11}
+    \subitem {phase\_counter}, \hyperpage{12}
+  \item {move}
+    \subitem {tasks.c}, \hyperpage{59}
+  \item {MSG\_ERR\_INPUT}
+    \subitem {config.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {N}
+    \subitem {tasky}, \hyperpage{16}
+  \item {n}
+    \subitem {tasky}, \hyperpage{16}
+  \item {next\_phase}
+    \subitem {MissionControl\_t}, \hyperpage{11}
+
+  \indexspace
+
+  \item {OBAV\_PHASE\_EXIT}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {OBAV\_PHASE\_MOVE\_FW}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {OBAV\_PHASE\_ROTATE\_CCW}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {OBAV\_PHASE\_ROTATE\_CW}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {OBAV\_PHASE\_STOP}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {ObAvPhase\_t}
+    \subitem {robot\_state.h}, \hyperpage{26}
+  \item {obstacle\_counter}
+    \subitem {MissionControl\_t}, \hyperpage{11}
+
+  \indexspace
+
+  \item {phase\_counter}
+    \subitem {MissionControl\_t}, \hyperpage{12}
+  \item {pitch}
+    \subitem {SystemAttitude\_t}, \hyperpage{13}
+  \item {prev\_state}
+    \subitem {ButtonState}, \hyperpage{10}
+  \item {pwm.c}
+    \subitem {clamp}, \hyperpage{66}
+    \subitem {execute\_motion}, \hyperpage{66}
+    \subitem {pwm\_init}, \hyperpage{66}
+    \subitem {pwm\_set\_duty\_cycle}, \hyperpage{66}
+  \item {pwm.h}
+    \subitem {execute\_motion}, \hyperpage{39}
+    \subitem {pwm\_init}, \hyperpage{39}
+    \subitem {pwm\_set\_duty\_cycle}, \hyperpage{40}
+  \item {pwm\_init}
+    \subitem {pwm.c}, \hyperpage{66}
+    \subitem {pwm.h}, \hyperpage{39}
+  \item {pwm\_set\_duty\_cycle}
+    \subitem {pwm.c}, \hyperpage{66}
+    \subitem {pwm.h}, \hyperpage{40}
+
+  \indexspace
+
+  \item {RAD\_TO\_DEG}
+    \subitem {config.h}, \hyperpage{20}
+  \item {read\_acc\_mag}
+    \subitem {tasks.c}, \hyperpage{59}
+  \item {read\_gyro}
+    \subitem {tasks.c}, \hyperpage{59}
+  \item {read\_IR}
+    \subitem {tasks.c}, \hyperpage{59}
+  \item {register\_task}
+    \subitem {scheduler.c}, \hyperpage{55}
+    \subitem {scheduler.h}, \hyperpage{28}
+  \item {relative\_yaw}
+    \subitem {SystemAttitude\_t}, \hyperpage{13}
+  \item {robot\_state.h}
+    \subitem {OBAV\_PHASE\_EXIT}, \hyperpage{26}
+    \subitem {OBAV\_PHASE\_MOVE\_FW}, \hyperpage{26}
+    \subitem {OBAV\_PHASE\_ROTATE\_CCW}, \hyperpage{26}
+    \subitem {OBAV\_PHASE\_ROTATE\_CW}, \hyperpage{26}
+    \subitem {OBAV\_PHASE\_STOP}, \hyperpage{26}
+    \subitem {ObAvPhase\_t}, \hyperpage{26}
+  \item {RobotState\_t}, \hyperpage{12}
+    \subitem {attitude}, \hyperpage{12}
+    \subitem {cmd\_vel}, \hyperpage{12}
+    \subitem {io}, \hyperpage{12}
+    \subitem {mission}, \hyperpage{12}
+    \subitem {sensors}, \hyperpage{12}
+  \item {roll}
+    \subitem {SystemAttitude\_t}, \hyperpage{13}
+  \item {RSL\_LAT}
+    \subitem {config.h}, \hyperpage{20}
+  \item {RSL\_TRIS}
+    \subitem {config.h}, \hyperpage{20}
+  \item {rx\_cmd}
+    \subitem {SystemIO\_t}, \hyperpage{14}
+
+  \indexspace
+
+  \item {scheduler}
+    \subitem {scheduler.c}, \hyperpage{55}
+    \subitem {scheduler.h}, \hyperpage{30}
+  \item {scheduler.c}
+    \subitem {disable\_task}, \hyperpage{55}
+    \subitem {enable\_task}, \hyperpage{55}
+    \subitem {register\_task}, \hyperpage{55}
+    \subitem {scheduler}, \hyperpage{55}
+  \item {scheduler.h}
+    \subitem {disable\_task}, \hyperpage{28}
+    \subitem {enable\_task}, \hyperpage{28}
+    \subitem {register\_task}, \hyperpage{28}
+    \subitem {scheduler}, \hyperpage{30}
+    \subitem {tick\_ms}, \hyperpage{27}
+  \item {sensors}
+    \subitem {RobotState\_t}, \hyperpage{12}
+  \item {size}
+    \subitem {circular\_buffer}, \hyperpage{10}
+  \item {spi.c}
+    \subitem {spi1\_mikrobus1\_setup}, \hyperpage{67}
+    \subitem {spi1\_write}, \hyperpage{67}
+  \item {spi.h}
+    \subitem {spi1\_mikrobus1\_setup}, \hyperpage{41}
+    \subitem {spi1\_write}, \hyperpage{41}
+  \item {spi1\_mikrobus1\_setup}
+    \subitem {spi.c}, \hyperpage{67}
+    \subitem {spi.h}, \hyperpage{41}
+  \item {SPI1\_MISO\_RPIN}
+    \subitem {config.h}, \hyperpage{20}
+  \item {SPI1\_MOSI\_RPIN}
+    \subitem {config.h}, \hyperpage{21}
+  \item {SPI1\_PPRE}
+    \subitem {config.h}, \hyperpage{21}
+  \item {SPI1\_SCK\_RPIN}
+    \subitem {config.h}, \hyperpage{21}
+  \item {SPI1\_SPRE}
+    \subitem {config.h}, \hyperpage{21}
+  \item {spi1\_write}
+    \subitem {spi.c}, \hyperpage{67}
+    \subitem {spi.h}, \hyperpage{41}
+  \item {src/core/fsm.c}, \hyperpage{50}
+  \item {src/core/main.c}, \hyperpage{53}
+  \item {src/core/scheduler.c}, \hyperpage{54}
+  \item {src/core/tasks.c}, \hyperpage{55}
+  \item {src/drivers/adc.c}, \hyperpage{61}
+  \item {src/drivers/BOSCH\_BMX055.c}, \hyperpage{62}
+  \item {src/drivers/button.c}, \hyperpage{64}
+  \item {src/drivers/pwm.c}, \hyperpage{65}
+  \item {src/drivers/spi.c}, \hyperpage{67}
+  \item {src/drivers/timer.c}, \hyperpage{68}
+  \item {src/drivers/uart.c}, \hyperpage{70}
+  \item {STATE\_HALTED}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {STATE\_MOVING}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {STATE\_OBSTACLE\_AVOIDANCE}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {State\_t}
+    \subitem {fsm.h}, \hyperpage{23}
+  \item {state\_table}
+    \subitem {fsm.c}, \hyperpage{53}
+  \item {SystemAttitude\_t}, \hyperpage{13}
+    \subitem {pitch}, \hyperpage{13}
+    \subitem {relative\_yaw}, \hyperpage{13}
+    \subitem {roll}, \hyperpage{13}
+    \subitem {yaw}, \hyperpage{13}
+  \item {SystemIO\_t}, \hyperpage{13}
+    \subitem {btn\_re8}, \hyperpage{14}
+    \subitem {btn\_re9}, \hyperpage{14}
+    \subitem {char\_received}, \hyperpage{14}
+    \subitem {rx\_cmd}, \hyperpage{14}
+    \subitem {tx\_buffer}, \hyperpage{14}
+  \item {SystemSensors\_t}, \hyperpage{14}
+    \subitem {acc\_raw}, \hyperpage{14}
+    \subitem {acc\_x}, \hyperpage{14}
+    \subitem {acc\_y}, \hyperpage{15}
+    \subitem {acc\_z}, \hyperpage{15}
+    \subitem {adc\_status}, \hyperpage{15}
+    \subitem {battery\_voltage}, \hyperpage{15}
+    \subitem {gyr\_raw}, \hyperpage{15}
+    \subitem {ir\_distance}, \hyperpage{15}
+    \subitem {mag\_raw}, \hyperpage{15}
+
+  \indexspace
+
+  \item {tasks.c}
+    \subitem {blink\_A0}, \hyperpage{57}
+    \subitem {blink\_lights}, \hyperpage{57}
+    \subitem {button\_polling}, \hyperpage{57}
+    \subitem {car\_stopped}, \hyperpage{57}
+    \subitem {hw\_init}, \hyperpage{59}
+    \subitem {move}, \hyperpage{59}
+    \subitem {read\_acc\_mag}, \hyperpage{59}
+    \subitem {read\_gyro}, \hyperpage{59}
+    \subitem {read\_IR}, \hyperpage{59}
+    \subitem {tasks\_init}, \hyperpage{60}
+    \subitem {UART\_bat\_log}, \hyperpage{60}
+    \subitem {UART\_get\_twist}, \hyperpage{60}
+    \subitem {UART\_log}, \hyperpage{60}
+    \subitem {UART\_log\_bt}, \hyperpage{60}
+  \item {tasks.h}
+    \subitem {hw\_init}, \hyperpage{31}
+    \subitem {tasks\_init}, \hyperpage{31}
+  \item {tasks\_init}
+    \subitem {tasks.c}, \hyperpage{60}
+    \subitem {tasks.h}, \hyperpage{31}
+  \item {tasky}, \hyperpage{15}
+    \subitem {arg}, \hyperpage{16}
+    \subitem {enable}, \hyperpage{16}
+    \subitem {f}, \hyperpage{16}
+    \subitem {N}, \hyperpage{16}
+    \subitem {n}, \hyperpage{16}
+  \item {tick\_ms}
+    \subitem {scheduler.h}, \hyperpage{27}
+  \item {timer.c}
+    \subitem {tmr\_setup\_period}, \hyperpage{68}
+    \subitem {tmr\_wait\_ms}, \hyperpage{68}
+    \subitem {tmr\_wait\_period}, \hyperpage{70}
+  \item {timer.h}
+    \subitem {tmr\_setup\_period}, \hyperpage{42}
+    \subitem {tmr\_wait\_ms}, \hyperpage{44}
+    \subitem {tmr\_wait\_period}, \hyperpage{44}
+  \item {tmr\_setup\_period}
+    \subitem {timer.c}, \hyperpage{68}
+    \subitem {timer.h}, \hyperpage{42}
+  \item {tmr\_wait\_ms}
+    \subitem {timer.c}, \hyperpage{68}
+    \subitem {timer.h}, \hyperpage{44}
+  \item {tmr\_wait\_period}
+    \subitem {timer.c}, \hyperpage{70}
+    \subitem {timer.h}, \hyperpage{44}
+  \item {Twist\_t}, \hyperpage{16}
+    \subitem {v}, \hyperpage{16}
+    \subitem {w}, \hyperpage{16}
+  \item {tx\_buffer}
+    \subitem {SystemIO\_t}, \hyperpage{14}
+
+  \indexspace
+
+  \item {uart.c}
+    \subitem {\_U1RXInterrupt}, \hyperpage{71}
+    \subitem {\_U1TXInterrupt}, \hyperpage{71}
+    \subitem {uart1\_get\_rx\_count}, \hyperpage{71}
+    \subitem {uart1\_get\_tx\_count}, \hyperpage{71}
+    \subitem {uart1\_mikrobus2\_setup}, \hyperpage{71}
+    \subitem {uart1\_read\_char}, \hyperpage{72}
+    \subitem {uart1\_write}, \hyperpage{72}
+  \item {uart.h}
+    \subitem {\_U1RXInterrupt}, \hyperpage{47}
+    \subitem {\_U1TXInterrupt}, \hyperpage{47}
+    \subitem {uart1\_get\_rx\_count}, \hyperpage{47}
+    \subitem {uart1\_get\_tx\_count}, \hyperpage{48}
+    \subitem {uart1\_mikrobus2\_setup}, \hyperpage{48}
+    \subitem {uart1\_read\_char}, \hyperpage{48}
+    \subitem {uart1\_write}, \hyperpage{48}
+    \subitem {UART\_RX\_BUF\_SIZE}, \hyperpage{47}
+    \subitem {UART\_TX\_BUF\_SIZE}, \hyperpage{47}
+  \item {uart1\_get\_rx\_count}
+    \subitem {uart.c}, \hyperpage{71}
+    \subitem {uart.h}, \hyperpage{47}
+  \item {uart1\_get\_tx\_count}
+    \subitem {uart.c}, \hyperpage{71}
+    \subitem {uart.h}, \hyperpage{48}
+  \item {uart1\_mikrobus2\_setup}
+    \subitem {uart.c}, \hyperpage{71}
+    \subitem {uart.h}, \hyperpage{48}
+  \item {uart1\_read\_char}
+    \subitem {uart.c}, \hyperpage{72}
+    \subitem {uart.h}, \hyperpage{48}
+  \item {UART1\_RX\_RPIN}
+    \subitem {config.h}, \hyperpage{21}
+  \item {UART1\_TX\_RPIN}
+    \subitem {config.h}, \hyperpage{21}
+  \item {uart1\_write}
+    \subitem {uart.c}, \hyperpage{72}
+    \subitem {uart.h}, \hyperpage{48}
+  \item {UART\_bat\_log}
+    \subitem {tasks.c}, \hyperpage{60}
+  \item {UART\_get\_twist}
+    \subitem {tasks.c}, \hyperpage{60}
+  \item {UART\_log}
+    \subitem {tasks.c}, \hyperpage{60}
+  \item {UART\_log\_bt}
+    \subitem {tasks.c}, \hyperpage{60}
+  \item {UART\_RX\_BUF\_SIZE}
+    \subitem {uart.h}, \hyperpage{47}
+  \item {UART\_TX\_BUF\_SIZE}
+    \subitem {uart.h}, \hyperpage{47}
+
+  \indexspace
+
+  \item {v}
+    \subitem {Twist\_t}, \hyperpage{16}
+
+  \indexspace
+
+  \item {w}
+    \subitem {Twist\_t}, \hyperpage{16}
+
+  \indexspace
+
+  \item {x}
+    \subitem {IMUdata}, \hyperpage{11}
+
+  \indexspace
+
+  \item {y}
+    \subitem {IMUdata}, \hyperpage{11}
+  \item {yaw}
+    \subitem {SystemAttitude\_t}, \hyperpage{13}
+
+  \indexspace
+
+  \item {z}
+    \subitem {IMUdata}, \hyperpage{11}
+
+\end{theindex}

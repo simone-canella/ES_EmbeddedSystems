@@ -1,0 +1,5 @@
+{
+    "C_Cpp.default.compilerPath": "/opt/microchip/xc16/v2.10/bin/xc16-gcc",
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}/_build/assignment_1/default",
+    "cmake.ignoreCMakeListsMissing": true
+}

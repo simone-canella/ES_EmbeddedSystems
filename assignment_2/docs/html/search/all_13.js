@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['scheduler_0',['scheduler',['../scheduler_8h.html#ad8e3087dd5a5c3096d2499c84f670c28',1,'scheduler():&#160;scheduler.c'],['../scheduler_8c.html#a9fa00b0be5d3c4781048861e2506eb63',1,'scheduler(void):&#160;scheduler.c']]],
+  ['scheduler_20matrix_1',['Real-Time Task Scheduler Matrix',['../index.html#autotoc_md9',1,'']]],
+  ['scheduler_2ec_2',['scheduler.c',['../scheduler_8c.html',1,'']]],
+  ['scheduler_2eh_3',['scheduler.h',['../scheduler_8h.html',1,'']]],
+  ['sensors_4',['sensors',['../struct_robot_state__t.html#a6937f07393e37c955eddd8c37c30cf93',1,'RobotState_t']]],
+  ['size_5',['size',['../structcircular__buffer.html#ae3ee10155d3e6bc728ed1df74e8e72bf',1,'circular_buffer']]],
+  ['spi_2ec_6',['spi.c',['../spi_8c.html',1,'']]],
+  ['spi_2eh_7',['spi.h',['../spi_8h.html',1,'']]],
+  ['spi1_5fmikrobus1_5fsetup_8',['spi1_mikrobus1_setup',['../spi_8h.html#abd82874e883c306ca89d909952c0626a',1,'spi1_mikrobus1_setup():&#160;spi.c'],['../spi_8c.html#abd82874e883c306ca89d909952c0626a',1,'spi1_mikrobus1_setup():&#160;spi.c']]],
+  ['spi1_5fmiso_5frpin_9',['SPI1_MISO_RPIN',['../config_8h.html#ab7dd4999f8065bc7b38eb17607f34eaa',1,'config.h']]],
+  ['spi1_5fmosi_5frpin_10',['SPI1_MOSI_RPIN',['../config_8h.html#ad49004a6d2df923bd55300c52d7e91ea',1,'config.h']]],
+  ['spi1_5fppre_11',['SPI1_PPRE',['../config_8h.html#a97476fd466a0045342316c7a2a0c6ccb',1,'config.h']]],
+  ['spi1_5fsck_5frpin_12',['SPI1_SCK_RPIN',['../config_8h.html#ad4e9691f8d6dd93b17f2c39d76c881e2',1,'config.h']]],
+  ['spi1_5fspre_13',['SPI1_SPRE',['../config_8h.html#ae61570500e1258028b30482878be16d7',1,'config.h']]],
+  ['spi1_5fwrite_14',['spi1_write',['../spi_8h.html#a347588060adb7585f9290d360c627966',1,'spi1_write(unsigned int data):&#160;spi.c'],['../spi_8c.html#a347588060adb7585f9290d360c627966',1,'spi1_write(unsigned int data):&#160;spi.c']]],
+  ['state_20machine_20fsm_15',['Finite State Machine (FSM)',['../index.html#autotoc_md4',1,'']]],
+  ['state_5fhalted_16',['STATE_HALTED',['../index.html#autotoc_md5',1,'1. STATE_HALTED'],['../fsm_8h.html#ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3',1,'STATE_HALTED:&#160;fsm.h']]],
+  ['state_5fmoving_17',['STATE_MOVING',['../index.html#autotoc_md6',1,'2. STATE_MOVING'],['../fsm_8h.html#ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6',1,'STATE_MOVING:&#160;fsm.h']]],
+  ['state_5fobstacle_5favoidance_18',['STATE_OBSTACLE_AVOIDANCE',['../index.html#autotoc_md7',1,'3. STATE_OBSTACLE_AVOIDANCE'],['../fsm_8h.html#ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0',1,'STATE_OBSTACLE_AVOIDANCE:&#160;fsm.h']]],
+  ['state_5ft_19',['State_t',['../fsm_8h.html#ae2946618e700f814e6147195c808f4c8',1,'fsm.h']]],
+  ['state_5ftable_20',['state_table',['../fsm_8c.html#a27d5b9351e8b1b15cc1fa3dd9f6998c0',1,'fsm.c']]],
+  ['system_20architecture_21',['System Architecture',['../index.html#autotoc_md2',1,'']]],
+  ['systemattitude_5ft_22',['SystemAttitude_t',['../struct_system_attitude__t.html',1,'']]],
+  ['systemio_5ft_23',['SystemIO_t',['../struct_system_i_o__t.html',1,'']]],
+  ['systemsensors_5ft_24',['SystemSensors_t',['../struct_system_sensors__t.html',1,'']]]
+];

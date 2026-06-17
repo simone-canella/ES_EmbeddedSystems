@@ -1,25 +1,60 @@
-# Ignore any build or cmake directories anywhere in the repository
-**/_build/
-**/cmake/
-**/CMakeFiles/
+# ==========================================
+# Build Directories & Project Artifacts
+# ==========================================
+_build/
+out/
+tmp/
 
-# Ignore specific build tool artifacts
-**/CMakeCache.txt
-**/CMakePresets.json
-**/build.ninja
-**/*.ninja_deps
-**/*.ninja_log
-**/cmake_install.cmake
-**/compile_commands.json
-**/memoryfile.xml
-
-# Ignore local user workspace settings
-*.user
-.cmake/
-
-# Ignore compiled binary outputs
+# Compiled objects and binaries
 *.o
 *.elf
 *.hex
-*.d
-*.cof
+a.out
+
+# ==========================================
+# CMake and Ninja build artifacts
+# ==========================================
+CMakeCache.txt
+CMakeFiles/
+CMakeConfigureLog.yaml
+build.ninja
+rules.ninja
+cmake_install.cmake
+cmake.check_cache
+compile_commands.json
+
+# ==========================================
+# Microchip XC16 Compiler / IDE Specifics
+# ==========================================
+memoryfile.xml
+TargetDirectories.txt
+pkgRedirects/
+InstallScripts.json
+*-settings.json
+MPLAB.txt
+
+# ==========================================
+# Doxygen Documentation Protection Filters
+# ==========================================
+# Ignore intermediate TeX formula logs and temporary code maps
+docs/*.tex
+docs/*.log
+docs/*.aux
+docs/*.toc
+docs/*.synctex.gz
+
+# NEVER ignore the final HTML website assets
+!docs/**/*.html
+!docs/**/*.css
+!docs/**/*.js
+!docs/**/*.png
+!docs/**/*.svg
+!docs/**/*.jpg
+!docs/.nojekyll
+
+# ==========================================
+# Miscellaneous and Untracked Files
+# ==========================================
+tree.txt
+.DS_Store
+Thumbs.db

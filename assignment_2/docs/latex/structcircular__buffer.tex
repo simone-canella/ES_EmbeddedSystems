@@ -1,0 +1,55 @@
+\doxysection{circular\+\_\+buffer Struct Reference}
+\hypertarget{structcircular__buffer}{}\label{structcircular__buffer}\index{circular\_buffer@{circular\_buffer}}
+
+
+Internal circular buffer structure for non-\/blocking data queuing.  
+
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structcircular__buffer_a7d9a08f663c801aacade27caae5b337e}{data}}
+\item 
+volatile int \doxymbox{\hyperlink{structcircular__buffer_a28bbb428f655bac49c30ac3e7e2c154a}{idxH}}
+\item 
+volatile int \doxymbox{\hyperlink{structcircular__buffer_add00f0057947ca059d03d3630663998e}{idxT}}
+\item 
+volatile int \doxymbox{\hyperlink{structcircular__buffer_ae3ee10155d3e6bc728ed1df74e8e72bf}{size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internal circular buffer structure for non-\/blocking data queuing. 
+
+\label{structcircular__buffer_doc-variable-members}
+\Hypertarget{structcircular__buffer_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structcircular__buffer_a7d9a08f663c801aacade27caae5b337e}\index{circular\_buffer@{circular\_buffer}!data@{data}}
+\index{data@{data}!circular\_buffer@{circular\_buffer}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{structcircular__buffer_a7d9a08f663c801aacade27caae5b337e} 
+volatile char\texorpdfstring{$\ast$}{*} data}
+
+Pointer to the data array \Hypertarget{structcircular__buffer_a28bbb428f655bac49c30ac3e7e2c154a}\index{circular\_buffer@{circular\_buffer}!idxH@{idxH}}
+\index{idxH@{idxH}!circular\_buffer@{circular\_buffer}}
+\doxysubsubsection{\texorpdfstring{idxH}{idxH}}
+{\footnotesize\ttfamily \label{structcircular__buffer_a28bbb428f655bac49c30ac3e7e2c154a} 
+volatile int idxH}
+
+The index we WRITE to \Hypertarget{structcircular__buffer_add00f0057947ca059d03d3630663998e}\index{circular\_buffer@{circular\_buffer}!idxT@{idxT}}
+\index{idxT@{idxT}!circular\_buffer@{circular\_buffer}}
+\doxysubsubsection{\texorpdfstring{idxT}{idxT}}
+{\footnotesize\ttfamily \label{structcircular__buffer_add00f0057947ca059d03d3630663998e} 
+volatile int idxT}
+
+The index we READ from \Hypertarget{structcircular__buffer_ae3ee10155d3e6bc728ed1df74e8e72bf}\index{circular\_buffer@{circular\_buffer}!size@{size}}
+\index{size@{size}!circular\_buffer@{circular\_buffer}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structcircular__buffer_ae3ee10155d3e6bc728ed1df74e8e72bf} 
+volatile int size}
+
+Total capacity of the buffer 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+src/\+drivers/\+\doxymbox{\hyperlink{uart_8c}{uart.\+c}}\end{DoxyCompactItemize}

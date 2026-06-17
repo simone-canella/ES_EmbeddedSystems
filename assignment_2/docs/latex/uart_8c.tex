@@ -1,0 +1,159 @@
+\doxysection{src/\+drivers/\+uart.c File Reference}
+\hypertarget{uart_8c}{}\label{uart_8c}\index{src/drivers/uart.c@{src/drivers/uart.c}}
+
+
+Non-\/blocking UART driver implementation using circular buffers and interrupts.  
+
+
+{\ttfamily \+\#include "{}uart.\+h"{}}\newline
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structcircular__buffer}{circular\+\_\+buffer}}
+\begin{DoxyCompactList}\small\item\em Internal circular buffer structure for non-\/blocking data queuing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{uart_8c_aa131423f7442221d2f06186c20f26d86}{uart1\+\_\+mikrobus2\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Configures UART1 hardware pins, registers, and communication buffers. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8c_ad1220b22b2b156bfcca1b2759f5bd9d8}{uart1\+\_\+write}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Non-\/blocking function to queue a string for UART transmission. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uart_8c_a677ede9c0b46557fafb2142bea4eddfa}{\+\_\+\+U1\+TXInterrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Hardware interrupt service routine for UART1 transmission. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{uart_8c_ab5b5e10f6df73914ef26fc0f76e30d91}{\+\_\+\+U1\+RXInterrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Hardware interrupt service routine for UART1 reception. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8c_a97dd15ca6cd37ff8ab6fbb3e3cc87649}{uart1\+\_\+read\+\_\+char}} (void)
+\begin{DoxyCompactList}\small\item\em Non-\/blocking function to fetch a single character from the RX buffer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8c_ab0a34a5db49ee8999b251cec3ea47c43}{uart1\+\_\+get\+\_\+tx\+\_\+count}} (void)
+\begin{DoxyCompactList}\small\item\em Calculates the number of bytes currently waiting in the TX circular buffer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{uart_8c_a0bae162035029c1473def6f17d1b5408}{uart1\+\_\+get\+\_\+rx\+\_\+count}} (void)
+\begin{DoxyCompactList}\small\item\em Calculates the number of unread bytes currently residing in the RX circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{uart_8c_a831d8dce268b17720ee7c22726a1b477}\label{uart_8c_a831d8dce268b17720ee7c22726a1b477} 
+volatile struct \doxymbox{\hyperlink{structcircular__buffer}{circular\+\_\+buffer}} {\bfseries U1\+RX\+\_\+buffer}
+\begin{DoxyCompactList}\small\item\em Global instances of the TX and RX circular buffers. \end{DoxyCompactList}\item 
+\Hypertarget{uart_8c_a1ebd8c826231fd2dd621ebc330f63784}\label{uart_8c_a1ebd8c826231fd2dd621ebc330f63784} 
+volatile struct \doxymbox{\hyperlink{structcircular__buffer}{circular\+\_\+buffer}} {\bfseries U1\+TX\+\_\+buffer}
+\item 
+\Hypertarget{uart_8c_a4c7b6ae836e07040db59c32a8309298c}\label{uart_8c_a4c7b6ae836e07040db59c32a8309298c} 
+volatile char {\bfseries uart\+\_\+rx\+\_\+data\+\_\+buff} \+[\doxymbox{\hyperlink{uart_8h_a1f25fe45d891de244a8135ae02fc9265}{UART\+\_\+\+RX\+\_\+\+BUF\+\_\+\+SIZE}}]\+
+\begin{DoxyCompactList}\small\item\em Underlying memory arrays allocated for the circular buffers. \end{DoxyCompactList}\item 
+\Hypertarget{uart_8c_a876ecea3ed2f716a4161eb47b4425180}\label{uart_8c_a876ecea3ed2f716a4161eb47b4425180} 
+volatile char {\bfseries uart\+\_\+tx\+\_\+data\+\_\+buff} \+[\doxymbox{\hyperlink{uart_8h_a399dab7fb34a7513ec04c6a5788e5a45}{UART\+\_\+\+TX\+\_\+\+BUF\+\_\+\+SIZE}}]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Non-\/blocking UART driver implementation using circular buffers and interrupts. 
+
+This module provides a fully non-\/blocking serial communication interface. By utilizing interrupt service routines (ISRs) and software circular buffers for both transmission and reception, the main execution thread is never halted waiting for hardware shift registers to clear. 
+
+\label{uart_8c_doc-func-members}
+\Hypertarget{uart_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{uart_8c_ab5b5e10f6df73914ef26fc0f76e30d91}\index{uart.c@{uart.c}!\_U1RXInterrupt@{\_U1RXInterrupt}}
+\index{\_U1RXInterrupt@{\_U1RXInterrupt}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{\_U1RXInterrupt()}{\_U1RXInterrupt()}}
+{\footnotesize\ttfamily \label{uart_8c_ab5b5e10f6df73914ef26fc0f76e30d91} 
+void \+\_\+\+U1\+RXInterrupt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Hardware interrupt service routine for UART1 reception. 
+
+Triggered asynchronously when incoming bytes arrive. It handles hardware overrun errors (OERR) by clearing the bit (which discards corrupted data), and safely copies valid incoming bytes into the RX software circular buffer. If the circular buffer is full, incoming data is silently dropped to prevent memory corruption. \Hypertarget{uart_8c_a677ede9c0b46557fafb2142bea4eddfa}\index{uart.c@{uart.c}!\_U1TXInterrupt@{\_U1TXInterrupt}}
+\index{\_U1TXInterrupt@{\_U1TXInterrupt}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{\_U1TXInterrupt()}{\_U1TXInterrupt()}}
+{\footnotesize\ttfamily \label{uart_8c_a677ede9c0b46557fafb2142bea4eddfa} 
+void \+\_\+\+U1\+TXInterrupt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Hardware interrupt service routine for UART1 transmission. 
+
+Automatically triggered when the UART hardware TX buffer has empty space. It pulls the next available byte from the software circular buffer and pushes it to the hardware register (U1\+TXREG). If the software buffer empties completely, the interrupt safely disables itself to halt further triggers. \Hypertarget{uart_8c_a0bae162035029c1473def6f17d1b5408}\index{uart.c@{uart.c}!uart1\_get\_rx\_count@{uart1\_get\_rx\_count}}
+\index{uart1\_get\_rx\_count@{uart1\_get\_rx\_count}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart1\_get\_rx\_count()}{uart1\_get\_rx\_count()}}
+{\footnotesize\ttfamily \label{uart_8c_a0bae162035029c1473def6f17d1b5408} 
+int uart1\+\_\+get\+\_\+rx\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the number of unread bytes currently residing in the RX circular buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Number of available bytes waiting to be read. 
+\end{DoxyReturn}
+\Hypertarget{uart_8c_ab0a34a5db49ee8999b251cec3ea47c43}\index{uart.c@{uart.c}!uart1\_get\_tx\_count@{uart1\_get\_tx\_count}}
+\index{uart1\_get\_tx\_count@{uart1\_get\_tx\_count}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart1\_get\_tx\_count()}{uart1\_get\_tx\_count()}}
+{\footnotesize\ttfamily \label{uart_8c_ab0a34a5db49ee8999b251cec3ea47c43} 
+int uart1\+\_\+get\+\_\+tx\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the number of bytes currently waiting in the TX circular buffer. 
+
+\begin{DoxyReturn}{Returns}
+int Number of pending bytes queued for transmission. 
+\end{DoxyReturn}
+\Hypertarget{uart_8c_aa131423f7442221d2f06186c20f26d86}\index{uart.c@{uart.c}!uart1\_mikrobus2\_setup@{uart1\_mikrobus2\_setup}}
+\index{uart1\_mikrobus2\_setup@{uart1\_mikrobus2\_setup}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart1\_mikrobus2\_setup()}{uart1\_mikrobus2\_setup()}}
+{\footnotesize\ttfamily \label{uart_8c_aa131423f7442221d2f06186c20f26d86} 
+int uart1\+\_\+mikrobus2\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configures UART1 hardware pins, registers, and communication buffers. 
+
+Sets up the Mikro\+Bus2 RX/\+\+TX pins, configures the baud rate with High Precision (BRGH=1), and initializes the circular buffer pointers. Rx interrupts are enabled by default, while TX interrupts are kept disabled until data is actively queued. \begin{DoxyReturn}{Returns}
+int Always returns 0 upon successful setup.
+
+int Always returns 0 upon successful setup. 
+\end{DoxyReturn}
+\Hypertarget{uart_8c_a97dd15ca6cd37ff8ab6fbb3e3cc87649}\index{uart.c@{uart.c}!uart1\_read\_char@{uart1\_read\_char}}
+\index{uart1\_read\_char@{uart1\_read\_char}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart1\_read\_char()}{uart1\_read\_char()}}
+{\footnotesize\ttfamily \label{uart_8c_a97dd15ca6cd37ff8ab6fbb3e3cc87649} 
+int uart1\+\_\+read\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Non-\/blocking function to fetch a single character from the RX buffer. 
+
+Checks the software circular buffer for unread data. If data is present, it returns the byte and advances the read pointer. Because it does not wait for incoming bytes, it is safe to call inside high-\/frequency processing loops. \begin{DoxyReturn}{Returns}
+int The received character, or RX\+\_\+\+BUFFER\+\_\+\+EMPTY if no data is currently available.
+
+int The received character, or RX\+\_\+\+BUFFER\+\_\+\+EMPTY if no data is currently available. 
+\end{DoxyReturn}
+\Hypertarget{uart_8c_ad1220b22b2b156bfcca1b2759f5bd9d8}\index{uart.c@{uart.c}!uart1\_write@{uart1\_write}}
+\index{uart1\_write@{uart1\_write}!uart.c@{uart.c}}
+\doxysubsubsection{\texorpdfstring{uart1\_write()}{uart1\_write()}}
+{\footnotesize\ttfamily \label{uart_8c_ad1220b22b2b156bfcca1b2759f5bd9d8} 
+int uart1\+\_\+write (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Non-\/blocking function to queue a string for UART transmission. 
+
+Copies the input string into the TX circular buffer without waiting for hardware transmission to complete. Briefly disables the TX interrupt during buffer manipulation to prevent race conditions, then kickstarts the transmission interrupt if the hardware is idle. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & Null-\/terminated string to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of bytes successfully queued, or TX\+\_\+\+BUFFER\+\_\+\+FULL if space is exhausted.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Null-\/terminated string to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Number of bytes successfully queued, or TX\+\_\+\+BUFFER\+\_\+\+FULL if space is exhausted. 
+\end{DoxyReturn}

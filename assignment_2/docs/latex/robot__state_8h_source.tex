@@ -1,0 +1,75 @@
+\doxysection{robot\+\_\+state.\+h}
+\hypertarget{robot__state_8h_source}{}\label{robot__state_8h_source}\index{include/core/robot\_state.h@{include/core/robot\_state.h}}
+\doxymbox{\hyperlink{robot__state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ ROBOT\_STATE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ROBOT\_STATE\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{adc_8h}{adc.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8h}{BOSCH\_BMX055.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{button_8h}{button.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcead4a875fb2116e6a3bdee33077e43ab00}{OBAV\_PHASE\_STOP}}\ \ \ \ \ \ \ \ =\ 0,\ }
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea4d5d89edb745cf453c3a1226fb36ffaa}{OBAV\_PHASE\_ROTATE\_CW}}\ \ \ =\ 1,\ }
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceaf1dd68bd0c7d27d93909ca0b6cea318a}{OBAV\_PHASE\_MOVE\_FW}}\ \ \ \ \ =\ 2,\ }
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffceabe4ff5b0cbf2d16645b3d73e03aa5fb8}{OBAV\_PHASE\_ROTATE\_CCW}}\ \ =\ 3,\ }
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffcea751e38119fa4daf4a37aa3036fbf84cb}{OBAV\_PHASE\_EXIT}}\ \ \ \ \ \ \ \ =\ 4\ \ }
+\DoxyCodeLine{00025\ \}\ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{ObAvPhase\_t}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ -\/-\/-\/\ SUBSYSTEM\ DATA\ STRUCTURES\ -\/-\/-\/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}}\ \doxymbox{\hyperlink{struct_system_sensors__t_a1673f7bf8c7942c2c5b9e67e9b0f397f}{acc\_raw}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}}\ \doxymbox{\hyperlink{struct_system_sensors__t_a9e38e0b8e915c53dbc7f812bda263f90}{mag\_raw}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}}\ \doxymbox{\hyperlink{struct_system_sensors__t_a92e68f2899090522a1d5c2bcd8bb5c65}{gyr\_raw}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_sensors__t_ab3ac8e1dc34f396339f93c01d2782044}{acc\_x}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_sensors__t_a781272f25ca67525c9902c98577122e3}{acc\_y}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_sensors__t_a6056b4ee256dc6b18030852e6cb2e83f}{acc\_z}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_sensors__t_a18472f6318b4979228d5264f23b8a88f}{battery\_voltage}};\ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_sensors__t_a430975d7d55e2abab3240ded0acf52b9}{ir\_distance}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{structadc_state}{adcState}}\ \doxymbox{\hyperlink{struct_system_sensors__t_a69b08aa6d19c9e0939c01d2c50cc6b7f}{adc\_status}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \}\ \doxymbox{\hyperlink{struct_system_sensors__t}{SystemSensors\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_attitude__t_a26fd84d522945b6038221d9e38c7cc39}{roll}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_attitude__t_a282e7d4378d4a18a805b8980295ac86c}{pitch}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_attitude__t_a7efc219781df4a1e281cb5d348b7fbf9}{yaw}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_system_attitude__t_ace92ab386a252ceb9ce704e837cd8697}{relative\_yaw}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \}\ \doxymbox{\hyperlink{struct_system_attitude__t}{SystemAttitude\_t}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ int32\_t\ \doxymbox{\hyperlink{struct_twist__t_ace636130c01f47a340470e35a7e92d65}{v}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ int32\_t\ \doxymbox{\hyperlink{struct_twist__t_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \}\ \doxymbox{\hyperlink{struct_twist__t}{Twist\_t}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{ObAvPhase\_t}}\ \doxymbox{\hyperlink{struct_mission_control__t_a0136e76a91d9743838d0eb58bf2f43fd}{current\_phase}};\ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \doxymbox{\hyperlink{robot__state_8h_a5e61cbba4463d5643c28f96b3b63ffce}{ObAvPhase\_t}}\ \doxymbox{\hyperlink{struct_mission_control__t_a62ebc2c6b7ad13f4cc97b97a6bf438d5}{next\_phase}};\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_mission_control__t_a99a03bcfcf9aa9864d6925ecca47ec85}{phase\_counter}};\ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_mission_control__t_adec076d09cf550ab1c830f7e6e63350c}{obstacle\_counter}};\ \ }
+\DoxyCodeLine{00070\ \}\ \doxymbox{\hyperlink{struct_mission_control__t}{MissionControl\_t}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00076\ \ \ \ \ \doxymbox{\hyperlink{struct_button_state}{ButtonState}}\ \doxymbox{\hyperlink{struct_system_i_o__t_a3620cdef9db879a1ecd781aa5556d413}{btn\_re8}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \doxymbox{\hyperlink{struct_button_state}{ButtonState}}\ \doxymbox{\hyperlink{struct_system_i_o__t_afb0a161c4a5bc6e0aae1eb68063c89f5}{btn\_re9}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_system_i_o__t_a9f119f5d69c3b361e4e241b8c717272f}{char\_received}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{struct_system_i_o__t_a88aba80730143a9ea59db5f5426c2deb}{tx\_buffer}}[64];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{struct_system_i_o__t_a08251916dbb949f13dd94b1c729b8035}{rx\_cmd}}[16];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \}\ \doxymbox{\hyperlink{struct_system_i_o__t}{SystemIO\_t}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ -\/-\/-\/\ THE\ ROOT\ STATE\ STRUCT\ -\/-\/-\/}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \doxymbox{\hyperlink{struct_system_sensors__t}{SystemSensors\_t}}\ \ \doxymbox{\hyperlink{struct_robot_state__t_a6937f07393e37c955eddd8c37c30cf93}{sensors}};\ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \doxymbox{\hyperlink{struct_system_attitude__t}{SystemAttitude\_t}}\ \doxymbox{\hyperlink{struct_robot_state__t_aed5732f27783dd1a3c48b28cc6423937}{attitude}};\ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \doxymbox{\hyperlink{struct_twist__t}{Twist\_t}}\ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_robot_state__t_a638131b44ac25be8cee734627c21da92}{cmd\_vel}};\ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{struct_mission_control__t}{MissionControl\_t}}\ \doxymbox{\hyperlink{struct_robot_state__t_af01a306866de53f39c375fd4d5661c1c}{mission}};\ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \doxymbox{\hyperlink{struct_system_i_o__t}{SystemIO\_t}}\ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_robot_state__t_a6153cf22b34d6856ca37d07b541d9c5a}{io}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \}\ \doxymbox{\hyperlink{struct_robot_state__t}{RobotState\_t}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ ROBOT\_STATE\_H}}
+
+\end{DoxyCode}

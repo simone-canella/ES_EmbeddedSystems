@@ -1,0 +1,84 @@
+\doxysection{config.\+h}
+\hypertarget{config_8h_source}{}\label{config_8h_source}\index{include/core/config.h@{include/core/config.h}}
+\doxymbox{\hyperlink{config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ CONFIG\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ -\/-\/-\/\ Standard\ C\ Libraries\ -\/-\/-\/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ FCY\ 72000000UL\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ RAD\_TO\_DEG\ 57.29577951f\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ BAUDRATE\ 9600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ BRGVAL\ ((FCY\ /\ BAUDRATE)\ /\ 4)\ -\/\ 1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ UART1\ PPS\ (Peripheral\ Pin\ Select)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ UART1\_RX\_RPIN\ 75\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ UART1\_TX\_RPIN\ 64\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ SPI1\_PPRE\ 0b11\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ SPI1\_SPRE\ 0b000\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ SPI1\ PPS\ (Peripheral\ Pin\ Select)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ SPI1\_MISO\_RPIN\ 17\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SPI1\_MOSI\_RPIN\ 109\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ SPI1\_SCK\_RPIN\ \ 108\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Accelerometer\ (RB3)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ ACC\_CS\_LAT\ \ LATBbits.LATB3\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ ACC\_CS\_TRIS\ TRISBbits.TRISB3\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ ACC\_CHIP\_ID\ 0xFA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ Gyroscope\ (RB4)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ GYR\_CS\_LAT\ \ LATBbits.LATB4\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ GYR\_CS\_TRIS\ TRISBbits.TRISB4\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ GYR\_CHIP\_ID\ 0x0F\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Magnetometer\ (RD6)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ MAG\_CS\_LAT\ \ LATDbits.LATD6\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ MAG\_CS\_TRIS\ TRISDbits.TRISD6\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ MAG\_CHIP\_ID\ 0x32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ MAG\_OFFSET\_X\ 0.0f\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ MAG\_OFFSET\_Y\ 0.0f\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ MAG\_OFFSET\_Z\ 0.0f\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ LED\ 1\ (RA0)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ LED1\_TRIS\ TRISAbits.TRISA0\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ LED1\_LAT\ \ LATAbits.LATA0\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ Button\ T1\ (RE8)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ BTN\_T1\_TRIS\ TRISEbits.TRISE8\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ BTN\_T1\_PORT\ PORTEbits.RE8\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ Button\ T2\ (RE9)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ BTN\_T2\_TRIS\ TRISEbits.TRISE9\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ BTN\_T2\_PORT\ PORTEbits.RE9\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ Low-\/intensity\ lights\ (RG1)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ LIL\_TRIS\ TRISGbits.TRISG1\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ LIL\_LAT\ \ LATGbits.LATG1\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ Left-\/side\ light\ \ (RB8)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ LSL\_TRIS\ TRISBbits.TRISB8\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ LSL\_LAT\ \ LATBbits.LATB8\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ Right-\/side\ light\ (RF1)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ RSL\_TRIS\ TRISFbits.TRISF1\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ RSL\_LAT\ \ LATFbits.LATF1\ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ MSG\_ERR\_INPUT\ "{}\$ERR,1*\(\backslash\)n"{}\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CONFIG\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,29 @@
+\doxysection{timer.\+h}
+\hypertarget{timer_8h_source}{}\label{timer_8h_source}\index{include/drivers/timer.h@{include/drivers/timer.h}}
+\doxymbox{\hyperlink{timer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ TIMER\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ TIMER\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TIMER1\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TIMER2\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TIMER3\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ TIMER4\ 4}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ TIMER5\ 5}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ TMREXP\ \ \ 1\ \ }\textcolor{comment}{//\ timer\ expired\ flag}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ NOTMR\ \ \ -\/2\ \ }\textcolor{comment}{//\ timer\ is\ not\ defined}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{timer_8h_aeee0d521a03503f26c1d9379945da7ff}{tmr\_setup\_period}}(\textcolor{keywordtype}{int}\ tmr,\ \textcolor{keywordtype}{float}\ ms);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{timer_8h_a2c88f6b046d4da7b6fc81cdae5005fd2}{tmr\_wait\_period}}(\textcolor{keywordtype}{int}\ tmr);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{timer_8h_af47b2fb867b65879462f4d297ddf6e91}{tmr\_wait\_ms}}(\textcolor{keywordtype}{int}\ tmr,\ \textcolor{keywordtype}{float}\ ms);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TIMER\_H\_}}
+
+\end{DoxyCode}

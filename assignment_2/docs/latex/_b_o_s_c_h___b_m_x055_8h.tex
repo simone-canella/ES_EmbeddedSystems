@@ -1,0 +1,120 @@
+\doxysection{include/\+drivers/\+\+BOSCH\+\_\+\+BMX055.h File Reference}
+\hypertarget{_b_o_s_c_h___b_m_x055_8h}{}\label{_b_o_s_c_h___b_m_x055_8h}\index{include/drivers/BOSCH\_BMX055.h@{include/drivers/BOSCH\_BMX055.h}}
+
+
+Header file for the Bosch BMX055 IMU SPI driver.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}}
+\begin{DoxyCompactList}\small\item\em Container for a 3-\/axis spatial measurement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c}\label{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c} 
+\+\#define {\bfseries ACC}~1
+\begin{DoxyCompactList}\small\item\em Target identifier for the Accelerometer. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67}\label{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67} 
+\+\#define {\bfseries GYR}~2
+\begin{DoxyCompactList}\small\item\em Target identifier for the Gyroscope. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0}\label{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0} 
+\+\#define {\bfseries MAG}~3
+\begin{DoxyCompactList}\small\item\em Target identifier for the Magnetometer. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_a9db08273c2b0b1402da22212dfe81901}\label{_b_o_s_c_h___b_m_x055_8h_a9db08273c2b0b1402da22212dfe81901} 
+\+\#define {\bfseries ACC\+\_\+\+CS}~LATBbits.\+LATB3
+\begin{DoxyCompactList}\small\item\em Chip Select pin mapping for the Accelerometer. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_af4d8e6b8e939a60daf14a1a859282494}\label{_b_o_s_c_h___b_m_x055_8h_af4d8e6b8e939a60daf14a1a859282494} 
+\+\#define {\bfseries GYR\+\_\+\+CS}~LATBbits.\+LATB4
+\begin{DoxyCompactList}\small\item\em Chip Select pin mapping for the Gyroscope. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_ac102dfe6f4bf4af8f472f78075916fd1}\label{_b_o_s_c_h___b_m_x055_8h_ac102dfe6f4bf4af8f472f78075916fd1} 
+\+\#define {\bfseries MAG\+\_\+\+CS}~LATDbits.\+LATD6
+\begin{DoxyCompactList}\small\item\em Chip Select pin mapping for the Magnetometer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8h_afd5008e57636187fa5b7656beeec665b}{BMX055\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the BMX055 sensor and configures the SPI bus parameters. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8h_a7c94c26bd3e8ff807c7db80fa0e8e360}{BMX055\+\_\+mag\+\_\+wakeup}} ()
+\begin{DoxyCompactList}\small\item\em Executes the wake-\/up sequence for the BMX055 magnetometer. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}} \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8h_a3be1ff293d152bb90b368cf7c1bec99c}{imu\+Read}} (int sensor)
+\begin{DoxyCompactList}\small\item\em Reads a full frame of multi-\/axis data from the specified IMU sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Bosch BMX055 IMU SPI driver. 
+
+
+
+\label{_b_o_s_c_h___b_m_x055_8h_doc-func-members}
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_b_o_s_c_h___b_m_x055_8h_a7c94c26bd3e8ff807c7db80fa0e8e360}\index{BOSCH\_BMX055.h@{BOSCH\_BMX055.h}!BMX055\_mag\_wakeup@{BMX055\_mag\_wakeup}}
+\index{BMX055\_mag\_wakeup@{BMX055\_mag\_wakeup}!BOSCH\_BMX055.h@{BOSCH\_BMX055.h}}
+\doxysubsubsection{\texorpdfstring{BMX055\_mag\_wakeup()}{BMX055\_mag\_wakeup()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8h_a7c94c26bd3e8ff807c7db80fa0e8e360} 
+void BMX055\+\_\+mag\+\_\+wakeup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executes the wake-\/up sequence for the BMX055 magnetometer. 
+
+
+\begin{DoxyItemize}
+\item Forces the magnetometer interface to switch from I2C to SPI by toggling the MAG\+\_\+\+CS pin.
+\item Transitions the magnetometer from Suspend Mode to Sleep Mode by writing 0x01 to register 0x4B.
+\item Transitions the magnetometer from Sleep Mode to Active Mode by writing 0x00 to register 0x4C.
+\item Utilizes TIMER1 delays between transmissions to allow for power mode switching times. 
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8h_afd5008e57636187fa5b7656beeec665b}\index{BOSCH\_BMX055.h@{BOSCH\_BMX055.h}!BMX055\_setup@{BMX055\_setup}}
+\index{BMX055\_setup@{BMX055\_setup}!BOSCH\_BMX055.h@{BOSCH\_BMX055.h}}
+\doxysubsubsection{\texorpdfstring{BMX055\_setup()}{BMX055\_setup()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8h_afd5008e57636187fa5b7656beeec665b} 
+void BMX055\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the BMX055 sensor and configures the SPI bus parameters. 
+
+
+\begin{DoxyItemize}
+\item Sets Chip Select (CS) lines for the Accelerometer, Gyroscope, and Magnetometer to high (inactive).
+\item Temporarily disables the SPI module to configure protocol settings matching the BMX055 requirements.
+\item Configures the SPI clock polarity to idle LOW (CKP = 0) and sets data changes to occur on transition from active to idle (CKE = 1).
+\item Sets the accelerometer\textquotesingle{}s initial bandwidth to 1000 Hz by writing value 15 to register 0x10. 
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8h_a3be1ff293d152bb90b368cf7c1bec99c}\index{BOSCH\_BMX055.h@{BOSCH\_BMX055.h}!imuRead@{imuRead}}
+\index{imuRead@{imuRead}!BOSCH\_BMX055.h@{BOSCH\_BMX055.h}}
+\doxysubsubsection{\texorpdfstring{imuRead()}{imuRead()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8h_a3be1ff293d152bb90b368cf7c1bec99c} 
+\doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}} imu\+Read (\begin{DoxyParamCaption}\item[{int}]{sensor}{}\end{DoxyParamCaption})}
+
+
+
+Reads a full frame of multi-\/axis data from the specified IMU sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & The target sensor peripheral to read (ACC, GYR, or MAG). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_i_m_udata}{IMUdata} A structure containing the extracted x, y, and z axis measurements.
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item Dispatches SPI reads depending on the requested sensor macro ({\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c}{ACC}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67}{GYR}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0}{MAG}}).
+\item Sets the MSB of the register address to 1 (0x80) to indicate a read operation.
+\item Accelerometer (ACC):\+ Reads from register 0x02 and formats X, Y, and Z axes as 12-\/bit integers.
+\item Gyroscope (GYR):\+ Reads from register 0x02 and formats X, Y, and Z axes as 16-\/bit integers.
+\item Magnetometer (MAG):\+ Reads from register 0x42, formats X and Y axes as 13-\/bit integers, and the Z axis as a 15-\/bit integer.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & The target sensor peripheral to read ({\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c}{ACC}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67}{GYR}}, or {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0}{MAG}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_i_m_udata}{IMUdata} A structure containing the extracted x, y, and z axis measurements. 
+\end{DoxyReturn}

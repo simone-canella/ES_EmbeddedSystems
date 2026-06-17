@@ -1,0 +1,63 @@
+\doxysection{tasky Struct Reference}
+\hypertarget{structtasky}{}\label{structtasky}\index{tasky@{tasky}}
+
+
+Internal structure to represent a scheduled task.  
+
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{structtasky_a76f11d9a0a47b94f72c2d0e77fb32240}{n}}
+\item 
+int \doxymbox{\hyperlink{structtasky_a7722c8ecbb62d99aee7ce68b1752f337}{N}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structtasky_a236d815610983d4540a80a7200bb5c53}{f}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structtasky_a9ce2ec4812a92cb6ab39f6e81e9173a9}{arg}}
+\item 
+int \doxymbox{\hyperlink{structtasky_a4f2504e3cd237cbe4ee10255c7855e63}{enable}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internal structure to represent a scheduled task. 
+
+\label{structtasky_doc-variable-members}
+\Hypertarget{structtasky_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structtasky_a9ce2ec4812a92cb6ab39f6e81e9173a9}\index{tasky@{tasky}!arg@{arg}}
+\index{arg@{arg}!tasky@{tasky}}
+\doxysubsubsection{\texorpdfstring{arg}{arg}}
+{\footnotesize\ttfamily \label{structtasky_a9ce2ec4812a92cb6ab39f6e81e9173a9} 
+void\texorpdfstring{$\ast$}{*} arg}
+
+Argument to pass to the task function. \Hypertarget{structtasky_a4f2504e3cd237cbe4ee10255c7855e63}\index{tasky@{tasky}!enable@{enable}}
+\index{enable@{enable}!tasky@{tasky}}
+\doxysubsubsection{\texorpdfstring{enable}{enable}}
+{\footnotesize\ttfamily \label{structtasky_a4f2504e3cd237cbe4ee10255c7855e63} 
+int enable}
+
+Enable flag:\+ 1 if active, 0 if disabled. \Hypertarget{structtasky_a236d815610983d4540a80a7200bb5c53}\index{tasky@{tasky}!f@{f}}
+\index{f@{f}!tasky@{tasky}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily \label{structtasky_a236d815610983d4540a80a7200bb5c53} 
+void(\texorpdfstring{$\ast$}{*} f) (void \texorpdfstring{$\ast$}{*})}
+
+Function pointer to the task payload. \Hypertarget{structtasky_a7722c8ecbb62d99aee7ce68b1752f337}\index{tasky@{tasky}!N@{N}}
+\index{N@{N}!tasky@{tasky}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \label{structtasky_a7722c8ecbb62d99aee7ce68b1752f337} 
+int N}
+
+Tick period for the task execution. \Hypertarget{structtasky_a76f11d9a0a47b94f72c2d0e77fb32240}\index{tasky@{tasky}!n@{n}}
+\index{n@{n}!tasky@{tasky}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \label{structtasky_a76f11d9a0a47b94f72c2d0e77fb32240} 
+int n}
+
+Current tick counter for the task. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+src/\+core/\+\doxymbox{\hyperlink{scheduler_8c}{scheduler.\+c}}\end{DoxyCompactItemize}

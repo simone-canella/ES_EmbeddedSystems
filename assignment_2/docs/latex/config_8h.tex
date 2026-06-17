@@ -1,0 +1,355 @@
+\doxysection{include/\+core/\+config.h File Reference}
+\hypertarget{config_8h}{}\label{config_8h}\index{include/core/config.h@{include/core/config.h}}
+
+
+Central configuration and pin mapping definition header for the robot buggy.  
+
+
+{\ttfamily \+\#include $<$xc.\+h$>$}\newline
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ System Constants}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}}~72000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a89e47af0449640d4f15191aba5ca24c6}{RAD\+\_\+\+TO\+\_\+\+DEG}}~57.\+29577951f
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ UART Configuration}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}~9600
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_aca346e181d2ffc089e22e75736a6ff63}{BRGVAL}}~((\doxymbox{\hyperlink{config_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}} /\+ \doxymbox{\hyperlink{config_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}) /\+ 4) -\/ 1
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_aa94809763f76d613144562c785db769a}{UART1\+\_\+\+RX\+\_\+\+RPIN}}~75
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ac66770d44992368ca83da69e4bfde90d}{UART1\+\_\+\+TX\+\_\+\+RPIN}}~64
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ SPI1 Configuration}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a97476fd466a0045342316c7a2a0c6ccb}{SPI1\+\_\+\+PPRE}}~0b11
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ae61570500e1258028b30482878be16d7}{SPI1\+\_\+\+SPRE}}~0b000
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ab7dd4999f8065bc7b38eb17607f34eaa}{SPI1\+\_\+\+MISO\+\_\+\+RPIN}}~17
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ad49004a6d2df923bd55300c52d7e91ea}{SPI1\+\_\+\+MOSI\+\_\+\+RPIN}}~109
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ad4e9691f8d6dd93b17f2c39d76c881e2}{SPI1\+\_\+\+SCK\+\_\+\+RPIN}}~108
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Sensor Chip Selects (BOSCH BMX055 IMU)}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ae0a9818485105b771055b4172831b309}{ACC\+\_\+\+CS\+\_\+\+LAT}}~LATBbits.\+LATB3
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a1dc433c7387c8890f2ee18ef12cba177}{ACC\+\_\+\+CS\+\_\+\+TRIS}}~TRISBbits.\+TRISB3
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a118beb18499c0e9890dabc6094f07154}{ACC\+\_\+\+CHIP\+\_\+\+ID}}~0x\+FA
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a57dd69652395d9bbb2ca77e5cb14d566}{GYR\+\_\+\+CS\+\_\+\+LAT}}~LATBbits.\+LATB4
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ac439c8006cfe9bfa4b9e9a72bd2d73f9}{GYR\+\_\+\+CS\+\_\+\+TRIS}}~TRISBbits.\+TRISB4
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_aec20588af183074401451617ac287b15}{GYR\+\_\+\+CHIP\+\_\+\+ID}}~0x0F
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ad6f73168c440f47302b65459dcb107aa}{MAG\+\_\+\+CS\+\_\+\+LAT}}~LATDbits.\+LATD6
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a4298d062708e4153b01c7f72a109527f}{MAG\+\_\+\+CS\+\_\+\+TRIS}}~TRISDbits.\+TRISD6
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a89eb0feab2637f4347d32eba22d87e10}{MAG\+\_\+\+CHIP\+\_\+\+ID}}~0x32
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Magnetometer Calibration Offsets}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a7820228e72bd1ab3a807cfadc3646f1b}{MAG\+\_\+\+OFFSET\+\_\+X}}~0.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a145bb27a97baa0a1d7d85fd987560a9b}{MAG\+\_\+\+OFFSET\+\_\+Y}}~0.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a10f6064e4b16a7cc282dc2cae7bf4711}{MAG\+\_\+\+OFFSET\+\_\+Z}}~0.\+0f
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ GPIO Mappings:\+ LEDs, Buttons, and Lights}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_abcc264f456a210ef34bcdf82788ea992}{LED1\+\_\+\+TRIS}}~TRISAbits.\+TRISA0
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ab48ea80358cf064f6f0be7977372e484}{LED1\+\_\+\+LAT}}~LATAbits.\+LATA0
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_afc173bf30ed98315266a1d0999dffa8f}{BTN\+\_\+\+T1\+\_\+\+TRIS}}~TRISEbits.\+TRISE8
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a5c62ec3d3aee144d5f72ac718cbc4657}{BTN\+\_\+\+T1\+\_\+\+PORT}}~PORTEbits.\+RE8
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a1e4a96e85e6300797b6c85cf44bfd075}{BTN\+\_\+\+T2\+\_\+\+TRIS}}~TRISEbits.\+TRISE9
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a371ec94c98d7b741984f38f8dbe24f85}{BTN\+\_\+\+T2\+\_\+\+PORT}}~PORTEbits.\+RE9
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a75d374e49842c3f59adf4664d783dd6e}{LIL\+\_\+\+TRIS}}~TRISGbits.\+TRISG1
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_afad142ed4e3f82e79312861d0dcbffcd}{LIL\+\_\+\+LAT}}~LATGbits.\+LATG1
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_af72fabcd8bd44487f1a04b0a4bb4e75b}{LSL\+\_\+\+TRIS}}~TRISBbits.\+TRISB8
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_ad4b59e1ee9ba3cc39536a378ee23b436}{LSL\+\_\+\+LAT}}~LATBbits.\+LATB8
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a001897a0c413d75879bf9b1735c624d1}{RSL\+\_\+\+TRIS}}~TRISFbits.\+TRISF1
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_a498470e69232419a3bdf46bba849d5f6}{RSL\+\_\+\+LAT}}~LATFbits.\+LATF1
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ System Error Messages}\par
+{\em \DoxyHorRuler{0}
+ }\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{config_8h_aa5861e58da5e806b7a50c27c891c4ff2}{MSG\+\_\+\+ERR\+\_\+\+INPUT}}~"{}\$ERR,1\texorpdfstring{$\ast$}{*}\textbackslash{}n"{}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Central configuration and pin mapping definition header for the robot buggy. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0
+\end{DoxyVersion}
+This file centralizes all global constants, peripheral configuration parameters, software settings, and Peripheral Pin Select (PPS) hardware mappings for the ds\+PIC microcontroller. It ensures consistency across all compilation modules. 
+
+\label{config_8h_doc-define-members}
+\Hypertarget{config_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{config_8h_a118beb18499c0e9890dabc6094f07154}\index{config.h@{config.h}!ACC\_CHIP\_ID@{ACC\_CHIP\_ID}}
+\index{ACC\_CHIP\_ID@{ACC\_CHIP\_ID}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{ACC\_CHIP\_ID}{ACC\_CHIP\_ID}}
+{\footnotesize\ttfamily \label{config_8h_a118beb18499c0e9890dabc6094f07154} 
+\+\#define ACC\+\_\+\+CHIP\+\_\+\+ID~0x\+FA}
+
+Accelerometer hardware ID \Hypertarget{config_8h_ae0a9818485105b771055b4172831b309}\index{config.h@{config.h}!ACC\_CS\_LAT@{ACC\_CS\_LAT}}
+\index{ACC\_CS\_LAT@{ACC\_CS\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{ACC\_CS\_LAT}{ACC\_CS\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_ae0a9818485105b771055b4172831b309} 
+\+\#define ACC\+\_\+\+CS\+\_\+\+LAT~LATBbits.\+LATB3}
+
+Accelerometer Chip Select Latch Register \Hypertarget{config_8h_a1dc433c7387c8890f2ee18ef12cba177}\index{config.h@{config.h}!ACC\_CS\_TRIS@{ACC\_CS\_TRIS}}
+\index{ACC\_CS\_TRIS@{ACC\_CS\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{ACC\_CS\_TRIS}{ACC\_CS\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_a1dc433c7387c8890f2ee18ef12cba177} 
+\+\#define ACC\+\_\+\+CS\+\_\+\+TRIS~TRISBbits.\+TRISB3}
+
+Accelerometer Chip Select Direction Register \Hypertarget{config_8h_a734bbab06e1a9fd2e5522db0221ff6e3}\index{config.h@{config.h}!BAUDRATE@{BAUDRATE}}
+\index{BAUDRATE@{BAUDRATE}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BAUDRATE}{BAUDRATE}}
+{\footnotesize\ttfamily \label{config_8h_a734bbab06e1a9fd2e5522db0221ff6e3} 
+\+\#define BAUDRATE~9600}
+
+Centralized Baudrate for PC data logging/\+command interface. \Hypertarget{config_8h_aca346e181d2ffc089e22e75736a6ff63}\index{config.h@{config.h}!BRGVAL@{BRGVAL}}
+\index{BRGVAL@{BRGVAL}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BRGVAL}{BRGVAL}}
+{\footnotesize\ttfamily \label{config_8h_aca346e181d2ffc089e22e75736a6ff63} 
+\+\#define BRGVAL~((\doxymbox{\hyperlink{config_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}{FCY}} /\+ \doxymbox{\hyperlink{config_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}) /\+ 4) -\/ 1}
+
+Baud Rate Generator value calculated for High-\/\+Speed mode (BRGH = 1). \Hypertarget{config_8h_a5c62ec3d3aee144d5f72ac718cbc4657}\index{config.h@{config.h}!BTN\_T1\_PORT@{BTN\_T1\_PORT}}
+\index{BTN\_T1\_PORT@{BTN\_T1\_PORT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BTN\_T1\_PORT}{BTN\_T1\_PORT}}
+{\footnotesize\ttfamily \label{config_8h_a5c62ec3d3aee144d5f72ac718cbc4657} 
+\+\#define BTN\+\_\+\+T1\+\_\+\+PORT~PORTEbits.\+RE8}
+
+Button T1 Port Reading Register \Hypertarget{config_8h_afc173bf30ed98315266a1d0999dffa8f}\index{config.h@{config.h}!BTN\_T1\_TRIS@{BTN\_T1\_TRIS}}
+\index{BTN\_T1\_TRIS@{BTN\_T1\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BTN\_T1\_TRIS}{BTN\_T1\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_afc173bf30ed98315266a1d0999dffa8f} 
+\+\#define BTN\+\_\+\+T1\+\_\+\+TRIS~TRISEbits.\+TRISE8}
+
+Button T1 Direction Register \Hypertarget{config_8h_a371ec94c98d7b741984f38f8dbe24f85}\index{config.h@{config.h}!BTN\_T2\_PORT@{BTN\_T2\_PORT}}
+\index{BTN\_T2\_PORT@{BTN\_T2\_PORT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BTN\_T2\_PORT}{BTN\_T2\_PORT}}
+{\footnotesize\ttfamily \label{config_8h_a371ec94c98d7b741984f38f8dbe24f85} 
+\+\#define BTN\+\_\+\+T2\+\_\+\+PORT~PORTEbits.\+RE9}
+
+Button T2 Port Reading Register \Hypertarget{config_8h_a1e4a96e85e6300797b6c85cf44bfd075}\index{config.h@{config.h}!BTN\_T2\_TRIS@{BTN\_T2\_TRIS}}
+\index{BTN\_T2\_TRIS@{BTN\_T2\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{BTN\_T2\_TRIS}{BTN\_T2\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_a1e4a96e85e6300797b6c85cf44bfd075} 
+\+\#define BTN\+\_\+\+T2\+\_\+\+TRIS~TRISEbits.\+TRISE9}
+
+Button T2 Direction Register \Hypertarget{config_8h_a99d7c812ba23bfdba5d29ec2fddf1e83}\index{config.h@{config.h}!FCY@{FCY}}
+\index{FCY@{FCY}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{FCY}{FCY}}
+{\footnotesize\ttfamily \label{config_8h_a99d7c812ba23bfdba5d29ec2fddf1e83} 
+\+\#define FCY~72000000\+UL}
+
+Instruction Frequency (72 MHz). \Hypertarget{config_8h_aec20588af183074401451617ac287b15}\index{config.h@{config.h}!GYR\_CHIP\_ID@{GYR\_CHIP\_ID}}
+\index{GYR\_CHIP\_ID@{GYR\_CHIP\_ID}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{GYR\_CHIP\_ID}{GYR\_CHIP\_ID}}
+{\footnotesize\ttfamily \label{config_8h_aec20588af183074401451617ac287b15} 
+\+\#define GYR\+\_\+\+CHIP\+\_\+\+ID~0x0F}
+
+Gyroscope hardware ID \Hypertarget{config_8h_a57dd69652395d9bbb2ca77e5cb14d566}\index{config.h@{config.h}!GYR\_CS\_LAT@{GYR\_CS\_LAT}}
+\index{GYR\_CS\_LAT@{GYR\_CS\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{GYR\_CS\_LAT}{GYR\_CS\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_a57dd69652395d9bbb2ca77e5cb14d566} 
+\+\#define GYR\+\_\+\+CS\+\_\+\+LAT~LATBbits.\+LATB4}
+
+Gyroscope Chip Select Latch Register \Hypertarget{config_8h_ac439c8006cfe9bfa4b9e9a72bd2d73f9}\index{config.h@{config.h}!GYR\_CS\_TRIS@{GYR\_CS\_TRIS}}
+\index{GYR\_CS\_TRIS@{GYR\_CS\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{GYR\_CS\_TRIS}{GYR\_CS\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_ac439c8006cfe9bfa4b9e9a72bd2d73f9} 
+\+\#define GYR\+\_\+\+CS\+\_\+\+TRIS~TRISBbits.\+TRISB4}
+
+Gyroscope Chip Select Direction Register \Hypertarget{config_8h_ab48ea80358cf064f6f0be7977372e484}\index{config.h@{config.h}!LED1\_LAT@{LED1\_LAT}}
+\index{LED1\_LAT@{LED1\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LED1\_LAT}{LED1\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_ab48ea80358cf064f6f0be7977372e484} 
+\+\#define LED1\+\_\+\+LAT~LATAbits.\+LATA0}
+
+Status LED 1 Latch Register \Hypertarget{config_8h_abcc264f456a210ef34bcdf82788ea992}\index{config.h@{config.h}!LED1\_TRIS@{LED1\_TRIS}}
+\index{LED1\_TRIS@{LED1\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LED1\_TRIS}{LED1\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_abcc264f456a210ef34bcdf82788ea992} 
+\+\#define LED1\+\_\+\+TRIS~TRISAbits.\+TRISA0}
+
+Status LED 1 Direction Register \Hypertarget{config_8h_afad142ed4e3f82e79312861d0dcbffcd}\index{config.h@{config.h}!LIL\_LAT@{LIL\_LAT}}
+\index{LIL\_LAT@{LIL\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LIL\_LAT}{LIL\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_afad142ed4e3f82e79312861d0dcbffcd} 
+\+\#define LIL\+\_\+\+LAT~LATGbits.\+LATG1}
+
+Low Intensity Lights Latch Register \Hypertarget{config_8h_a75d374e49842c3f59adf4664d783dd6e}\index{config.h@{config.h}!LIL\_TRIS@{LIL\_TRIS}}
+\index{LIL\_TRIS@{LIL\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LIL\_TRIS}{LIL\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_a75d374e49842c3f59adf4664d783dd6e} 
+\+\#define LIL\+\_\+\+TRIS~TRISGbits.\+TRISG1}
+
+Low Intensity Lights Direction Register \Hypertarget{config_8h_ad4b59e1ee9ba3cc39536a378ee23b436}\index{config.h@{config.h}!LSL\_LAT@{LSL\_LAT}}
+\index{LSL\_LAT@{LSL\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LSL\_LAT}{LSL\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_ad4b59e1ee9ba3cc39536a378ee23b436} 
+\+\#define LSL\+\_\+\+LAT~LATBbits.\+LATB8}
+
+Left Side Light Latch Register \Hypertarget{config_8h_af72fabcd8bd44487f1a04b0a4bb4e75b}\index{config.h@{config.h}!LSL\_TRIS@{LSL\_TRIS}}
+\index{LSL\_TRIS@{LSL\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{LSL\_TRIS}{LSL\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_af72fabcd8bd44487f1a04b0a4bb4e75b} 
+\+\#define LSL\+\_\+\+TRIS~TRISBbits.\+TRISB8}
+
+Left Side Light Direction Register \Hypertarget{config_8h_a89eb0feab2637f4347d32eba22d87e10}\index{config.h@{config.h}!MAG\_CHIP\_ID@{MAG\_CHIP\_ID}}
+\index{MAG\_CHIP\_ID@{MAG\_CHIP\_ID}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_CHIP\_ID}{MAG\_CHIP\_ID}}
+{\footnotesize\ttfamily \label{config_8h_a89eb0feab2637f4347d32eba22d87e10} 
+\+\#define MAG\+\_\+\+CHIP\+\_\+\+ID~0x32}
+
+Magnetometer hardware ID \Hypertarget{config_8h_ad6f73168c440f47302b65459dcb107aa}\index{config.h@{config.h}!MAG\_CS\_LAT@{MAG\_CS\_LAT}}
+\index{MAG\_CS\_LAT@{MAG\_CS\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_CS\_LAT}{MAG\_CS\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_ad6f73168c440f47302b65459dcb107aa} 
+\+\#define MAG\+\_\+\+CS\+\_\+\+LAT~LATDbits.\+LATD6}
+
+Magnetometer Chip Select Latch Register \Hypertarget{config_8h_a4298d062708e4153b01c7f72a109527f}\index{config.h@{config.h}!MAG\_CS\_TRIS@{MAG\_CS\_TRIS}}
+\index{MAG\_CS\_TRIS@{MAG\_CS\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_CS\_TRIS}{MAG\_CS\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_a4298d062708e4153b01c7f72a109527f} 
+\+\#define MAG\+\_\+\+CS\+\_\+\+TRIS~TRISDbits.\+TRISD6}
+
+Magnetometer Chip Select Direction Register \Hypertarget{config_8h_a7820228e72bd1ab3a807cfadc3646f1b}\index{config.h@{config.h}!MAG\_OFFSET\_X@{MAG\_OFFSET\_X}}
+\index{MAG\_OFFSET\_X@{MAG\_OFFSET\_X}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_OFFSET\_X}{MAG\_OFFSET\_X}}
+{\footnotesize\ttfamily \label{config_8h_a7820228e72bd1ab3a807cfadc3646f1b} 
+\+\#define MAG\+\_\+\+OFFSET\+\_\+X~0.\+0f}
+
+X-\/axis hard-\/iron calibration offset for the magnetometer. \Hypertarget{config_8h_a145bb27a97baa0a1d7d85fd987560a9b}\index{config.h@{config.h}!MAG\_OFFSET\_Y@{MAG\_OFFSET\_Y}}
+\index{MAG\_OFFSET\_Y@{MAG\_OFFSET\_Y}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_OFFSET\_Y}{MAG\_OFFSET\_Y}}
+{\footnotesize\ttfamily \label{config_8h_a145bb27a97baa0a1d7d85fd987560a9b} 
+\+\#define MAG\+\_\+\+OFFSET\+\_\+Y~0.\+0f}
+
+Y-\/axis hard-\/iron calibration offset for the magnetometer. \Hypertarget{config_8h_a10f6064e4b16a7cc282dc2cae7bf4711}\index{config.h@{config.h}!MAG\_OFFSET\_Z@{MAG\_OFFSET\_Z}}
+\index{MAG\_OFFSET\_Z@{MAG\_OFFSET\_Z}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MAG\_OFFSET\_Z}{MAG\_OFFSET\_Z}}
+{\footnotesize\ttfamily \label{config_8h_a10f6064e4b16a7cc282dc2cae7bf4711} 
+\+\#define MAG\+\_\+\+OFFSET\+\_\+Z~0.\+0f}
+
+Z-\/axis hard-\/iron calibration offset for the magnetometer. \Hypertarget{config_8h_aa5861e58da5e806b7a50c27c891c4ff2}\index{config.h@{config.h}!MSG\_ERR\_INPUT@{MSG\_ERR\_INPUT}}
+\index{MSG\_ERR\_INPUT@{MSG\_ERR\_INPUT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{MSG\_ERR\_INPUT}{MSG\_ERR\_INPUT}}
+{\footnotesize\ttfamily \label{config_8h_aa5861e58da5e806b7a50c27c891c4ff2} 
+\+\#define MSG\+\_\+\+ERR\+\_\+\+INPUT~"{}\$ERR,1\texorpdfstring{$\ast$}{*}\textbackslash{}n"{}}
+
+Standard serial error response for invalid commands. \Hypertarget{config_8h_a89e47af0449640d4f15191aba5ca24c6}\index{config.h@{config.h}!RAD\_TO\_DEG@{RAD\_TO\_DEG}}
+\index{RAD\_TO\_DEG@{RAD\_TO\_DEG}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{RAD\_TO\_DEG}{RAD\_TO\_DEG}}
+{\footnotesize\ttfamily \label{config_8h_a89e47af0449640d4f15191aba5ca24c6} 
+\+\#define RAD\+\_\+\+TO\+\_\+\+DEG~57.\+29577951f}
+
+Conversion factor from Radians to Degrees (180.\+0f /\+ PI). \Hypertarget{config_8h_a498470e69232419a3bdf46bba849d5f6}\index{config.h@{config.h}!RSL\_LAT@{RSL\_LAT}}
+\index{RSL\_LAT@{RSL\_LAT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{RSL\_LAT}{RSL\_LAT}}
+{\footnotesize\ttfamily \label{config_8h_a498470e69232419a3bdf46bba849d5f6} 
+\+\#define RSL\+\_\+\+LAT~LATFbits.\+LATF1}
+
+Right Side Light Latch Register \Hypertarget{config_8h_a001897a0c413d75879bf9b1735c624d1}\index{config.h@{config.h}!RSL\_TRIS@{RSL\_TRIS}}
+\index{RSL\_TRIS@{RSL\_TRIS}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{RSL\_TRIS}{RSL\_TRIS}}
+{\footnotesize\ttfamily \label{config_8h_a001897a0c413d75879bf9b1735c624d1} 
+\+\#define RSL\+\_\+\+TRIS~TRISFbits.\+TRISF1}
+
+Right Side Light Direction Register \Hypertarget{config_8h_ab7dd4999f8065bc7b38eb17607f34eaa}\index{config.h@{config.h}!SPI1\_MISO\_RPIN@{SPI1\_MISO\_RPIN}}
+\index{SPI1\_MISO\_RPIN@{SPI1\_MISO\_RPIN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_MISO\_RPIN}{SPI1\_MISO\_RPIN}}
+{\footnotesize\ttfamily \label{config_8h_ab7dd4999f8065bc7b38eb17607f34eaa} 
+\+\#define SPI1\+\_\+\+MISO\+\_\+\+RPIN~17}
+
+Remapped SPI1 MISO signal pin ID:\+ RPI17 (RA1). \Hypertarget{config_8h_ad49004a6d2df923bd55300c52d7e91ea}\index{config.h@{config.h}!SPI1\_MOSI\_RPIN@{SPI1\_MOSI\_RPIN}}
+\index{SPI1\_MOSI\_RPIN@{SPI1\_MOSI\_RPIN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_MOSI\_RPIN}{SPI1\_MOSI\_RPIN}}
+{\footnotesize\ttfamily \label{config_8h_ad49004a6d2df923bd55300c52d7e91ea} 
+\+\#define SPI1\+\_\+\+MOSI\+\_\+\+RPIN~109}
+
+Remapped SPI1 MOSI signal pin ID:\+ RP109 (RF13). \Hypertarget{config_8h_a97476fd466a0045342316c7a2a0c6ccb}\index{config.h@{config.h}!SPI1\_PPRE@{SPI1\_PPRE}}
+\index{SPI1\_PPRE@{SPI1\_PPRE}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_PPRE}{SPI1\_PPRE}}
+{\footnotesize\ttfamily \label{config_8h_a97476fd466a0045342316c7a2a0c6ccb} 
+\+\#define SPI1\+\_\+\+PPRE~0b11}
+
+8:\+1 primary prescaler configuration bits. \Hypertarget{config_8h_ad4e9691f8d6dd93b17f2c39d76c881e2}\index{config.h@{config.h}!SPI1\_SCK\_RPIN@{SPI1\_SCK\_RPIN}}
+\index{SPI1\_SCK\_RPIN@{SPI1\_SCK\_RPIN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_SCK\_RPIN}{SPI1\_SCK\_RPIN}}
+{\footnotesize\ttfamily \label{config_8h_ad4e9691f8d6dd93b17f2c39d76c881e2} 
+\+\#define SPI1\+\_\+\+SCK\+\_\+\+RPIN~108}
+
+Remapped SPI1 SCK signal pin ID:\+ RP108 (RF12). \Hypertarget{config_8h_ae61570500e1258028b30482878be16d7}\index{config.h@{config.h}!SPI1\_SPRE@{SPI1\_SPRE}}
+\index{SPI1\_SPRE@{SPI1\_SPRE}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_SPRE}{SPI1\_SPRE}}
+{\footnotesize\ttfamily \label{config_8h_ae61570500e1258028b30482878be16d7} 
+\+\#define SPI1\+\_\+\+SPRE~0b000}
+
+1:\+1 secondary prescaler configuration bits. \Hypertarget{config_8h_aa94809763f76d613144562c785db769a}\index{config.h@{config.h}!UART1\_RX\_RPIN@{UART1\_RX\_RPIN}}
+\index{UART1\_RX\_RPIN@{UART1\_RX\_RPIN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_RX\_RPIN}{UART1\_RX\_RPIN}}
+{\footnotesize\ttfamily \label{config_8h_aa94809763f76d613144562c785db769a} 
+\+\#define UART1\+\_\+\+RX\+\_\+\+RPIN~75}
+
+Remapped UART1 RX signal pin ID:\+ RPI75 (RD11). \Hypertarget{config_8h_ac66770d44992368ca83da69e4bfde90d}\index{config.h@{config.h}!UART1\_TX\_RPIN@{UART1\_TX\_RPIN}}
+\index{UART1\_TX\_RPIN@{UART1\_TX\_RPIN}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_TX\_RPIN}{UART1\_TX\_RPIN}}
+{\footnotesize\ttfamily \label{config_8h_ac66770d44992368ca83da69e4bfde90d} 
+\+\#define UART1\+\_\+\+TX\+\_\+\+RPIN~64}
+
+Remapped UART1 TX signal pin ID:\+ RP64 (RD0). 

@@ -1,0 +1,83 @@
+\doxysection{include/\+drivers/\+pwm.h File Reference}
+\hypertarget{pwm_8h}{}\label{pwm_8h}\index{include/drivers/pwm.h@{include/drivers/pwm.h}}
+
+
+Header file for Pulse Width Modulation (PWM) and motor control interface.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{pwm_8h_a1e8fdae3fd7118582ffa427dad05b6e1}{pwm\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the motor control pins and Output Compare peripherals. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{pwm_8h_add154143cc4e0890dcfb8ad481da6f93}{pwm\+\_\+set\+\_\+duty\+\_\+cycle}} (int percent, unsigned int reg)
+\begin{DoxyCompactList}\small\item\em Converts a percentage into a hardware register duty cycle value. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{pwm_8h_aecb94c9655209f2ffa858c71f8b0a3dd}{execute\+\_\+motion}} (int v, int w)
+\begin{DoxyCompactList}\small\item\em Computes differential kinematics and updates H-\/\+Bridge duty cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for Pulse Width Modulation (PWM) and motor control interface. 
+
+
+
+\label{pwm_8h_doc-func-members}
+\Hypertarget{pwm_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pwm_8h_aecb94c9655209f2ffa858c71f8b0a3dd}\index{pwm.h@{pwm.h}!execute\_motion@{execute\_motion}}
+\index{execute\_motion@{execute\_motion}!pwm.h@{pwm.h}}
+\doxysubsubsection{\texorpdfstring{execute\_motion()}{execute\_motion()}}
+{\footnotesize\ttfamily \label{pwm_8h_aecb94c9655209f2ffa858c71f8b0a3dd} 
+void execute\+\_\+motion (\begin{DoxyParamCaption}\item[{int}]{v}{, }\item[{int}]{w}{}\end{DoxyParamCaption})}
+
+
+
+Computes differential kinematics and updates H-\/\+Bridge duty cycles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Target linear velocity (-\/100 to 100). \\
+\hline
+{\em w} & Target angular yaw rate (-\/100 to 100).\\
+\hline
+\end{DoxyParams}
+Converts a target forward velocity and angular yaw rate into independent left and right track speeds. It applies threshold clamps and routes the resulting magnitudes to the appropriate forward or backward OC module.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Target linear velocity (-\/100 to 100). \\
+\hline
+{\em w} & Target angular yaw rate (-\/100 to 100). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{pwm_8h_a1e8fdae3fd7118582ffa427dad05b6e1}\index{pwm.h@{pwm.h}!pwm\_init@{pwm\_init}}
+\index{pwm\_init@{pwm\_init}!pwm.h@{pwm.h}}
+\doxysubsubsection{\texorpdfstring{pwm\_init()}{pwm\_init()}}
+{\footnotesize\ttfamily \label{pwm_8h_a1e8fdae3fd7118582ffa427dad05b6e1} 
+void pwm\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the motor control pins and Output Compare peripherals. 
+
+Configures the directional pins (RD1-\/\+RD4) as outputs and maps them to specific Re-\/mappable Pins (RP65-\/\+RP68). It initializes four Output Compare modules (OC1-\/\+OC4) in edge-\/aligned PWM mode with a base frequency of 10 k\+Hz. \Hypertarget{pwm_8h_add154143cc4e0890dcfb8ad481da6f93}\index{pwm.h@{pwm.h}!pwm\_set\_duty\_cycle@{pwm\_set\_duty\_cycle}}
+\index{pwm\_set\_duty\_cycle@{pwm\_set\_duty\_cycle}!pwm.h@{pwm.h}}
+\doxysubsubsection{\texorpdfstring{pwm\_set\_duty\_cycle()}{pwm\_set\_duty\_cycle()}}
+{\footnotesize\ttfamily \label{pwm_8h_add154143cc4e0890dcfb8ad481da6f93} 
+int pwm\+\_\+set\+\_\+duty\+\_\+cycle (\begin{DoxyParamCaption}\item[{int}]{percent}{, }\item[{unsigned int}]{reg}{}\end{DoxyParamCaption})}
+
+
+
+Converts a percentage into a hardware register duty cycle value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent} & The desired duty cycle ranging from 0 to 100. \\
+\hline
+{\em reg} & The period register boundary (OCx\+RS) to scale against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The calculated hardware integer to be written to OCxR. 
+\end{DoxyReturn}

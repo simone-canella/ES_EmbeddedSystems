@@ -1,0 +1,90 @@
+\doxysection{include/\+core/\+tasks.h File Reference}
+\hypertarget{tasks_8h}{}\label{tasks_8h}\index{include/core/tasks.h@{include/core/tasks.h}}
+
+
+Subsystem task abstractions and hardware setup declarations for the robot buggy.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}robot\+\_\+state.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{tasks_8h_a89029a6931d2fd1f87f810e6f0a28e37}{tasks\+\_\+init}} (void \texorpdfstring{$\ast$}{*}param)
+\begin{DoxyCompactList}\small\item\em Registers all system runtime operational tasks into the scheduler matrix. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{tasks_8h_a307e908fd8c4eec75a14b072dc500599}{hw\+\_\+init}} (\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}rover)
+\begin{DoxyCompactList}\small\item\em Configures low-\/level microcontroller hardware registers and peripherals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subsystem task abstractions and hardware setup declarations for the robot buggy. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0
+\end{DoxyVersion}
+This header file declares the initialization interfaces responsible for configuring low-\/level microcontroller peripherals and registering periodic execution tasks with the cooperative system scheduler. 
+
+\label{tasks_8h_doc-func-members}
+\Hypertarget{tasks_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tasks_8h_a307e908fd8c4eec75a14b072dc500599}\index{tasks.h@{tasks.h}!hw\_init@{hw\_init}}
+\index{hw\_init@{hw\_init}!tasks.h@{tasks.h}}
+\doxysubsubsection{\texorpdfstring{hw\_init()}{hw\_init()}}
+{\footnotesize\ttfamily \label{tasks_8h_a307e908fd8c4eec75a14b072dc500599} 
+void hw\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_robot_state__t}{Robot\+State\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rover}{}\end{DoxyParamCaption})}
+
+
+
+Configures low-\/level microcontroller hardware registers and peripherals. 
+
+Initializes all necessary hardware peripherals and sets up initial robot state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure to configure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Sets up all required physical hardware components on the ds\+PIC core. This handles the initialization of data direction registers (TRIS), latch configurations (LAT), Peripheral Pin Select (PPS) pin remapping for UART/\+\+SPI communication links, analog-\/to-\/digital converters (ADC) for infrared and battery sensing, and Output Compare modules for the 10 k\+Hz motor PWM waves.
+
+Configures low-\/level microcontroller hardware registers and peripherals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rover} & Pointer to the robot state structure to configure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tasks_8h_a89029a6931d2fd1f87f810e6f0a28e37}\index{tasks.h@{tasks.h}!tasks\_init@{tasks\_init}}
+\index{tasks\_init@{tasks\_init}!tasks.h@{tasks.h}}
+\doxysubsubsection{\texorpdfstring{tasks\_init()}{tasks\_init()}}
+{\footnotesize\ttfamily \label{tasks_8h_a89029a6931d2fd1f87f810e6f0a28e37} 
+void tasks\+\_\+init (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{param}{}\end{DoxyParamCaption})}
+
+
+
+Registers all system runtime operational tasks into the scheduler matrix. 
+
+Initializes and registers all scheduler tasks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & Generic initialization parameter container representing the robot state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Connects individual software tasks (such as sensor reading, state machine dispatching, motor actuation, and telemetry logging) with the periodic cyclic scheduler. In order to guarantee maximum execution time budgets for every single clock tick, tasks are registered with pre-\/calculated initial offsets so that their worst-\/case workloads do not overlap.
+
+Registers all system runtime operational tasks into the scheduler matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & Pointer to the robot state structure to be passed into tasks. \\
+\hline
+\end{DoxyParams}

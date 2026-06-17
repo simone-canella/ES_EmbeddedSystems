@@ -1,0 +1,184 @@
+\doxysection{src/\+drivers/\+\+BOSCH\+\_\+\+BMX055.c File Reference}
+\hypertarget{_b_o_s_c_h___b_m_x055_8c}{}\label{_b_o_s_c_h___b_m_x055_8c}\index{src/drivers/BOSCH\_BMX055.c@{src/drivers/BOSCH\_BMX055.c}}
+
+
+SPI driver implementation for the Bosch BMX055 IMU.  
+
+
+{\ttfamily \+\#include "{}BOSCH\+\_\+\+BMX055.\+h"{}}\newline
+{\ttfamily \+\#include $<$xc.\+h$>$}\newline
+{\ttfamily \+\#include "{}timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}spi.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_afd5008e57636187fa5b7656beeec665b}{BMX055\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the BMX055 sensor and configures the SPI bus parameters. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a7c94c26bd3e8ff807c7db80fa0e8e360}{BMX055\+\_\+mag\+\_\+wakeup}} ()
+\begin{DoxyCompactList}\small\item\em Executes the wake-\/up sequence for the BMX055 magnetometer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a4d064d46cef1154c55eedcf0719543bd}{format12bit}} ()
+\begin{DoxyCompactList}\small\item\em Reads two bytes via SPI and formats them as a 12-\/bit signed integer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a3e7e1794b988e12e92d077bcbb8cdba1}{format13bit}} ()
+\begin{DoxyCompactList}\small\item\em Reads two bytes via SPI and formats them as a 13-\/bit signed integer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a63528c76491b42aa6e8020f1e2edef7e}{format15bit}} ()
+\begin{DoxyCompactList}\small\item\em Reads two bytes via SPI and formats them as a 15-\/bit signed integer. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a69f24d053a261de86f130af8820b1d19}{format16bit}} ()
+\begin{DoxyCompactList}\small\item\em Reads two bytes via SPI and formats them as a standard 16-\/bit signed integer. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}} \doxymbox{\hyperlink{_b_o_s_c_h___b_m_x055_8c_a3be1ff293d152bb90b368cf7c1bec99c}{imu\+Read}} (int sensor)
+\begin{DoxyCompactList}\small\item\em Reads a full frame of multi-\/axis data from the specified IMU sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a83f52ed7deeba2472c063769151c6656}\label{_b_o_s_c_h___b_m_x055_8c_a83f52ed7deeba2472c063769151c6656} 
+volatile unsigned int {\bfseries DATA\+\_\+\+LSB}
+\begin{DoxyCompactList}\small\item\em Global volatile buffers for temporarily storing raw SPI byte transactions. \end{DoxyCompactList}\item 
+\Hypertarget{_b_o_s_c_h___b_m_x055_8c_aeea3075da3ae34bcbf383335fd06ed9d}\label{_b_o_s_c_h___b_m_x055_8c_aeea3075da3ae34bcbf383335fd06ed9d} 
+volatile unsigned int {\bfseries DATA\+\_\+\+MSB}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SPI driver implementation for the Bosch BMX055 IMU. 
+
+This file contains the initialization sequences, power management routines, and data extraction functions required to interface with the Accelerometer, Gyroscope, and Magnetometer components of the BMX055 sensor over SPI. 
+
+\label{_b_o_s_c_h___b_m_x055_8c_doc-func-members}
+\Hypertarget{_b_o_s_c_h___b_m_x055_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a7c94c26bd3e8ff807c7db80fa0e8e360}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!BMX055\_mag\_wakeup@{BMX055\_mag\_wakeup}}
+\index{BMX055\_mag\_wakeup@{BMX055\_mag\_wakeup}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{BMX055\_mag\_wakeup()}{BMX055\_mag\_wakeup()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a7c94c26bd3e8ff807c7db80fa0e8e360} 
+void BMX055\+\_\+mag\+\_\+wakeup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executes the wake-\/up sequence for the BMX055 magnetometer. 
+
+
+\begin{DoxyItemize}
+\item Forces the magnetometer interface to switch from I2C to SPI by toggling the MAG\+\_\+\+CS pin.
+\item Transitions the magnetometer from Suspend Mode to Sleep Mode by writing 0x01 to register 0x4B.
+\item Transitions the magnetometer from Sleep Mode to Active Mode by writing 0x00 to register 0x4C.
+\item Utilizes TIMER1 delays between transmissions to allow for power mode switching times. 
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_afd5008e57636187fa5b7656beeec665b}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!BMX055\_setup@{BMX055\_setup}}
+\index{BMX055\_setup@{BMX055\_setup}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{BMX055\_setup()}{BMX055\_setup()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_afd5008e57636187fa5b7656beeec665b} 
+void BMX055\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the BMX055 sensor and configures the SPI bus parameters. 
+
+
+\begin{DoxyItemize}
+\item Sets Chip Select (CS) lines for the Accelerometer, Gyroscope, and Magnetometer to high (inactive).
+\item Temporarily disables the SPI module to configure protocol settings matching the BMX055 requirements.
+\item Configures the SPI clock polarity to idle LOW (CKP = 0) and sets data changes to occur on transition from active to idle (CKE = 1).
+\item Sets the accelerometer\textquotesingle{}s initial bandwidth to 1000 Hz by writing value 15 to register 0x10. 
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a4d064d46cef1154c55eedcf0719543bd}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!format12bit@{format12bit}}
+\index{format12bit@{format12bit}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{format12bit()}{format12bit()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a4d064d46cef1154c55eedcf0719543bd} 
+int format12bit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads two bytes via SPI and formats them as a 12-\/bit signed integer. 
+
+
+\begin{DoxyItemize}
+\item Masks the lower 4 bits of the LSB with 0b11110000 to isolate the valid data.
+\item Shifts the MSB left by 8 bits and combines it with the LSB.
+\item Divides the combined short by 16 to properly align the 12-\/bit value. \begin{DoxyReturn}{Returns}
+int The formatted 12-\/bit signed data value. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a3e7e1794b988e12e92d077bcbb8cdba1}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!format13bit@{format13bit}}
+\index{format13bit@{format13bit}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{format13bit()}{format13bit()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a3e7e1794b988e12e92d077bcbb8cdba1} 
+int format13bit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads two bytes via SPI and formats them as a 13-\/bit signed integer. 
+
+
+\begin{DoxyItemize}
+\item Masks the lower 3 bits of the LSB with 0b11111000 to isolate the valid data.
+\item Shifts the MSB left by 8 bits and combines it with the LSB.
+\item Divides the combined short by 8 to properly align the 13-\/bit value. \begin{DoxyReturn}{Returns}
+int The formatted 13-\/bit signed data value. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a63528c76491b42aa6e8020f1e2edef7e}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!format15bit@{format15bit}}
+\index{format15bit@{format15bit}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{format15bit()}{format15bit()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a63528c76491b42aa6e8020f1e2edef7e} 
+int format15bit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads two bytes via SPI and formats them as a 15-\/bit signed integer. 
+
+
+\begin{DoxyItemize}
+\item Masks the lowest bit of the LSB with 0b11111110 to isolate the valid data.
+\item Shifts the MSB left by 8 bits and combines it with the LSB.
+\item Divides the combined short by 2 to properly align the 15-\/bit value. \begin{DoxyReturn}{Returns}
+int The formatted 15-\/bit signed data value. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a69f24d053a261de86f130af8820b1d19}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!format16bit@{format16bit}}
+\index{format16bit@{format16bit}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{format16bit()}{format16bit()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a69f24d053a261de86f130af8820b1d19} 
+int format16bit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads two bytes via SPI and formats them as a standard 16-\/bit signed integer. 
+
+
+\begin{DoxyItemize}
+\item Shifts the MSB left by 8 bits and performs a bitwise OR with the LSB. \begin{DoxyReturn}{Returns}
+int The combined 16-\/bit signed data value. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\Hypertarget{_b_o_s_c_h___b_m_x055_8c_a3be1ff293d152bb90b368cf7c1bec99c}\index{BOSCH\_BMX055.c@{BOSCH\_BMX055.c}!imuRead@{imuRead}}
+\index{imuRead@{imuRead}!BOSCH\_BMX055.c@{BOSCH\_BMX055.c}}
+\doxysubsubsection{\texorpdfstring{imuRead()}{imuRead()}}
+{\footnotesize\ttfamily \label{_b_o_s_c_h___b_m_x055_8c_a3be1ff293d152bb90b368cf7c1bec99c} 
+\doxymbox{\hyperlink{struct_i_m_udata}{IMUdata}} imu\+Read (\begin{DoxyParamCaption}\item[{int}]{sensor}{}\end{DoxyParamCaption})}
+
+
+
+Reads a full frame of multi-\/axis data from the specified IMU sensor. 
+
+
+\begin{DoxyItemize}
+\item Dispatches SPI reads depending on the requested sensor macro ({\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c}{ACC}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67}{GYR}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0}{MAG}}).
+\item Sets the MSB of the register address to 1 (0x80) to indicate a read operation.
+\item Accelerometer (ACC):\+ Reads from register 0x02 and formats X, Y, and Z axes as 12-\/bit integers.
+\item Gyroscope (GYR):\+ Reads from register 0x02 and formats X, Y, and Z axes as 16-\/bit integers.
+\item Magnetometer (MAG):\+ Reads from register 0x42, formats X and Y axes as 13-\/bit integers, and the Z axis as a 15-\/bit integer.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & The target sensor peripheral to read ({\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_a09fc148003f20ecc4834d4ea6aefb15c}{ACC}}, {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_aa84530fddac5247b372d2d535e75ea67}{GYR}}, or {\ttfamily \doxylink{_b_o_s_c_h___b_m_x055_8h_af54a5a977c0c499323d656315f008ee0}{MAG}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_i_m_udata}{IMUdata} A structure containing the extracted x, y, and z axis measurements.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & The target sensor peripheral to read (ACC, GYR, or MAG). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_i_m_udata}{IMUdata} A structure containing the extracted x, y, and z axis measurements. 
+\end{DoxyReturn}

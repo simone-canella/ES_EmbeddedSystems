@@ -1,0 +1,4 @@
+{
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}/_build/assignment_2/default",
+    "cmake.sourceDirectory": "${workspaceFolder}/cmake/assignment_2/default"
+}

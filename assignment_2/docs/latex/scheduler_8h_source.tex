@@ -1,0 +1,28 @@
+\doxysection{scheduler.\+h}
+\hypertarget{scheduler_8h_source}{}\label{scheduler_8h_source}\index{include/core/scheduler.h@{include/core/scheduler.h}}
+\doxymbox{\hyperlink{scheduler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ SCHEDULER\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ SCHEDULER\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{timer_8h}{timer.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ tick\_ms\ 2\ \ \ \ \ \ \ }\textcolor{comment}{//\ tick\ duration\ in\ ms\ }}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ -\/-\/-\/\ Core\ Public\ Scheduler\ Interfaces\ -\/-\/-\/}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{scheduler_8h_ad8e3087dd5a5c3096d2499c84f670c28}{scheduler}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{scheduler_8h_add17af9677a8cec17ec8f1c3b0058a55}{register\_task}}(\textcolor{keywordtype}{int}\ initial\_offset,\ \textcolor{keywordtype}{int}\ period\_ticks,\ \textcolor{keywordtype}{void}\ (*f)(\textcolor{keywordtype}{void}\ *),\ \textcolor{keywordtype}{void}\ *arg);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{scheduler_8h_a8a64ee44a40b8b6cc7ed6d63621b4b44}{enable\_task}}(\textcolor{keywordtype}{int}\ task\_ID);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{scheduler_8h_ab9583dbcedce3bb63cd7f8f03469f9d3}{disable\_task}}(\textcolor{keywordtype}{int}\ task\_ID);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCHEDULER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,67 @@
+\doxysection{System\+IO\+\_\+t Struct Reference}
+\hypertarget{struct_system_i_o__t}{}\label{struct_system_i_o__t}\index{SystemIO\_t@{SystemIO\_t}}
+
+
+Manages Input/\+\+Output peripherals and communication buffers.  
+
+
+
+
+{\ttfamily \+\#include $<$robot\+\_\+state.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \doxymbox{\hyperlink{struct_system_i_o__t_a3620cdef9db879a1ecd781aa5556d413}{btn\+\_\+re8}}
+\item 
+\doxymbox{\hyperlink{struct_button_state}{Button\+State}} \doxymbox{\hyperlink{struct_system_i_o__t_afb0a161c4a5bc6e0aae1eb68063c89f5}{btn\+\_\+re9}}
+\item 
+int \doxymbox{\hyperlink{struct_system_i_o__t_a9f119f5d69c3b361e4e241b8c717272f}{char\+\_\+received}}
+\item 
+char \doxymbox{\hyperlink{struct_system_i_o__t_a88aba80730143a9ea59db5f5426c2deb}{tx\+\_\+buffer}} \+[64]\+
+\item 
+char \doxymbox{\hyperlink{struct_system_i_o__t_a08251916dbb949f13dd94b1c729b8035}{rx\+\_\+cmd}} \+[16]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages Input/\+\+Output peripherals and communication buffers. 
+
+\label{struct_system_i_o__t_doc-variable-members}
+\Hypertarget{struct_system_i_o__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_system_i_o__t_a3620cdef9db879a1ecd781aa5556d413}\index{SystemIO\_t@{SystemIO\_t}!btn\_re8@{btn\_re8}}
+\index{btn\_re8@{btn\_re8}!SystemIO\_t@{SystemIO\_t}}
+\doxysubsubsection{\texorpdfstring{btn\_re8}{btn\_re8}}
+{\footnotesize\ttfamily \label{struct_system_i_o__t_a3620cdef9db879a1ecd781aa5556d413} 
+\doxymbox{\hyperlink{struct_button_state}{Button\+State}} btn\+\_\+re8}
+
+Debouncing structure for Button T1. \Hypertarget{struct_system_i_o__t_afb0a161c4a5bc6e0aae1eb68063c89f5}\index{SystemIO\_t@{SystemIO\_t}!btn\_re9@{btn\_re9}}
+\index{btn\_re9@{btn\_re9}!SystemIO\_t@{SystemIO\_t}}
+\doxysubsubsection{\texorpdfstring{btn\_re9}{btn\_re9}}
+{\footnotesize\ttfamily \label{struct_system_i_o__t_afb0a161c4a5bc6e0aae1eb68063c89f5} 
+\doxymbox{\hyperlink{struct_button_state}{Button\+State}} btn\+\_\+re9}
+
+Debouncing structure for Button T2. \Hypertarget{struct_system_i_o__t_a9f119f5d69c3b361e4e241b8c717272f}\index{SystemIO\_t@{SystemIO\_t}!char\_received@{char\_received}}
+\index{char\_received@{char\_received}!SystemIO\_t@{SystemIO\_t}}
+\doxysubsubsection{\texorpdfstring{char\_received}{char\_received}}
+{\footnotesize\ttfamily \label{struct_system_i_o__t_a9f119f5d69c3b361e4e241b8c717272f} 
+int char\+\_\+received}
+
+Flag indicating active UART reception. \Hypertarget{struct_system_i_o__t_a08251916dbb949f13dd94b1c729b8035}\index{SystemIO\_t@{SystemIO\_t}!rx\_cmd@{rx\_cmd}}
+\index{rx\_cmd@{rx\_cmd}!SystemIO\_t@{SystemIO\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_cmd}{rx\_cmd}}
+{\footnotesize\ttfamily \label{struct_system_i_o__t_a08251916dbb949f13dd94b1c729b8035} 
+char rx\+\_\+cmd\+[16]\+}
+
+Dedicated reception parsing buffer. \Hypertarget{struct_system_i_o__t_a88aba80730143a9ea59db5f5426c2deb}\index{SystemIO\_t@{SystemIO\_t}!tx\_buffer@{tx\_buffer}}
+\index{tx\_buffer@{tx\_buffer}!SystemIO\_t@{SystemIO\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_buffer}{tx\_buffer}}
+{\footnotesize\ttfamily \label{struct_system_i_o__t_a88aba80730143a9ea59db5f5426c2deb} 
+char tx\+\_\+buffer\+[64]\+}
+
+Dedicated transmission text formatting buffer. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+core/\+\doxymbox{\hyperlink{robot__state_8h}{robot\+\_\+state.\+h}}\end{DoxyCompactItemize}

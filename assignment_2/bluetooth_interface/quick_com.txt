@@ -1,0 +1,6 @@
+$PCREF,0,0* -> STOP
+$PCREF,50,0*
+$PCREF,0,80*
+
+
+

@@ -1,0 +1,37 @@
+\doxysection{fsm.\+h}
+\hypertarget{fsm_8h_source}{}\label{fsm_8h_source}\index{include/core/fsm.h@{include/core/fsm.h}}
+\doxymbox{\hyperlink{fsm_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ FSM\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ FSM\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{robot__state_8h}{robot\_state.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a99bff5383ce10ea512c8443243adf5b3}{STATE\_HALTED}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8ae8fbb3519d77b1f430b38756458dcad6}{STATE\_MOVING}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8ab20fc0008b3f377609e82f9f6d7fdbc0}{STATE\_OBSTACLE\_AVOIDANCE}},\ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a6e301d1f2fcd23ccfc4de60c6e6cc9ce}{MAX\_STATES}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \}\ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\_t}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa97e37c9d27057bcd383be0d257fb5a05}{EVENT\_RE8\_PRESSED}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa899eed147ab693d32583babb68d0e3ca}{EVENT\_OBSTACLE\_DETECTED}},\ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa8e828414d629dc205b31fd17dbb14995}{EVENT\_MANEUVER\_COMPLETE}},\ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7fa9776f519b571d5070710cef6885cb9b8}{MAX\_EVENTS}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \}\ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\_t}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ -\/-\/-\/\ Public\ Function\ Interfaces\ -\/-\/-\/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{fsm_8h_a340d9c6f3871073322497c79dc8af1f9}{fsm\_init}}(\doxymbox{\hyperlink{struct_robot_state__t}{RobotState\_t}}\ *rover);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{fsm_8h_a910e67d421288132bfa968ae13652492}{dispatch\_event}}(\doxymbox{\hyperlink{struct_robot_state__t}{RobotState\_t}}\ *rover,\ \doxymbox{\hyperlink{fsm_8h_a284681cc05ddc650984c328563b5fc7f}{Event\_t}}\ event,\ \textcolor{keywordtype}{void}\ *payload);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \doxymbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\_t}}\ \doxymbox{\hyperlink{fsm_8h_abad1f21d00fa190e41e18c596e39e65f}{get\_current\_state}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FSM\_H}}
+
+\end{DoxyCode}

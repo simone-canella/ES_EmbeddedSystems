@@ -1,0 +1,23 @@
+\doxysection{button.\+h}
+\hypertarget{button_8h_source}{}\label{button_8h_source}\index{include/drivers/button.h@{include/drivers/button.h}}
+\doxymbox{\hyperlink{button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BUTTON\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BUTTON\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MAXDEBCYCLE\ 1\ }}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_button_state_aa0113f92101f4df5ba77b2a9286f4f8d}{prev\_state}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_button_state_abe716b7ac84710cd55c0c48eb34c5c80}{debounce\_counter}};\ }
+\DoxyCodeLine{00021\ \}\ \doxymbox{\hyperlink{struct_button_state}{ButtonState}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{button_8h_afa19953dd3801d49d2f92b9b41b4d966}{button\_init}}(\doxymbox{\hyperlink{struct_button_state}{ButtonState}}\ *btn);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{button_8h_ad2724827466c6e24684dc7ba1788e67c}{button\_has\_just\_been\_pressed}}(\doxymbox{\hyperlink{struct_button_state}{ButtonState}}\ *btn,\ \textcolor{keywordtype}{int}\ current\_pin\_state);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BUTTON\_H}}
+
+\end{DoxyCode}

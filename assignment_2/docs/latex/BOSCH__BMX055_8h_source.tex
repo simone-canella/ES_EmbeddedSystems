@@ -1,0 +1,34 @@
+\doxysection{BOSCH\+\_\+\+BMX055.\+h}
+\hypertarget{BOSCH__BMX055_8h_source}{}\label{BOSCH__BMX055_8h_source}\index{include/drivers/BOSCH\_BMX055.h@{include/drivers/BOSCH\_BMX055.h}}
+\mbox{\hyperlink{BOSCH__BMX055_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ BOSCH\_BMX055\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BOSCH\_BMX055\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#define\ ACC\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#define\ GYR\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#define\ MAG\ 3}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#define\ ACC\_CS\ LATBbits.LATB3\ }\textcolor{comment}{//\ RB3\ accelerometer}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#define\ GYR\_CS\ LATBbits.LATB4\ }\textcolor{comment}{//\ RB4\ gyroscope}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \#define\ MAG\_CS\ LATDbits.LATD6\ }\textcolor{comment}{//\ RD6\ magnetometer\ }}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structIMUdata_a6150e0515f7202e2fb518f7206ed97dc}{x}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structIMUdata_a0a2f84ed7838f07779ae24c5a9086d33}{y}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structIMUdata_a14f94e529dff0b8bfba8e16fbe9755d6}{z}};\ }
+\DoxyCodeLine{00033\ \ \ \ \ \}\ \mbox{\hyperlink{structIMUdata}{IMUdata}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BOSCH__BMX055_8h_afd5008e57636187fa5b7656beeec665b}{BMX055\_setup}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{BOSCH__BMX055_8h_a7c94c26bd3e8ff807c7db80fa0e8e360}{BMX055\_mag\_wakeup}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{structIMUdata}{IMUdata}}\ \mbox{\hyperlink{BOSCH__BMX055_8h_a3be1ff293d152bb90b368cf7c1bec99c}{imuRead}}(\textcolor{keywordtype}{int}\ sensor);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOSCH\_BMX055\_H}}
+
+\end{DoxyCode}

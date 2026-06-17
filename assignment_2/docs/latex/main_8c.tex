@@ -1,0 +1,52 @@
+\doxysection{src/\+core/\+main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{src/core/main.c@{src/core/main.c}}
+
+
+Application entry point and main scheduler loop for the buggy.  
+
+
+{\ttfamily \+\#include "{}config.\+h"{}}\newline
+{\ttfamily \+\#include "{}robot\+\_\+state.\+h"{}}\newline
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+{\ttfamily \+\#include "{}tasks.\+h"{}}\newline
+{\ttfamily \+\#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main execution function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8c_aee5c380c5cecb36481c489c6ff33d732}\label{main_8c_aee5c380c5cecb36481c489c6ff33d732} 
+int {\bfseries deadline\+Missed}
+\begin{DoxyCompactList}\small\item\em Counter tracking the number of missed scheduler deadlines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application entry point and main scheduler loop for the buggy. 
+
+\begin{DoxyAuthor}{Author}
+Simone Canella, Samuele Isaia, Riccardo Parotelli 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\label{main_8c_doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main execution function. 
+
+\begin{DoxyReturn}{Returns}
+Application exit code. 
+\end{DoxyReturn}

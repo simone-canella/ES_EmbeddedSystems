@@ -1,0 +1,4 @@
+/* Hide the redundant 'Main Page' list item entry inside the left sidebar treeview */
+#nav-tree .children > .item:first-child {
+    display: none !important;
+}

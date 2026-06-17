@@ -1,0 +1,314 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Main Page }{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}ds\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PIC33 Buggy Control Firmware}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}System Architecture}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Finite State Machine (FSM)}{1}{subsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.2.1}1. STATE\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}HALTED}{1}{subsubsection.1.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.1.2.2}2. STATE\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MOVING}{1}{subsubsection.1.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.1.2.3}3. STATE\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}OBSTACLE\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AVOIDANCE}{2}{subsubsection.1.1.2.3}%
+\contentsline {subsection}{\numberline {1.1.3}Real-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Time Task Scheduler Matrix}{2}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}H-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Bridge Actuation Logic Mapping}{3}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}The bluetooth interface (Linux/mac\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}OS Native)}{3}{subsection.1.1.5}%
+\contentsline {subsubsection}{\numberline {1.1.5.1}Native Execution (Linux/mac\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}OS)}{3}{subsubsection.1.1.5.1}%
+\contentsline {subsection}{\numberline {1.1.6}Project Documentation}{3}{subsection.1.1.6}%
+\contentsline {chapter}{\numberline {2}Data Structure Index}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Data Structures}{5}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{7}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Data Structure Documentation}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}adc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Struct Reference}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Field Documentation}{9}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}battery\_voltage}{9}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}ir\_distance}{9}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {4.2}Button\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Struct Reference}{9}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{9}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Field Documentation}{10}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}debounce\_counter}{10}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}prev\_state}{10}{subsubsection.4.2.2.2}%
+\contentsline {section}{\numberline {4.3}circular\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}buffer Struct Reference}{10}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{10}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Field Documentation}{10}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}data}{10}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}idxH}{10}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}idxT}{10}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}size}{10}{subsubsection.4.3.2.4}%
+\contentsline {section}{\numberline {4.4}IMUdata Struct Reference}{10}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Field Documentation}{11}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}x}{11}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}y}{11}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}z}{11}{subsubsection.4.4.2.3}%
+\contentsline {section}{\numberline {4.5}Mission\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Control\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{11}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{11}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Field Documentation}{11}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}current\_phase}{11}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}next\_phase}{11}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}obstacle\_counter}{12}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}phase\_counter}{12}{subsubsection.4.5.2.4}%
+\contentsline {section}{\numberline {4.6}Robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{12}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{12}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Field Documentation}{12}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}attitude}{12}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}cmd\_vel}{12}{subsubsection.4.6.2.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.3}io}{12}{subsubsection.4.6.2.3}%
+\contentsline {subsubsection}{\numberline {4.6.2.4}mission}{12}{subsubsection.4.6.2.4}%
+\contentsline {subsubsection}{\numberline {4.6.2.5}sensors}{12}{subsubsection.4.6.2.5}%
+\contentsline {section}{\numberline {4.7}System\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attitude\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{13}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{13}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Field Documentation}{13}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}pitch}{13}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}relative\_yaw}{13}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}roll}{13}{subsubsection.4.7.2.3}%
+\contentsline {subsubsection}{\numberline {4.7.2.4}yaw}{13}{subsubsection.4.7.2.4}%
+\contentsline {section}{\numberline {4.8}System\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IO\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{13}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{13}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Field Documentation}{14}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}btn\_re8}{14}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}btn\_re9}{14}{subsubsection.4.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.3}char\_received}{14}{subsubsection.4.8.2.3}%
+\contentsline {subsubsection}{\numberline {4.8.2.4}rx\_cmd}{14}{subsubsection.4.8.2.4}%
+\contentsline {subsubsection}{\numberline {4.8.2.5}tx\_buffer}{14}{subsubsection.4.8.2.5}%
+\contentsline {section}{\numberline {4.9}System\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Sensors\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{14}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{14}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Field Documentation}{14}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}acc\_raw}{14}{subsubsection.4.9.2.1}%
+\contentsline {subsubsection}{\numberline {4.9.2.2}acc\_x}{15}{subsubsection.4.9.2.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.3}acc\_y}{15}{subsubsection.4.9.2.3}%
+\contentsline {subsubsection}{\numberline {4.9.2.4}acc\_z}{15}{subsubsection.4.9.2.4}%
+\contentsline {subsubsection}{\numberline {4.9.2.5}adc\_status}{15}{subsubsection.4.9.2.5}%
+\contentsline {subsubsection}{\numberline {4.9.2.6}battery\_voltage}{15}{subsubsection.4.9.2.6}%
+\contentsline {subsubsection}{\numberline {4.9.2.7}gyr\_raw}{15}{subsubsection.4.9.2.7}%
+\contentsline {subsubsection}{\numberline {4.9.2.8}ir\_distance}{15}{subsubsection.4.9.2.8}%
+\contentsline {subsubsection}{\numberline {4.9.2.9}mag\_raw}{15}{subsubsection.4.9.2.9}%
+\contentsline {section}{\numberline {4.10}tasky Struct Reference}{15}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{15}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Field Documentation}{16}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}arg}{16}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}enable}{16}{subsubsection.4.10.2.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.3}f}{16}{subsubsection.4.10.2.3}%
+\contentsline {subsubsection}{\numberline {4.10.2.4}N}{16}{subsubsection.4.10.2.4}%
+\contentsline {subsubsection}{\numberline {4.10.2.5}n}{16}{subsubsection.4.10.2.5}%
+\contentsline {section}{\numberline {4.11}Twist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{16}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{16}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Field Documentation}{16}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}v}{16}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}w}{16}{subsubsection.4.11.2.2}%
+\contentsline {chapter}{\numberline {5}File Documentation}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}include/core/config.h File Reference}{17}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{18}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Macro Definition Documentation}{18}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}ACC\_CHIP\_ID}{18}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}ACC\_CS\_LAT}{18}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}ACC\_CS\_TRIS}{18}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}BAUDRATE}{18}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}BRGVAL}{18}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}BTN\_T1\_PORT}{19}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}BTN\_T1\_TRIS}{19}{subsubsection.5.1.2.7}%
+\contentsline {subsubsection}{\numberline {5.1.2.8}BTN\_T2\_PORT}{19}{subsubsection.5.1.2.8}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}BTN\_T2\_TRIS}{19}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.10}FCY}{19}{subsubsection.5.1.2.10}%
+\contentsline {subsubsection}{\numberline {5.1.2.11}GYR\_CHIP\_ID}{19}{subsubsection.5.1.2.11}%
+\contentsline {subsubsection}{\numberline {5.1.2.12}GYR\_CS\_LAT}{19}{subsubsection.5.1.2.12}%
+\contentsline {subsubsection}{\numberline {5.1.2.13}GYR\_CS\_TRIS}{19}{subsubsection.5.1.2.13}%
+\contentsline {subsubsection}{\numberline {5.1.2.14}LED1\_LAT}{19}{subsubsection.5.1.2.14}%
+\contentsline {subsubsection}{\numberline {5.1.2.15}LED1\_TRIS}{19}{subsubsection.5.1.2.15}%
+\contentsline {subsubsection}{\numberline {5.1.2.16}LIL\_LAT}{19}{subsubsection.5.1.2.16}%
+\contentsline {subsubsection}{\numberline {5.1.2.17}LIL\_TRIS}{19}{subsubsection.5.1.2.17}%
+\contentsline {subsubsection}{\numberline {5.1.2.18}LSL\_LAT}{20}{subsubsection.5.1.2.18}%
+\contentsline {subsubsection}{\numberline {5.1.2.19}LSL\_TRIS}{20}{subsubsection.5.1.2.19}%
+\contentsline {subsubsection}{\numberline {5.1.2.20}MAG\_CHIP\_ID}{20}{subsubsection.5.1.2.20}%
+\contentsline {subsubsection}{\numberline {5.1.2.21}MAG\_CS\_LAT}{20}{subsubsection.5.1.2.21}%
+\contentsline {subsubsection}{\numberline {5.1.2.22}MAG\_CS\_TRIS}{20}{subsubsection.5.1.2.22}%
+\contentsline {subsubsection}{\numberline {5.1.2.23}MAG\_OFFSET\_X}{20}{subsubsection.5.1.2.23}%
+\contentsline {subsubsection}{\numberline {5.1.2.24}MAG\_OFFSET\_Y}{20}{subsubsection.5.1.2.24}%
+\contentsline {subsubsection}{\numberline {5.1.2.25}MAG\_OFFSET\_Z}{20}{subsubsection.5.1.2.25}%
+\contentsline {subsubsection}{\numberline {5.1.2.26}MSG\_ERR\_INPUT}{20}{subsubsection.5.1.2.26}%
+\contentsline {subsubsection}{\numberline {5.1.2.27}RAD\_TO\_DEG}{20}{subsubsection.5.1.2.27}%
+\contentsline {subsubsection}{\numberline {5.1.2.28}RSL\_LAT}{20}{subsubsection.5.1.2.28}%
+\contentsline {subsubsection}{\numberline {5.1.2.29}RSL\_TRIS}{20}{subsubsection.5.1.2.29}%
+\contentsline {subsubsection}{\numberline {5.1.2.30}SPI1\_MISO\_RPIN}{21}{subsubsection.5.1.2.30}%
+\contentsline {subsubsection}{\numberline {5.1.2.31}SPI1\_MOSI\_RPIN}{21}{subsubsection.5.1.2.31}%
+\contentsline {subsubsection}{\numberline {5.1.2.32}SPI1\_PPRE}{21}{subsubsection.5.1.2.32}%
+\contentsline {subsubsection}{\numberline {5.1.2.33}SPI1\_SCK\_RPIN}{21}{subsubsection.5.1.2.33}%
+\contentsline {subsubsection}{\numberline {5.1.2.34}SPI1\_SPRE}{21}{subsubsection.5.1.2.34}%
+\contentsline {subsubsection}{\numberline {5.1.2.35}UART1\_RX\_RPIN}{21}{subsubsection.5.1.2.35}%
+\contentsline {subsubsection}{\numberline {5.1.2.36}UART1\_TX\_RPIN}{21}{subsubsection.5.1.2.36}%
+\contentsline {section}{\numberline {5.2}config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}include/core/fsm.h File Reference}{22}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{23}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Enumeration Type Documentation}{23}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}Event\_t}{23}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}State\_t}{23}{subsubsection.5.3.2.2}%
+\contentsline {subsection}{\numberline {5.3.3}Function Documentation}{23}{subsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.1}dispatch\_event()}{23}{subsubsection.5.3.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.3.2}fsm\_init()}{24}{subsubsection.5.3.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3.3}get\_current\_state()}{24}{subsubsection.5.3.3.3}%
+\contentsline {section}{\numberline {5.4}fsm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.5}include/core/robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}state.h File Reference}{25}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{25}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Enumeration Type Documentation}{26}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}ObAvPhase\_t}{26}{subsubsection.5.5.2.1}%
+\contentsline {section}{\numberline {5.6}robot\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}state.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.6}%
+\contentsline {section}{\numberline {5.7}include/core/scheduler.h File Reference}{27}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{27}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Macro Definition Documentation}{27}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}tick\_ms}{27}{subsubsection.5.7.2.1}%
+\contentsline {subsection}{\numberline {5.7.3}Function Documentation}{28}{subsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.1}disable\_task()}{28}{subsubsection.5.7.3.1}%
+\contentsline {subsubsection}{\numberline {5.7.3.2}enable\_task()}{28}{subsubsection.5.7.3.2}%
+\contentsline {subsubsection}{\numberline {5.7.3.3}register\_task()}{28}{subsubsection.5.7.3.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.4}scheduler()}{30}{subsubsection.5.7.3.4}%
+\contentsline {section}{\numberline {5.8}scheduler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{30}{section.5.8}%
+\contentsline {section}{\numberline {5.9}include/core/tasks.h File Reference}{31}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{31}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Function Documentation}{31}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}hw\_init()}{31}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}tasks\_init()}{32}{subsubsection.5.9.2.2}%
+\contentsline {section}{\numberline {5.10}tasks.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.5.10}%
+\contentsline {section}{\numberline {5.11}include/drivers/adc.h File Reference}{33}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{33}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Function Documentation}{34}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}adc\_converter()}{34}{subsubsection.5.11.2.1}%
+\contentsline {subsubsection}{\numberline {5.11.2.2}adc\_init()}{34}{subsubsection.5.11.2.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.3}adc\_scan\_auto()}{34}{subsubsection.5.11.2.3}%
+\contentsline {section}{\numberline {5.12}adc.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{34}{section.5.12}%
+\contentsline {section}{\numberline {5.13}include/drivers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BOSCH\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BMX055.h File Reference}{35}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{35}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Function Documentation}{36}{subsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.1}BMX055\_mag\_wakeup()}{36}{subsubsection.5.13.2.1}%
+\contentsline {subsubsection}{\numberline {5.13.2.2}BMX055\_setup()}{36}{subsubsection.5.13.2.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.3}imuRead()}{36}{subsubsection.5.13.2.3}%
+\contentsline {section}{\numberline {5.14}BOSCH\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BMX055.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{37}{section.5.14}%
+\contentsline {section}{\numberline {5.15}include/drivers/button.h File Reference}{37}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{37}{subsection.5.15.1}%
+\contentsline {subsection}{\numberline {5.15.2}Macro Definition Documentation}{37}{subsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.1}MAXDEBCYCLE}{37}{subsubsection.5.15.2.1}%
+\contentsline {subsection}{\numberline {5.15.3}Function Documentation}{38}{subsection.5.15.3}%
+\contentsline {subsubsection}{\numberline {5.15.3.1}button\_has\_just\_been\_pressed()}{38}{subsubsection.5.15.3.1}%
+\contentsline {subsubsection}{\numberline {5.15.3.2}button\_init()}{38}{subsubsection.5.15.3.2}%
+\contentsline {section}{\numberline {5.16}button.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{38}{section.5.16}%
+\contentsline {section}{\numberline {5.17}include/drivers/pwm.h File Reference}{39}{section.5.17}%
+\contentsline {subsection}{\numberline {5.17.1}Detailed Description}{39}{subsection.5.17.1}%
+\contentsline {subsection}{\numberline {5.17.2}Function Documentation}{39}{subsection.5.17.2}%
+\contentsline {subsubsection}{\numberline {5.17.2.1}execute\_motion()}{39}{subsubsection.5.17.2.1}%
+\contentsline {subsubsection}{\numberline {5.17.2.2}pwm\_init()}{40}{subsubsection.5.17.2.2}%
+\contentsline {subsubsection}{\numberline {5.17.2.3}pwm\_set\_duty\_cycle()}{40}{subsubsection.5.17.2.3}%
+\contentsline {section}{\numberline {5.18}pwm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.5.18}%
+\contentsline {section}{\numberline {5.19}include/drivers/spi.h File Reference}{40}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Detailed Description}{40}{subsection.5.19.1}%
+\contentsline {subsection}{\numberline {5.19.2}Function Documentation}{41}{subsection.5.19.2}%
+\contentsline {subsubsection}{\numberline {5.19.2.1}spi1\_mikrobus1\_setup()}{41}{subsubsection.5.19.2.1}%
+\contentsline {subsubsection}{\numberline {5.19.2.2}spi1\_write()}{41}{subsubsection.5.19.2.2}%
+\contentsline {section}{\numberline {5.20}spi.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.5.20}%
+\contentsline {section}{\numberline {5.21}include/drivers/timer.h File Reference}{42}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Detailed Description}{42}{subsection.5.21.1}%
+\contentsline {subsection}{\numberline {5.21.2}Function Documentation}{42}{subsection.5.21.2}%
+\contentsline {subsubsection}{\numberline {5.21.2.1}tmr\_setup\_period()}{42}{subsubsection.5.21.2.1}%
+\contentsline {subsubsection}{\numberline {5.21.2.2}tmr\_wait\_ms()}{44}{subsubsection.5.21.2.2}%
+\contentsline {subsubsection}{\numberline {5.21.2.3}tmr\_wait\_period()}{44}{subsubsection.5.21.2.3}%
+\contentsline {section}{\numberline {5.22}timer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{46}{section.5.22}%
+\contentsline {section}{\numberline {5.23}include/drivers/uart.h File Reference}{46}{section.5.23}%
+\contentsline {subsection}{\numberline {5.23.1}Detailed Description}{47}{subsection.5.23.1}%
+\contentsline {subsection}{\numberline {5.23.2}Macro Definition Documentation}{47}{subsection.5.23.2}%
+\contentsline {subsubsection}{\numberline {5.23.2.1}UART\_RX\_BUF\_SIZE}{47}{subsubsection.5.23.2.1}%
+\contentsline {subsubsection}{\numberline {5.23.2.2}UART\_TX\_BUF\_SIZE}{47}{subsubsection.5.23.2.2}%
+\contentsline {subsection}{\numberline {5.23.3}Function Documentation}{47}{subsection.5.23.3}%
+\contentsline {subsubsection}{\numberline {5.23.3.1}\_U1RXInterrupt()}{47}{subsubsection.5.23.3.1}%
+\contentsline {subsubsection}{\numberline {5.23.3.2}\_U1TXInterrupt()}{47}{subsubsection.5.23.3.2}%
+\contentsline {subsubsection}{\numberline {5.23.3.3}uart1\_get\_rx\_count()}{47}{subsubsection.5.23.3.3}%
+\contentsline {subsubsection}{\numberline {5.23.3.4}uart1\_get\_tx\_count()}{48}{subsubsection.5.23.3.4}%
+\contentsline {subsubsection}{\numberline {5.23.3.5}uart1\_mikrobus2\_setup()}{48}{subsubsection.5.23.3.5}%
+\contentsline {subsubsection}{\numberline {5.23.3.6}uart1\_read\_char()}{48}{subsubsection.5.23.3.6}%
+\contentsline {subsubsection}{\numberline {5.23.3.7}uart1\_write()}{48}{subsubsection.5.23.3.7}%
+\contentsline {section}{\numberline {5.24}uart.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{50}{section.5.24}%
+\contentsline {section}{\numberline {5.25}src/core/fsm.c File Reference}{50}{section.5.25}%
+\contentsline {subsection}{\numberline {5.25.1}Detailed Description}{51}{subsection.5.25.1}%
+\contentsline {subsection}{\numberline {5.25.2}Function Documentation}{51}{subsection.5.25.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.1}dispatch\_event()}{51}{subsubsection.5.25.2.1}%
+\contentsline {subsubsection}{\numberline {5.25.2.2}evaluate\_obstacle()}{51}{subsubsection.5.25.2.2}%
+\contentsline {subsubsection}{\numberline {5.25.2.3}fsm\_init()}{52}{subsubsection.5.25.2.3}%
+\contentsline {subsubsection}{\numberline {5.25.2.4}get\_current\_state()}{52}{subsubsection.5.25.2.4}%
+\contentsline {subsubsection}{\numberline {5.25.2.5}handle\_halt()}{52}{subsubsection.5.25.2.5}%
+\contentsline {subsubsection}{\numberline {5.25.2.6}handle\_move()}{52}{subsubsection.5.25.2.6}%
+\contentsline {subsubsection}{\numberline {5.25.2.7}handle\_obstacle()}{53}{subsubsection.5.25.2.7}%
+\contentsline {subsection}{\numberline {5.25.3}Variable Documentation}{53}{subsection.5.25.3}%
+\contentsline {subsubsection}{\numberline {5.25.3.1}state\_table}{53}{subsubsection.5.25.3.1}%
+\contentsline {section}{\numberline {5.26}src/core/main.c File Reference}{53}{section.5.26}%
+\contentsline {subsection}{\numberline {5.26.1}Detailed Description}{54}{subsection.5.26.1}%
+\contentsline {subsection}{\numberline {5.26.2}Function Documentation}{54}{subsection.5.26.2}%
+\contentsline {subsubsection}{\numberline {5.26.2.1}main()}{54}{subsubsection.5.26.2.1}%
+\contentsline {section}{\numberline {5.27}src/core/scheduler.c File Reference}{54}{section.5.27}%
+\contentsline {subsection}{\numberline {5.27.1}Detailed Description}{54}{subsection.5.27.1}%
+\contentsline {subsection}{\numberline {5.27.2}Function Documentation}{55}{subsection.5.27.2}%
+\contentsline {subsubsection}{\numberline {5.27.2.1}disable\_task()}{55}{subsubsection.5.27.2.1}%
+\contentsline {subsubsection}{\numberline {5.27.2.2}enable\_task()}{55}{subsubsection.5.27.2.2}%
+\contentsline {subsubsection}{\numberline {5.27.2.3}register\_task()}{55}{subsubsection.5.27.2.3}%
+\contentsline {subsubsection}{\numberline {5.27.2.4}scheduler()}{55}{subsubsection.5.27.2.4}%
+\contentsline {section}{\numberline {5.28}src/core/tasks.c File Reference}{55}{section.5.28}%
+\contentsline {subsection}{\numberline {5.28.1}Detailed Description}{57}{subsection.5.28.1}%
+\contentsline {subsection}{\numberline {5.28.2}Function Documentation}{57}{subsection.5.28.2}%
+\contentsline {subsubsection}{\numberline {5.28.2.1}blink\_A0()}{57}{subsubsection.5.28.2.1}%
+\contentsline {subsubsection}{\numberline {5.28.2.2}blink\_lights()}{57}{subsubsection.5.28.2.2}%
+\contentsline {subsubsection}{\numberline {5.28.2.3}button\_polling()}{57}{subsubsection.5.28.2.3}%
+\contentsline {subsubsection}{\numberline {5.28.2.4}car\_stopped()}{57}{subsubsection.5.28.2.4}%
+\contentsline {subsubsection}{\numberline {5.28.2.5}hw\_init()}{59}{subsubsection.5.28.2.5}%
+\contentsline {subsubsection}{\numberline {5.28.2.6}move()}{59}{subsubsection.5.28.2.6}%
+\contentsline {subsubsection}{\numberline {5.28.2.7}read\_acc\_mag()}{59}{subsubsection.5.28.2.7}%
+\contentsline {subsubsection}{\numberline {5.28.2.8}read\_gyro()}{59}{subsubsection.5.28.2.8}%
+\contentsline {subsubsection}{\numberline {5.28.2.9}read\_IR()}{59}{subsubsection.5.28.2.9}%
+\contentsline {subsubsection}{\numberline {5.28.2.10}tasks\_init()}{60}{subsubsection.5.28.2.10}%
+\contentsline {subsubsection}{\numberline {5.28.2.11}UART\_bat\_log()}{60}{subsubsection.5.28.2.11}%
+\contentsline {subsubsection}{\numberline {5.28.2.12}UART\_get\_twist()}{60}{subsubsection.5.28.2.12}%
+\contentsline {subsubsection}{\numberline {5.28.2.13}UART\_log()}{60}{subsubsection.5.28.2.13}%
+\contentsline {subsubsection}{\numberline {5.28.2.14}UART\_log\_bt()}{60}{subsubsection.5.28.2.14}%
+\contentsline {section}{\numberline {5.29}src/drivers/adc.c File Reference}{61}{section.5.29}%
+\contentsline {subsection}{\numberline {5.29.1}Detailed Description}{61}{subsection.5.29.1}%
+\contentsline {subsection}{\numberline {5.29.2}Function Documentation}{61}{subsection.5.29.2}%
+\contentsline {subsubsection}{\numberline {5.29.2.1}adc\_converter()}{61}{subsubsection.5.29.2.1}%
+\contentsline {subsubsection}{\numberline {5.29.2.2}adc\_init()}{61}{subsubsection.5.29.2.2}%
+\contentsline {subsubsection}{\numberline {5.29.2.3}adc\_scan\_auto()}{61}{subsubsection.5.29.2.3}%
+\contentsline {section}{\numberline {5.30}src/drivers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BOSCH\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BMX055.c File Reference}{62}{section.5.30}%
+\contentsline {subsection}{\numberline {5.30.1}Detailed Description}{62}{subsection.5.30.1}%
+\contentsline {subsection}{\numberline {5.30.2}Function Documentation}{62}{subsection.5.30.2}%
+\contentsline {subsubsection}{\numberline {5.30.2.1}BMX055\_mag\_wakeup()}{62}{subsubsection.5.30.2.1}%
+\contentsline {subsubsection}{\numberline {5.30.2.2}BMX055\_setup()}{63}{subsubsection.5.30.2.2}%
+\contentsline {subsubsection}{\numberline {5.30.2.3}format12bit()}{63}{subsubsection.5.30.2.3}%
+\contentsline {subsubsection}{\numberline {5.30.2.4}format13bit()}{63}{subsubsection.5.30.2.4}%
+\contentsline {subsubsection}{\numberline {5.30.2.5}format15bit()}{63}{subsubsection.5.30.2.5}%
+\contentsline {subsubsection}{\numberline {5.30.2.6}format16bit()}{64}{subsubsection.5.30.2.6}%
+\contentsline {subsubsection}{\numberline {5.30.2.7}imuRead()}{64}{subsubsection.5.30.2.7}%
+\contentsline {section}{\numberline {5.31}src/drivers/button.c File Reference}{64}{section.5.31}%
+\contentsline {subsection}{\numberline {5.31.1}Detailed Description}{64}{subsection.5.31.1}%
+\contentsline {subsection}{\numberline {5.31.2}Function Documentation}{65}{subsection.5.31.2}%
+\contentsline {subsubsection}{\numberline {5.31.2.1}button\_has\_just\_been\_pressed()}{65}{subsubsection.5.31.2.1}%
+\contentsline {subsubsection}{\numberline {5.31.2.2}button\_init()}{65}{subsubsection.5.31.2.2}%
+\contentsline {section}{\numberline {5.32}src/drivers/pwm.c File Reference}{65}{section.5.32}%
+\contentsline {subsection}{\numberline {5.32.1}Detailed Description}{66}{subsection.5.32.1}%
+\contentsline {subsection}{\numberline {5.32.2}Function Documentation}{66}{subsection.5.32.2}%
+\contentsline {subsubsection}{\numberline {5.32.2.1}clamp()}{66}{subsubsection.5.32.2.1}%
+\contentsline {subsubsection}{\numberline {5.32.2.2}execute\_motion()}{66}{subsubsection.5.32.2.2}%
+\contentsline {subsubsection}{\numberline {5.32.2.3}pwm\_init()}{66}{subsubsection.5.32.2.3}%
+\contentsline {subsubsection}{\numberline {5.32.2.4}pwm\_set\_duty\_cycle()}{66}{subsubsection.5.32.2.4}%
+\contentsline {section}{\numberline {5.33}src/drivers/spi.c File Reference}{67}{section.5.33}%
+\contentsline {subsection}{\numberline {5.33.1}Detailed Description}{67}{subsection.5.33.1}%
+\contentsline {subsection}{\numberline {5.33.2}Function Documentation}{67}{subsection.5.33.2}%
+\contentsline {subsubsection}{\numberline {5.33.2.1}spi1\_mikrobus1\_setup()}{67}{subsubsection.5.33.2.1}%
+\contentsline {subsubsection}{\numberline {5.33.2.2}spi1\_write()}{67}{subsubsection.5.33.2.2}%
+\contentsline {section}{\numberline {5.34}src/drivers/timer.c File Reference}{68}{section.5.34}%
+\contentsline {subsection}{\numberline {5.34.1}Detailed Description}{68}{subsection.5.34.1}%
+\contentsline {subsection}{\numberline {5.34.2}Function Documentation}{68}{subsection.5.34.2}%
+\contentsline {subsubsection}{\numberline {5.34.2.1}tmr\_setup\_period()}{68}{subsubsection.5.34.2.1}%
+\contentsline {subsubsection}{\numberline {5.34.2.2}tmr\_wait\_ms()}{68}{subsubsection.5.34.2.2}%
+\contentsline {subsubsection}{\numberline {5.34.2.3}tmr\_wait\_period()}{70}{subsubsection.5.34.2.3}%
+\contentsline {section}{\numberline {5.35}src/drivers/uart.c File Reference}{70}{section.5.35}%
+\contentsline {subsection}{\numberline {5.35.1}Detailed Description}{71}{subsection.5.35.1}%
+\contentsline {subsection}{\numberline {5.35.2}Function Documentation}{71}{subsection.5.35.2}%
+\contentsline {subsubsection}{\numberline {5.35.2.1}\_U1RXInterrupt()}{71}{subsubsection.5.35.2.1}%
+\contentsline {subsubsection}{\numberline {5.35.2.2}\_U1TXInterrupt()}{71}{subsubsection.5.35.2.2}%
+\contentsline {subsubsection}{\numberline {5.35.2.3}uart1\_get\_rx\_count()}{71}{subsubsection.5.35.2.3}%
+\contentsline {subsubsection}{\numberline {5.35.2.4}uart1\_get\_tx\_count()}{71}{subsubsection.5.35.2.4}%
+\contentsline {subsubsection}{\numberline {5.35.2.5}uart1\_mikrobus2\_setup()}{72}{subsubsection.5.35.2.5}%
+\contentsline {subsubsection}{\numberline {5.35.2.6}uart1\_read\_char()}{72}{subsubsection.5.35.2.6}%
+\contentsline {subsubsection}{\numberline {5.35.2.7}uart1\_write()}{72}{subsubsection.5.35.2.7}%
+\contentsline {chapter}{Index}{73}{section*.55}%

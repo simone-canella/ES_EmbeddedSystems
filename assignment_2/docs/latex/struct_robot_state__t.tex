@@ -1,0 +1,67 @@
+\doxysection{Robot\+State\+\_\+t Struct Reference}
+\hypertarget{struct_robot_state__t}{}\label{struct_robot_state__t}\index{RobotState\_t@{RobotState\_t}}
+
+
+The root aggregation object holding the complete logical state of the robot.  
+
+
+
+
+{\ttfamily \+\#include $<$robot\+\_\+state.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_system_sensors__t}{System\+Sensors\+\_\+t}} \doxymbox{\hyperlink{struct_robot_state__t_a6937f07393e37c955eddd8c37c30cf93}{sensors}}
+\item 
+\doxymbox{\hyperlink{struct_system_attitude__t}{System\+Attitude\+\_\+t}} \doxymbox{\hyperlink{struct_robot_state__t_aed5732f27783dd1a3c48b28cc6423937}{attitude}}
+\item 
+\doxymbox{\hyperlink{struct_twist__t}{Twist\+\_\+t}} \doxymbox{\hyperlink{struct_robot_state__t_a638131b44ac25be8cee734627c21da92}{cmd\+\_\+vel}}
+\item 
+\doxymbox{\hyperlink{struct_mission_control__t}{Mission\+Control\+\_\+t}} \doxymbox{\hyperlink{struct_robot_state__t_af01a306866de53f39c375fd4d5661c1c}{mission}}
+\item 
+\doxymbox{\hyperlink{struct_system_i_o__t}{System\+IO\+\_\+t}} \doxymbox{\hyperlink{struct_robot_state__t_a6153cf22b34d6856ca37d07b541d9c5a}{io}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The root aggregation object holding the complete logical state of the robot. 
+
+\label{struct_robot_state__t_doc-variable-members}
+\Hypertarget{struct_robot_state__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_robot_state__t_aed5732f27783dd1a3c48b28cc6423937}\index{RobotState\_t@{RobotState\_t}!attitude@{attitude}}
+\index{attitude@{attitude}!RobotState\_t@{RobotState\_t}}
+\doxysubsubsection{\texorpdfstring{attitude}{attitude}}
+{\footnotesize\ttfamily \label{struct_robot_state__t_aed5732f27783dd1a3c48b28cc6423937} 
+\doxymbox{\hyperlink{struct_system_attitude__t}{System\+Attitude\+\_\+t}} attitude}
+
+Spatial orientation block. \Hypertarget{struct_robot_state__t_a638131b44ac25be8cee734627c21da92}\index{RobotState\_t@{RobotState\_t}!cmd\_vel@{cmd\_vel}}
+\index{cmd\_vel@{cmd\_vel}!RobotState\_t@{RobotState\_t}}
+\doxysubsubsection{\texorpdfstring{cmd\_vel}{cmd\_vel}}
+{\footnotesize\ttfamily \label{struct_robot_state__t_a638131b44ac25be8cee734627c21da92} 
+\doxymbox{\hyperlink{struct_twist__t}{Twist\+\_\+t}} cmd\+\_\+vel}
+
+Locomotion target tracking block. \Hypertarget{struct_robot_state__t_a6153cf22b34d6856ca37d07b541d9c5a}\index{RobotState\_t@{RobotState\_t}!io@{io}}
+\index{io@{io}!RobotState\_t@{RobotState\_t}}
+\doxysubsubsection{\texorpdfstring{io}{io}}
+{\footnotesize\ttfamily \label{struct_robot_state__t_a6153cf22b34d6856ca37d07b541d9c5a} 
+\doxymbox{\hyperlink{struct_system_i_o__t}{System\+IO\+\_\+t}} io}
+
+Peripheral and interaction tracking block. \Hypertarget{struct_robot_state__t_af01a306866de53f39c375fd4d5661c1c}\index{RobotState\_t@{RobotState\_t}!mission@{mission}}
+\index{mission@{mission}!RobotState\_t@{RobotState\_t}}
+\doxysubsubsection{\texorpdfstring{mission}{mission}}
+{\footnotesize\ttfamily \label{struct_robot_state__t_af01a306866de53f39c375fd4d5661c1c} 
+\doxymbox{\hyperlink{struct_mission_control__t}{Mission\+Control\+\_\+t}} mission}
+
+Autonomous logic state block. \Hypertarget{struct_robot_state__t_a6937f07393e37c955eddd8c37c30cf93}\index{RobotState\_t@{RobotState\_t}!sensors@{sensors}}
+\index{sensors@{sensors}!RobotState\_t@{RobotState\_t}}
+\doxysubsubsection{\texorpdfstring{sensors}{sensors}}
+{\footnotesize\ttfamily \label{struct_robot_state__t_a6937f07393e37c955eddd8c37c30cf93} 
+\doxymbox{\hyperlink{struct_system_sensors__t}{System\+Sensors\+\_\+t}} sensors}
+
+System sensing and telemetry block. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+core/\+\doxymbox{\hyperlink{robot__state_8h}{robot\+\_\+state.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\doxysection{src/\+drivers/\+adc.c File Reference}
+\hypertarget{adc_8c}{}\label{adc_8c}\index{src/drivers/adc.c@{src/drivers/adc.c}}
+
+
+Analog-\/to-\/\+Digital Converter (ADC) configuration and sampling routines.  
+
+
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{adc_8c_ab04c7c6e0b8d32961ffa63cc38c19312}{adc\+\_\+init}} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Initializes the ADC hardware and configures target analog pins. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{adc_8c_a60cc144b76406bd5723311dae2c61468}{adc\+\_\+scan\+\_\+auto}} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Executes a sample request with automatic hardware conversion. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{adc_8c_abb6ad3e8b57032f2934fd991e768ca48}{adc\+\_\+converter}} (\doxymbox{\hyperlink{structadc_state}{adc\+State}} \texorpdfstring{$\ast$}{*}adc)
+\begin{DoxyCompactList}\small\item\em Core processing task to sample sensors and compute physical telemetry metrics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Analog-\/to-\/\+Digital Converter (ADC) configuration and sampling routines. 
+
+
+
+\label{adc_8c_doc-func-members}
+\Hypertarget{adc_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adc_8c_abb6ad3e8b57032f2934fd991e768ca48}\index{adc.c@{adc.c}!adc\_converter@{adc\_converter}}
+\index{adc\_converter@{adc\_converter}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_converter()}{adc\_converter()}}
+{\footnotesize\ttfamily \label{adc_8c_abb6ad3e8b57032f2934fd991e768ca48} 
+void adc\+\_\+converter (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structadc_state}{adc\+State}} \texorpdfstring{$\ast$}{*}}]{adc}{}\end{DoxyParamCaption})}
+
+
+
+Core processing task to sample sensors and compute physical telemetry metrics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adc} & Pointer to the \doxylink{structadc_state}{adc\+State} structure to populate with metrics.\\
+\hline
+{\em adc} & Pointer to the global state structure to store final converted metrics. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{adc_8c_ab04c7c6e0b8d32961ffa63cc38c19312}\index{adc.c@{adc.c}!adc\_init@{adc\_init}}
+\index{adc\_init@{adc\_init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_init()}{adc\_init()}}
+{\footnotesize\ttfamily \label{adc_8c_ab04c7c6e0b8d32961ffa63cc38c19312} 
+void adc\+\_\+init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the ADC hardware and configures target analog pins. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The analog channel to initialize.\\
+\hline
+{\em channel} & The specific channel (11 or 15) to lock the multiplexer onto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{adc_8c_a60cc144b76406bd5723311dae2c61468}\index{adc.c@{adc.c}!adc\_scan\_auto@{adc\_scan\_auto}}
+\index{adc\_scan\_auto@{adc\_scan\_auto}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_scan\_auto()}{adc\_scan\_auto()}}
+{\footnotesize\ttfamily \label{adc_8c_a60cc144b76406bd5723311dae2c61468} 
+double adc\+\_\+scan\+\_\+auto (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel}{}\end{DoxyParamCaption})}
+
+
+
+Executes a sample request with automatic hardware conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The analog channel to scan. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The raw ADC conversion result.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The specific channel (11 or 15) to lock the multiplexer onto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float The raw ADC buffer value. 
+\end{DoxyReturn}
