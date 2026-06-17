@@ -16,11 +16,11 @@
  * @struct CircularBuffer
  * @brief Internal circular buffer structure for non-blocking data queuing
  */
-struct CircularBuffer {
+typedef struct {
 	volatile char *data;	  // pointer to the data array
 	volatile int write_index; // index we WRITE to
 	volatile int read_index;  // index we READ from
-};
+} CircularBuffer;
 
 /**
  * @brief Global variable of the TX and RX circular buffers

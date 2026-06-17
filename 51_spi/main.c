@@ -67,10 +67,9 @@ int main() {
 		int data = (msb_byte << 8) | (lsb_byte & 0xF8);
 		data = data >> 3;
 
-		// Format the value into an ASCII string and transmit via non-blocking
-		// UART
+		// Format the value into an ASCII string and transmit via non-blocking UART
 		char message[16];
-		sprintf(message, "$MAGX=%d*\n", data);
+		sprintf(message, "$MAGX=%f*\n", data);
 
 		uart1_write_string(message);
 
