@@ -17,8 +17,8 @@
 #include <xc.h>
 
 // Lock system configuration parameters to free-running automated Scan Mode
-#define SAMPLE_MODE 1
-#define CONVERSION_MODE 1
+#define SAMPLE_MODE 1	  //0 = manual, 1 = auto
+#define CONVERSION_MODE 1 //0 = manual, 1 = auto
 
 #define BATTERY 11
 #define IR_SENSOR 15
@@ -45,10 +45,10 @@ int main() {
 	// EXECUTION-LOOP at 1KHz (1ms)
 	while (1) {
 		// Read background hardware scan conversions and update metrics at 1 kHz
-        adc_converter(&adc, SAMPLE_MODE, CONVERSION_MODE);
+		adc_converter(&adc, SAMPLE_MODE, CONVERSION_MODE);
 
 		// Down-sample telemetry transmission to exactly 10 Hz (once every 100 loops)
-        if (counter >= 100) {
+		if (counter >= 100) {
 			// Format the value into an ASCII string and transmit via non-blocking UART
 			char message[32];
 
